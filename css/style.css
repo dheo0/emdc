@@ -167,7 +167,8 @@ h5.modal-title::before{content: '';position: absolute;left:0;width:6px;height:22
 .r-select{-webkit-appearance: none;}
 .r-select::-ms-expand {display: none;}
 .btn-ico-search{margin-left: auto;background:url("../images/icon_search2.png") no-repeat 0 0;text-indent: -9999px;width: 29px;height: 29px;}
-.srch{align-items: center;padding-right:10px}
+.srch{align-items: center;padding-right:10px;position: relative;}
+.srch .btn-ico-search{position: absolute;right: 10px;top:50%;transform: translateY(-50%);}
 .btn-light{color:#e490b0;font-size: 16px;padding:10px 15px;line-height: 100%;}
 
 .form{margin-top: 40px;}
@@ -316,8 +317,8 @@ ul.screen li:first-child{margin-right: 20px;}
 .select-mode ul{display:flex;width:101px;height:32px;background:url("../images/light/img_mode.png") no-repeat 0 0;margin-left: 30px;}
 .select-mode ul li{width:50%;}
 .select-mode ul li a{display: block;text-indent: -9999px;}
-
-
+.shadow-box .title{margin-bottom: 20px;}
+#datatable3_wrapper{min-height: 390px;}
 .dark-theme {background-color: #35363a;}
 .dark-theme .login .visual{background: url("../images/dark/login_visual.png") no-repeat 0 0;}
 .dark-theme .login .visual .text p{color:#f6f6f6}
@@ -326,3 +327,36 @@ ul.screen li:first-child{margin-right: 20px;}
 .dark-theme .select-mode ul{background:url("../images/dark/img_mode.png") no-repeat 0 0;}
 .dark-theme .login-area .form ul li:first-child::before{background:#83a4d0}
 .dark-theme .login-area .form p input{background:#3e3f43}
+
+.fc .fc-datagrid-header .fc-datagrid-cell-frame{background-color: #f2f2f2;color:#909090;text-align: center;}
+.fc .fc-timeline-header-row-chrono .fc-timeline-slot-frame{background-color: #f2f2f2;color:#909090;text-align: center;}
+.fc .fc-timeline-slot-cushion{color:#909090;display: block;text-align: center;width: 100%;height: 100%;line-height: 32px;}
+.fc .fc-toolbar.fc-header-toolbar{display: none;}
+
+.dark-theme .fc .fc-datagrid-header .fc-datagrid-cell-frame{background-color: #434448;color:#fff}
+.dark-theme .fc .fc-timeline-header-row-chrono .fc-timeline-slot-frame{background-color: #434448;color:#fff}
+
+table.dataTable{width:100% !important}
+table.dataTable thead th, table.dataTable thead td{border:0;color:#909090;background-color: #f2f2f2;font-size: 14px;font-family: 'NotoSansKR-Regular';font-weight:400;text-align: center;padding:8px 10px;}
+table.dataTable.display tbody td{background-color: #fff !important;border-bottom: 1px solid #f2f2f2;color:#9d9d9d;text-align: center;font-size:14px;}
+.dataTables_wrapper.no-footer .dataTables_scrollBody{border: 0;}
+#srchRoom .shadow-box{min-height: 415px;position: relative;}
+#srchRoom .shadow-box .title{position: absolute;top:-30px;left:0;font-size: 16px;color:#6f6f6f}
+.btn-delete{position: absolute;right: 10px;bottom:10px;width:44px;height:44px;background: url("../images/btn_circle_delete.png") no-repeat 0 0;text-indent: -9999px;overflow:hidden;padding:0;min-width: 0;}
+.shadow-box .tab-menu{display: flex;border-bottom: 1px solid #f2f2f2;padding:10px 0}
+.shadow-box .tab-menu li{width:50%}
+.shadow-box .tab-menu li:first-child{border-right: 1px solid #f2f2f2;}
+.shadow-box .tab-menu li a{display: block;text-align: center;color:#909090;font-size:16px;padding:10px 0}
+.shadow-box .tab-menu li.on a{color:#72aaf5}
+.shadow-box .tab-menu + div{padding:15px}
+#datatable2_wrapper{min-height: 504px;}
+.treeview .head{background-color: #f2f2f2;text-align: center;color:#909090;font-size:14px;font-family: 'NotoSansKR-Medium';height:38px;line-height: 38px;}
+.treeview .list-group-item{border:0;color:#9d9d9d;font-size:14px}
+.treeview .list-group-item:first-child{font-family: 'NotoSansKR-Medium';}
+.treeview .list-group-item.node-selected{background-color: #fff !important;color:#9d9d9d !important}
+.treeview span.icon.glyphicon-minus:before{content:'-'}
+.treeview span.icon.glyphicon-plus:before{content:'+'}
+.treeview .shadow-box{height: 503px;max-height: 503px;overflow-y: auto;}
+
+[data-select]{background: url(../images/icon_set01.png) no-repeat 0 0;text-indent: -9999px;width:18px;height: 18px;display: inline-block;}
+[data-select="selected"]{background: url(../images/icon_set01.png) no-repeat -23px 0;text-indent: -9999px;width:18px;height: 18px;display: inline-block;}

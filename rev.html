@@ -8,7 +8,8 @@
     <!-- 공통 -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/datepicker.css">
-    <link rel="stylesheet" href="fullcalendar.css"><!--210309 추가-->
+    <link rel="stylesheet" href="css/datatable.css"><!--210309 추가-->
+    <link rel="stylesheet" href="css/fullcalendar.css"><!--210309 추가-->
     <link rel="stylesheet" href="css/style.css" >
 
     <script src="js/jquery.js"></script>
@@ -23,11 +24,12 @@
     <script src="js/typeahead.js"></script>
     <script src="js/treeview.js"></script>
     <script src="js/datatables.js"></script>
-    <script src="js/fullcalendar.ks"></script><!--210309 추가-->
+    <script src="js/fullcalendar.js"></script><!--210309 추가-->
+    <script src="js/locales-all.js"></script><!--210309 추가-->
     <!-- // 현재페이지 -->
   </head>
   <body>
-    <div id="wrap" ><!-- class="dark-theme" -->
+    <div id="wrap"><!-- class="dark-theme" -->
         <nav>
             <h1 class="logo">
                 <a href="/">영상회의 예약시스템</a>
@@ -294,7 +296,7 @@
                         <div class="tit">회의실</div>
                         <div class="flex form-cont">
                             <input type="text" class="color11 round" id="tagsinput">
-                            <button type="button" class="vbtn"><i class="ico search"></i>검색</button>
+                            <button type="button" class="vbtn" data-bs-toggle="modal" data-bs-target="#srchRoom"><i class="ico search"></i>검색</button><!-- 20210309 --> 
                         </div>
                     </div>
                     <div class="form-item">
@@ -483,7 +485,7 @@
                         </div>
                       </div>
                       <div class="shadow-box">
-                          <p><strong>즐겨찾기 외부찹석자 목록</strong></p>
+                          <p><strong>즐겨찾기 외부참석자 목록</strong></p><!-- 20210309 -->
                           <div class="flex color11 round srch">
                               <select name="" id="" class="r-select color11">
                                   <option value="이름">이름</option>
@@ -566,8 +568,8 @@
                                 <tr>
                                     <th style="width: 50px;">
                                         <div class="chk-wrap">
-                                            <input type="checkbox" name="data01" id="dataAll"/>
-                                            <label for="dataAll">선택</label>
+                                            <input type="checkbox" name="data01" id="dataAll2"/>
+                                            <label for="dataAll2">선택</label>
                                         </div>
                                     </th>
                                     <th style="width: 15%;">이름</th>
@@ -831,7 +833,7 @@
           </div>
         </div>
       </div>
-    <!-- 참석자 검색 팝업 -->
+    <!-- 참석자 검색 팝업 20210309 -->
     <div div class="modal fade" id="attend" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
@@ -844,32 +846,118 @@
                   <div class="col-3">
                       <div class="treeview">
                           <div class="head">조직도</div>
-                          <div id="treeview" class=""></div>
+                          <div id="treeview" class="shadow-box"></div>
                       </div>
                   </div>
-                  <div class="col-4">2</div>
+                  <div class="col-4">
+                    <div class="shadow-box" style="padding:0;margin-bottom: 20px;">
+                        
+                        <ul class="tab-menu">
+                            <li class="on"><a href="#tab01">조직 구성원 목록</a></li>
+                            <li><a href="#tab02">즐겨찾기 사용자 목록</a></li>
+                        </ul>
+                        <div>
+                            <div class="srch color11 round">
+                                <select name="" id="" class="r-select color11">
+                                    <option value="이름">이름</option>
+                                </select>
+                                <input type="text" />
+                                <button type="button" class="btn-ico-search">검색</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shadow-box" style="padding:0">
+                        <table id="datatable3" class="display" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th><input type="checkbox" name="select_all3" value="1" id="example-select-all3"></th>
+                                    <th><a href="#none" data-select="unselect">전체선택</a></th>
+                                    <th>이름</th>
+                                    <th>부서</th>
+                                    <th>직위</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td><a href="#none" data-select="unselect" data-id="1">1</a></td>
+                                    <td>홍길동</td>
+                                    <td>IT기획부</td>
+                                    <td>차장</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td><a href="#none" data-select="unselect" data-id="2">2</a></td>
+                                    <td>홍길동</td>
+                                    <td>IT기획부</td>
+                                    <td>차장</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td><a href="#none" data-select="unselect" data-id="3">3</a></td>
+                                    <td>홍길동</td>
+                                    <td>IT기획부</td>
+                                    <td>차장</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td><a href="#none" data-select="unselect" data-id="4">4</a></td>
+                                    <td>홍길동</td>
+                                    <td>IT기획부</td>
+                                    <td>차장</td>
+                                </tr>
+                            </tbody>
+                         </table>
+                    </div>
+                  </div>
                   <div class="col-1">
-                    <div class="data-controls">
+                    <div class="data-controls center">
                         <button type="button" class="btn-move-next">next</button>
                         <button type="button" class="btn-move-prev">prev</button>
                         <button type="button" class="btn-move-refresh">refresh</button>
                     </div>
                   </div>
                   <div class="col-4">
-                    <table id="example" class="display" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>이름</th>
-                                <th>회사</th>
-                                <th>휴대폰</th>
-                                <th>이메일</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                  </div>
+                    <div class="shadow-box" style="padding:0">
+                        <div class="title">추가 참석자 목록</div>
+                        <table id="datatable2" class="display" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th><input type="checkbox" name="select_all2" value="1" id="example-select-all2"></th>
+                                    <th>이름</th>
+                                    <th>부서</th>
+                                    <th>직위</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td>아이유</td>
+                                    <td>경기도지사it기획부</td>
+                                    <td>디자인차장</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>아이유</td>
+                                    <td>경기도지사it기획부</td>
+                                    <td>디자인차장</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>아이유</td>
+                                    <td>경기도지사it기획부</td>
+                                    <td>디자인차장</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>아이유</td>
+                                    <td>경기도지사it기획부</td>
+                                    <td>디자인차장</td>
+                                </tr>
+                            </tbody>
+                         </table>
+                    </div>
+                </div>
               </div>
               <!--// contents-->
             </div>
@@ -880,8 +968,107 @@
           </div>
         </div>
       </div>
-    <!-- // 참석자 검색 팝업-->
-      <script>
+
+
+    
+    <script>
+        $("[data-select]").each(function(){
+            $(this).on("click", function(e){
+                
+                e.preventDefault();
+                var status = $(this).data('select');
+                if(status == "unselect"){
+                    $(this).data('select','selected');
+                } else {
+                    $(this).data('select','unselect');
+                }
+            })
+
+        })
+
+        var table2 = $('#datatable2').DataTable( {
+            paging: false,
+            scrollY: 504,
+            searching: false,
+            scrollCollapse: true,
+            bInfo : false,
+            'columnDefs': [{
+            'targets': 0,
+            'searchable': false,
+            'orderable': false,
+            'className': 'dt-body-center',
+            'render': function (data, type, full, meta){
+                return '<input type="checkbox" name="id[]" value="' + $('<div/>').text(data).html() + '">';
+            }
+        }],
+            order: [[ 1, 'asc' ]]
+        });
+
+        // Handle click on "Select all" control
+        $('#example-select-all2').on('click', function(){
+            // Get all rows with search applied
+            var rows = table2.rows({ 'search': 'applied' }).nodes();
+            // Check/uncheck checkboxes for all rows in the table
+            $('input[type="checkbox"]', rows).prop('checked', this.checked);
+        });
+
+        $('#datatable2 tbody').on('change', 'input[type="checkbox"]', function(){
+            // If checkbox is not checked
+            if(!this.checked){
+                var el = $('#example-select-all2').get(0);
+                // If "Select all" control is checked and has 'indeterminate' property
+                if(el && el.checked && ('indeterminate' in el)){
+                    // Set visual state of "Select all" control
+                    // as 'indeterminate'
+                    el.indeterminate = true;
+                }
+            }
+        });
+
+
+        var table3 = $('#datatable3').DataTable( {
+            paging: false,
+            scrollY: 416,
+            searching: false,
+            scrollCollapse: true,
+            bInfo : false,
+            'columnDefs': [{
+            'targets': 0,
+            'searchable': false,
+            'orderable': false,
+            'className': 'dt-body-center',
+            'render': function (data, type, full, meta){
+                return '<input type="checkbox" name="id[]" value="' + $('<div/>').text(data).html() + '">';
+            }
+        }],
+            order: [[ 1, 'asc' ]]
+        });
+
+        // Handle click on "Select all" control
+        $('#example-select-all3').on('click', function(){
+            // Get all rows with search applied
+            var rows = table3.rows({ 'search': 'applied' }).nodes();
+            // Check/uncheck checkboxes for all rows in the table
+            $('input[type="checkbox"]', rows).prop('checked', this.checked);
+        });
+
+        $('#datatable3 tbody').on('change', 'input[type="checkbox"]', function(){
+            // If checkbox is not checked
+            if(!this.checked){
+                var el = $('#example-select-all3').get(0);
+                // If "Select all" control is checked and has 'indeterminate' property
+                if(el && el.checked && ('indeterminate' in el)){
+                    // Set visual state of "Select all" control
+                    // as 'indeterminate'
+                    el.indeterminate = true;
+                }
+            }
+        });
+
+       
+
+
+
         var json = '[' +
           '{' +
             '"text": "Parent 1",' +
@@ -919,7 +1106,8 @@
           data: json
         });
       </script>
-    <!-- 예약현황 -->
+    <!-- // 참석자 검색 팝업 20210309-->
+    <!-- 예약현황 20210309-->
     <div div class="modal fade" id="revstatus" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
@@ -929,7 +1117,7 @@
             <div class="modal-body">
               <!-- contents 20210309 -->
               <div class="row">
-                 
+                <div id='calendar' style="height: 600px;"></div>
               </div>
               <!--// contents-->
             </div>
@@ -939,11 +1127,263 @@
           </div>
         </div>
       </div>
-    <!-- // 예약현황 -->
+      <script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+    var wrap  = document.getElementById('wrap');
+    var theme = wrap.getAttribute("class");
+
+    
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      eventBackgroundColor: "#434448",
+      contentHeight: 405,
+      now: '2020-09-07',
+      editable: true, // enable draggable events
+      aspectRatio: 1.8,
+      resourceAreaWidth:175,
+      scrollTime: '00:00', // undo default 6am scrollTime
+      headerToolbar: {
+        left: '',
+        center: '',
+        right: ''
+      },
+      initialView: 'resourceTimelineDay',
+      views: {
+        resourceTimelineThreeDays: {
+          type: 'resourceTimeline',
+          duration: { days: 3 },
+          buttonText: '3 days'
+        }
+      },
+      resourceAreaHeaderContent: '회의실명',
+      resourceLabelContent: function(arg) {
+        return 'Space # ' + arg.resource.id.toUpperCase();
+      },
+      resourceLabelDidMount: function(arg) {
+        if (arg.resource.id == 'h') {
+          arg.el.style.backgroundColor = 'rgb(255, 243, 206)';
+        }
+      },
+      resources: [
+        { id: 'a' },
+        { id: 'b', eventColor: '#b7b7b7' },
+        { id: 'c', eventColor: '#b7b7b7' },
+        { id: 'd' },
+        { id: 'e' },
+        { id: 'f', eventColor: '#b7b7b7' },
+        { id: 'g' },
+        { id: 'h' },
+        { id: 'i' },
+        { id: 'j' },
+        { id: 'k' },
+        { id: 'l' },
+        { id: 'm' },
+        { id: 'n' },
+        { id: 'o' },
+        { id: 'p' },
+        { id: 'q' },
+        { id: 'r' },
+        { id: 's' },
+        { id: 't' },
+        { id: 'u' },
+        { id: 'v' },
+        { id: 'w' },
+        { id: 'x' },
+        { id: 'y' },
+        { id: 'z' }
+      ],
+      events: [
+        { id: '1', resourceId: 'b', start: '2020-09-07T02:00:00', end: '2020-09-07T07:00:00', title: '정기 영상회의' },
+        { id: '2', resourceId: 'c', start: '2020-09-07T05:00:00', end: '2020-09-07T22:00:00', title: '평가회의' },
+      ]
+    });
+
+    calendar.render();
+  });
+      </script>
+    <!-- // 예약현황 20210309-->
+<!-- 회의실검색 20210309-->
+<div div class="modal fade" id="srchRoom" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">회의실 검색</h5>
+        </div>
+        <div class="modal-body">
+          <!-- contents 20210309 -->
+          <div class="row">
+            <div class="col-8">
+                <div id='calendar2' style="height: 600px;padding:0" class="shadow-box"></div>
+            </div>
+            <div class="col-4">
+                <div class="shadow-box" style="padding:0">
+                    <div class="title">추가 회의실 목록</div>
+                    <table id="datatable" class="display" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" name="select_all" value="1" id="example-select-all"></th>
+                                <th>회의실 위치</th>
+                                <th>회의실 명</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td>본사</td>
+                                <td>본사 4층 영상회의실</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>본사</td>
+                                <td>본사 4층 영상회의실</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>본사</td>
+                                <td>본사 4층 영상회의실</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>본사</td>
+                                <td>본사 4층 영상회의실</td>
+                            </tr>
+                        </tbody>
+                     </table>
+                     <button type="button" class="btn btn-delete">삭제</button>
+                </div>
+            </div>
+          </div>
+          <!--// contents-->
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+            <button type="button" class="btn btn-primary">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+$(document).ready(function (){
+   
+
+   var table = $('#datatable').DataTable( {
+        paging: false,
+        scrollY: 416,
+        searching: false,
+        scrollCollapse: true,
+        bInfo : false,
+        'columnDefs': [{
+         'targets': 0,
+         'searchable': false,
+         'orderable': false,
+         'className': 'dt-body-center',
+         'render': function (data, type, full, meta){
+             return '<input type="checkbox" name="id[]" value="' + $('<div/>').text(data).html() + '">';
+         }
+      }],
+        order: [[ 1, 'asc' ]]
+    });
+
+    // Handle click on "Select all" control
+   $('#example-select-all').on('click', function(){
+      // Get all rows with search applied
+      var rows = table.rows({ 'search': 'applied' }).nodes();
+      // Check/uncheck checkboxes for all rows in the table
+      $('input[type="checkbox"]', rows).prop('checked', this.checked);
+   });
+
+    $('#datatable tbody').on('change', 'input[type="checkbox"]', function(){
+      // If checkbox is not checked
+      if(!this.checked){
+         var el = $('#example-select-all').get(0);
+         // If "Select all" control is checked and has 'indeterminate' property
+         if(el && el.checked && ('indeterminate' in el)){
+            // Set visual state of "Select all" control
+            // as 'indeterminate'
+            el.indeterminate = true;
+         }
+      }
+   });
+
+});
 
 
 
-    <!-- 참석자 검색 팝업 -->
+document.addEventListener('DOMContentLoaded', function() {
+var calendarEl = document.getElementById('calendar2');
+
+var calendar2 = new FullCalendar.Calendar(calendarEl, {
+  eventBackgroundColor: "#434448",
+  contentHeight: 405,
+  now: '2020-09-07',
+  editable: true, // enable draggable events
+  aspectRatio: 1.8,
+  resourceAreaWidth:175,
+  scrollTime: '00:00', // undo default 6am scrollTime
+  headerToolbar: {
+    left: '',
+    center: '',
+    right: ''
+  },
+  initialView: 'resourceTimelineDay',
+  views: {
+    resourceTimelineThreeDays: {
+      type: 'resourceTimeline',
+      duration: { days: 3 },
+      buttonText: '3 days'
+    }
+  },
+  resourceAreaHeaderContent: '회의실명',
+  resourceLabelContent: function(arg) {
+    return 'Space # ' + arg.resource.id.toUpperCase();
+  },
+  resourceLabelDidMount: function(arg) {
+    if (arg.resource.id == 'h') {
+      arg.el.style.backgroundColor = 'rgb(255, 243, 206)';
+    }
+  },
+  resources: [
+    { id: 'a' },
+    { id: 'b', eventColor: '#b7b7b7' },
+    { id: 'c', eventColor: '#b7b7b7' },
+    { id: 'd' },
+    { id: 'e' },
+    { id: 'f', eventColor: '#b7b7b7' },
+    { id: 'g' },
+    { id: 'h' },
+    { id: 'i' },
+    { id: 'j' },
+    { id: 'k' },
+    { id: 'l' },
+    { id: 'm' },
+    { id: 'n' },
+    { id: 'o' },
+    { id: 'p' },
+    { id: 'q' },
+    { id: 'r' },
+    { id: 's' },
+    { id: 't' },
+    { id: 'u' },
+    { id: 'v' },
+    { id: 'w' },
+    { id: 'x' },
+    { id: 'y' },
+    { id: 'z' }
+  ],
+  events: [
+    { id: '1', resourceId: 'b', start: '2020-09-07T02:00:00', end: '2020-09-07T07:00:00', title: '정기 영상회의' },
+    { id: '2', resourceId: 'c', start: '2020-09-07T05:00:00', end: '2020-09-07T22:00:00', title: '평가회의' },
+  ]
+});
+
+calendar2.render();
+});
+  </script>
+<!-- // 회의실검색 20210309-->
+
+
+    <!-- 레이아웃 예시-->
     <div div class="modal fade" id="sampleLayout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
@@ -982,7 +1422,7 @@
           </div>
         </div>
       </div>
-    <!-- // 참석자 검색 팝업-->
+    <!-- // 레이아웃 예시 팝업-->
 
     <!-- 레이아웃 순서 설정 팝업 -->
     <div div class="modal fade" id="layoutOrder" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
