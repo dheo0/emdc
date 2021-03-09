@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>영상회의 예약시스템</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>    
+    <script src="js/datepicker-ko.js"></script>
+    <script src="js/tagsinput.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+  </head>
+  <body>
+    <div id="wrap">
+        <div class="login">
+            <div class="visual">
+                <div class="text">
+                    <p>가장 완벽한 영상회의 관리 솔루션,</p>
+                    <p class="en">e - VCM</p>
+                </div>
+            </div>
+            <div class="login-form">
+                <div class="select-mode">
+                    mode
+                    <ul>
+                        <li class="light"><a href="#dark">다크모드</a></li>
+                        <li class="dark"><a href="#light">라이트모드</a></li>
+                    </ul>
+                </div>
+                <div class="login-area">
+                    <div class="form">
+                        <p><input type="text" placeholder="ID"></p>
+                        <p><input type="password"></p>
+                        <p><button type="button" class="btn btn-primary">LOG IN <i></i></button></p>
+                        <ul>
+                            <li><a href="#none">아이디 찾기</a></li>
+                            <li><a href="#none">비밀번호 찾기</a></li>
+                        </ul>
+                        <p class="text-right"><a href="#none">가입하기</a></p>
+                    </div>
+                </div>
+                <div class="company">EMDC CO.,LTD</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(".select-mode li a").on("click", function(e){
+            e.preventDefault();
+            var target = $(this).attr("href");
+            console.log(target)
+            if(target == "#dark"){
+                $("#wrap").addClass("dark-theme");
+            } else {
+                $("#wrap").removeClass("dark-theme");
+            }
+        })
+    </script>
+  </body>
+</html>

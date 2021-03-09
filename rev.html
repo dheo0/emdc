@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>영상회의 예약시스템</title>
+    <!-- 공통 -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/datepicker.css">
+    <link rel="stylesheet" href="fullcalendar.css"><!--210309 추가-->
+    <link rel="stylesheet" href="css/style.css" >
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/datepicker-ko.js"></script>
+    <!-- // 공통 -->
+
+    <!-- 현재페이지 -->
+    <script src="js/jquery.timepicker.js"></script>    
+    <script src="js/tagsinput.js"></script>
+    <script src="js/typeahead.js"></script>
+    <script src="js/treeview.js"></script>
+    <script src="js/datatables.js"></script>
+    <script src="js/fullcalendar.ks"></script><!--210309 추가-->
+    <!-- // 현재페이지 -->
+  </head>
+  <body>
+    <div id="wrap" ><!-- class="dark-theme" -->
+        <nav>
+            <h1 class="logo">
+                <a href="/">영상회의 예약시스템</a>
+            </h1>
+            <ul class="gnb">
+                <li><a href="#none">마이페이지</a></li>
+                <li>
+                    <a href="#none">예약현황</a>
+                    <ul>
+                        <li><a href="#none">일간현황</a></li>
+                        <li><a href="#none">주간현황</a></li>
+                        <li><a href="#none">월간현황</a></li>
+                    </ul>
+                </li>
+                <li class="on"><a href="#none">영상회의예약</a></li>
+                <li><a href="#none">즉시회의</a></li>
+                <li><a href="#none">녹화파일</a></li>
+            </ul>
+        </nav>
+        <div class="sub-menu">
+
+            <div class="favorite">
+                <h3>즐겨찾는 회의</h3>
+                <ul>
+                    <li>
+                        <div class="chk-wrap">
+                            <input type="checkbox" id="ID10020001" name="fav">
+                            <label for="ID10020001">즐겨찾는 회의1</label>    
+                        </div>
+                        <a href="#ID10020001" class="delete">삭제</a>
+                    </li>
+                    <li>
+                        <div class="chk-wrap">
+                            <input type="checkbox" id="ID10020002" name="fav">
+                            <label for="ID10020002">즐겨찾는 회의2</label>    
+                        </div>
+                        <a href="#ID10020002" class="delete">삭제</a>
+                    </li>
+                    <li>
+                        <div class="chk-wrap">
+                            <input type="checkbox" id="ID10020003" name="fav">
+                            <label for="ID10020003">즐겨찾는 회의3</label>    
+                        </div>
+                        <a href="#ID10020003" class="delete">삭제</a>
+                    </li>
+                    <li>
+                        <div class="chk-wrap">
+                            <input type="checkbox" id="ID10020004" name="fav">
+                            <label for="ID10020004">즐겨찾는 회의4</label>    
+                        </div>
+                        <a href="#ID10020004" class="delete">삭제</a>
+                    </li>
+                    <li>
+                        <div class="chk-wrap">
+                            <input type="checkbox" id="ID10020005" name="fav">
+                            <label for="ID10020005">즐겨찾는 회의5</label>    
+                        </div>
+                        <a href="#ID10020005" class="delete">삭제</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="recent-conf">
+                <h3>최근회의</h3>
+                <ul>
+                    <li>
+                        <div class="chk-wrap">
+                            <input type="checkbox" id="ID20020001" name="recent">
+                            <label for="ID20020001">최근회의1</label>    
+                        </div>
+                    </li>
+                    <li>
+                        <div class="chk-wrap">
+                            <input type="checkbox" id="ID20020002" name="recent">
+                            <label for="ID20020002">최근회의2</label>    
+                        </div>
+                    </li>
+                    <li>
+                        <div class="chk-wrap">
+                            <input type="checkbox" id="ID20020003" name="recent">
+                            <label for="ID20020003">최근회의3</label>    
+                        </div>
+                    </li>
+                    <li>
+                        <div class="chk-wrap">
+                            <input type="checkbox" id="ID20020004" name="recent">
+                            <label for="ID20020004">최근회의4</label>    
+                        </div>
+                    </li>
+                    <li>
+                        <div class="chk-wrap">
+                            <input type="checkbox" id="ID20020005" name="recent">
+                            <label for="ID20020005">최근회의5</label>    
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+            <div class="users flex justify-content-end">
+                <span class=""><strong>홍길동님</strong>, 환영합니다.</span>
+                <ul class="flex">
+                    <li><a href="#none">사용자</a></li>
+                    <li><a href="#none">로그아웃</a></li>
+                </ul>
+
+            </div>
+            <h2>영상회의예약</h2>
+            <div class="form">
+                <div class="section">
+                    <div class="form-item">
+                        <div class="tit">회의제목</div>
+                        <div class="form-cont color11 round wd-type01">
+                            <input type="text" placeholder="회의제목을 입력하십시오">
+                        </div>
+                        <div class="chk-wrap" style="margin-left: auto;">
+                            <input type="checkbox" id="chk001" />
+                            <label for="chk001">즐겨찾기 추가</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="form-item">
+                        <div class="tit">일시</div>
+                        <div class="form-cont">
+                            <div class="wd-type01 flex">
+                                <div class="flex round color11 wd-type02">
+                                    <input type="text" class="datepicker" />
+                                    <input type="text" class="timepicker" />
+                                </div>
+                                <div class="dash">~</div>
+                                <div class="flex round color11 wd-type02">
+                                    <input type="text" class="datepicker" />
+                                    <input type="text" class="timepicker" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="tit">반복 예약</div>
+                        <div class="flex column wd-type01" style="width:100%">
+                            <div class="flex form-cont">
+                                <div class="chk-wrap" style="margin-right: 20px;">
+                                    <input type="checkbox" id="setting">
+                                    <label for="setting">설정</label>
+                                </div>
+                                <div class="bt-wrap" data-role="rpset">
+                                    <div class="ui-select" id="smode">
+                                        <a href="#none" data-mode="type01">매월</a>
+                                        <ul>
+                                            <li><a href="#none" data-mode="monthly">매월</a></li>
+                                            <li><a href="#none" data-mode="weekly">매주</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="flex" data-role="rpset">
+                                    <span class="wd100">시작날짜</span>
+                                    <div class="round color11">
+                                        <input type="text" class="datepicker" />
+                                    </div>
+                                    <div class="dash" style="min-width: 50px;max-width: 50px;">~</div>
+                                    <span class="wd100">종료날짜</span>
+                                    <div class="round color11">
+                                        <input type="text" class="datepicker" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex wd-type01"  style="display:none;width:100%;margin-top:35px" id="monthly">
+                                <div class="chk-wrap mr60">
+                                    <input type="radio" id="repeat01" name="repeat">
+                                    <label for="repeat01">24일</label>
+                                </div>
+                                <div class="chk-wrap">
+                                    <input type="radio" id="repeat02" name="repeat">
+                                    <label for="repeat02">4번째 금요일</label>
+                                </div>
+                                <div class="mlauto"><span>* 반복예약은 최대 1년까지만 가능합니다.</span></div>
+                            </div>
+                            <div class="flex wd-type01"  style="display:none;width:100%;margin-top:35px" id="weekly">
+                                <div class="chk-wrap mr10">
+                                    <input type="radio" id="repeat11" name="repeat01">
+                                    <label for="repeat11">일</label>
+                                </div>
+                                <div class="chk-wrap mr10">
+                                    <input type="radio" id="repeat12" name="repeat01">
+                                    <label for="repeat12">월</label>
+                                </div>
+                                <div class="chk-wrap mr10">
+                                    <input type="radio" id="repeat13" name="repeat01">
+                                    <label for="repeat13">화</label>
+                                </div>
+                                <div class="chk-wrap mr10">
+                                    <input type="radio" id="repeat14" name="repeat01">
+                                    <label for="repeat14">수</label>
+                                </div>
+                                <div class="chk-wrap mr10">
+                                    <input type="radio" id="repeat15" name="repeat01">
+                                    <label for="repeat15">목</label>
+                                </div>
+                                <div class="chk-wrap mr10">
+                                    <input type="radio" id="repeat16" name="repeat01">
+                                    <label for="repeat16">금</label>
+                                </div>
+                                <div class="chk-wrap">
+                                    <input type="radio" id="repeat17" name="repeat01">
+                                    <label for="repeat17">토</label>
+                                </div>
+                                <div class="mlauto"><span>* 반복예약은 최대 1년까지만 가능합니다.</span></div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="form-item">
+                        <div class="tit">회의내용</div>
+                        <div class="form-cont">
+                            <textarea class="textarea wd-type01 color11" placeholder="회의내용을 입력하십시오" style="width:100%"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="flex form-item">
+                        <div class="tit">예약가능여부</div>
+                        <div class="form-cont">
+                            <p class="able">예약가능</p>
+                        </div>
+                        <button type="button" class="vbtn rstat" data-bs-toggle="modal" data-bs-target="#revstatus" ><i class="ico "></i>예약현황</button>
+                    </div>
+                    <div class="form-item">
+                        <div class="tit">회의보안</div>
+                        <div class="flex form-cont">
+                            <div class="chk-wrap mr60">
+                                <input type="radio" name="security" id="security01">
+                                <label for="security01">공개</label>
+                            </div>
+                            <div class="chk-wrap mr60">
+                                <input type="radio" name="security" id="security02">
+                                <label for="security02">비공개</label>
+                            </div>
+                            <div class="flex password">
+                                <span class="wd100">비밀번호</span>
+                                <div class="form-cont">
+                                    <input type="password" placeholder="비밀번호를 입력하십시오" class="color11">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-item">
+                        <div class="tit">회의모드</div>
+                        <div class="ui-select" id="cmode">
+                            <a href="#none" data-mode="type01">회의모드</a>
+                            <ul>
+                                <li><a href="#none" data-mode="type01">회의모드</a></li>
+                                <li><a href="#none" data-mode="type02">강의모드</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="form-item">
+                        <div class="tit">회의실</div>
+                        <div class="flex form-cont">
+                            <input type="text" class="color11 round" id="tagsinput">
+                            <button type="button" class="vbtn"><i class="ico search"></i>검색</button>
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="tit">참석자</div>
+                        <div class="flex form-cont">
+                            <input type="text" data-role="tagsinput" class="color11 round" id="tagsinput2">
+                            <button type="button" class="vbtn" data-bs-toggle="modal" data-bs-target="#attend"><i class="ico search"></i>검색</button>
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="tit">회의실 참석자</div>
+                        <div class="flex form-cont">
+                            <input type="text" data-role="tagsinput" class="color11 round" id="tagsinput3">
+                            <button type="button" class="vbtn"><i class="ico search"></i>검색</button>
+                        </div>
+                    </div>
+                    <div class="form-item" style="display: none;"  id="host">
+                        <div class="tit">호스트</div>
+                        <div class="flex form-cont">
+                            <input type="text" data-role="tagsinput" class="color11 round" id="tagsinput4">
+                            <button type="button" class="vbtn" data-bs-toggle="modal" data-bs-target="#hostpop"><i class="ico select"></i>선택</button>
+                        </div>
+                    </div>
+
+                    <div class="form-item">
+                        <div class="tit">외부참석자</div>
+                        <div class="multi-form-cont">
+                            <div class="form-cont">
+                                <div class="chk-wrap">
+                                    <input type="checkbox" id="invite">
+                                    <label for="invite">초대</label>
+                                </div>
+                            </div>
+                            <div id="divInvite" style="display: none;">
+                                <div class="form-cont">
+                                    <div class="flex">
+                                        <div class="ext">
+                                            <label for="name">이름</label>
+                                            <input type="text" id="name" class="color11" autocomplete="off"/>
+                                            <label for="company">회사</label>
+                                            <input type="text" id="company" class="color11" autocomplete="off"/>
+                                        </div>
+                                        <button type="button" class="vbtn" data-bs-toggle="modal" data-bs-target="#externel"><i class="ico search"></i>검색</button>
+                                    </div>
+                                </div>
+                                <div class="form-cont">
+                                    <div class="flex">
+                                        <div class="ext">
+                                            <label for="uphone">휴대폰</label>
+                                            <input type="text" id="uphone" class="color11" autocomplete="off"/>
+                                            <label for="uemail">이메일</label>
+                                            <input type="text" id="uemail" class="color11" autocomplete="off"/>
+                                        </div>
+                                        <button type="button" class="vbtn"><i class="ico regist"></i>등록</button>
+                                    </div>
+                                </div>
+                                <div class="form-cont">
+                                    <table class="table01">
+                                        <colgroup>
+                                            <col style="width: 20%;">
+                                            <col style="width: 20%;">
+                                            <col style="width: 30%;">
+                                            <col style="width: 30%;">
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th>이름</th>
+                                                <th>회사</th>
+                                                <th>휴대폰</th>
+                                                <th>이메일</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>강민경</td>
+                                                <td>다비치</td>
+                                                <td>010-1223-1232</td>
+                                                <td>kmg@davichi.com</td>
+                                            </tr>
+                                            <tr>
+                                                <td>여진구</td>
+                                                <td>델루나</td>
+                                                <td>010-1223-1232</td>
+                                                <td>yjk@deluna.com</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 지정 화면 배치-->
+                <div class="section">
+                    <div class="form-item">
+                        <div class="tit">지정 화면배치</div>
+                        <div class="flex form-cont">
+                            <div class="chk-wrap">
+                                <input type="checkbox" id="set">
+                                <label for="set">설정</label>
+                            </div>
+                            <a href="#none" class="color11 layout ml20 mr20" data-bs-toggle="modal" data-bs-target="#layoutOrder"><span>레이아웃</span> <span>all Equal</span></a>
+                            <a href="#none" class="color11 samp" data-bs-toggle="modal" data-bs-target="#sampleLayout"><i class="ico"></i>예시</a>
+                            <button type="button" class="vbtn mlauto"><i class="ico setting"></i>설정</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- //지정 화면 배치-->
+
+                <!-- 회의알림-->
+                <div class="section">
+                    <div class="form-item">
+                        <div class="tit">회의알림</div>
+                        <div class="flex form-cont">
+                            <div class="chk-wrap mr60">
+                                <input type="checkbox" id="email">
+                                <label for="email">이메일</label>
+                            </div>
+                            <div class="chk-wrap mr60">
+                                <input type="checkbox" id="sms">
+                                <label for="sms">SMS</label>
+                            </div>
+                            <div class="chk-wrap">
+                                <input type="checkbox" id="messenger">
+                                <label for="messenger">메신저</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- //회의알림-->
+
+                 <!-- 참여자 엑셀 업로드-->
+                 <div class="section">
+                    <div class="form-item">
+                        <div class="tit" style="line-height: 1.3em;">참여자<br>엑셀업로드</div>
+                        <div class="flex form-cont">
+                            <div class="input-group color11">
+                                <span class="upload">
+                                    <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                                    <span><i class="ico search"></i>찾아보기</span>
+                                </span>
+                                <button class="vbtn color11" type="button" id="inputGroupFileAddon04"><i class="ico file"></i> 업로드</button>
+                            </div>
+                            <a href="#none" class="color11 vbtn download"><i class="ico"></i>샘플파일 다운로드</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- //회의알림-->
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button type="button" class="btn btn-secondary">취소</button>
+                    <button type="button" class="btn btn-primary">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--// wrap -->
+    <!-- 외부 참석자 검색 팝업 -->
+    <div div class="modal fade" id="externel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">외부참석자 검색</h5>
+              <!--button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button-->
+            </div>
+            <div class="modal-body">
+              <!-- contents -->
+              <div class="row">
+                  <div class="col-6 valign">
+                      <div class="shadow-box">
+                        <div class="flex layer-form">
+                              <label for="inp001">이름</label>
+                              <input type="text" class="color11 round mr40">
+                              <label for="inp002">회사명</label>
+                              <input type="text" class="color11 round">
+                        </div>
+                        <div class="flex layer-form">
+                            <label for="inp003">휴대폰</label>
+                            <input type="text" class="color11 round mr40">
+                            <label for="inp004">이메일</label>
+                            <input type="text" class="color11 round">
+                        </div>
+                        <div class="flex justify-content-end">
+                            <button type="btn-light color11 round">즐겨찾기 추가 및 등록</button>
+                            <button type="btn-light color11 round">등록</button>
+                        </div>
+                      </div>
+                      <div class="shadow-box">
+                          <p><strong>즐겨찾기 외부찹석자 목록</strong></p>
+                          <div class="flex color11 round srch">
+                              <select name="" id="" class="r-select color11">
+                                  <option value="이름">이름</option>
+                              </select>
+                              <input type="text" />
+                              <button type="button" class="btn-ico-search">검색</button>
+                          </div>
+                      </div>
+                      <div class="shadow-box" style="padding:0">
+                        <table class="scroll-table" id="table02">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <div class="chk-wrap">
+                                            <input type="checkbox" name="data01" id="dataAll"/>
+                                            <label for="dataAll">선택</label>
+                                        </div>
+                                    </th>
+                                    <th>이름</th>
+                                    <th>회사</th>
+                                    <th>휴대폰</th>
+                                    <th>이메일</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="chk-wrap">
+                                            <input type="checkbox" name="data01" id="data01"/>
+                                            <label for="data01">선택</label>
+                                        </div>
+                                    </td>
+                                    <td class="wd15">아이유</td>
+                                    <td class="wd15">카카오</td>
+                                    <td class="wd30">010-1223-1232</td>
+                                    <td class="wd30">joo2332454@naver.com</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="chk-wrap">
+                                            <input type="checkbox" name="data01" id="data01"/>
+                                            <label for="data01">선택</label>
+                                        </div>
+                                    </td>
+                                    <td class="wd15">아이유</td>
+                                    <td class="wd15">카카오</td>
+                                    <td class="wd30">010-1223-1232</td>
+                                    <td class="wd30">joo2332454@naver.com</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="chk-wrap">
+                                            <input type="checkbox" name="data01" id="data01"/>
+                                            <label for="data01">선택</label>
+                                        </div>
+                                    </td>
+                                    <td class="wd15">아이유</td>
+                                    <td class="wd15">카카오</td>
+                                    <td class="wd30">010-1223-1232</td>
+                                    <td class="wd30">joo2332454@naver.com</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                      </div>
+                      <div class="btn-group justify-content-end">
+                          <button type="button" class="btn-light color11 round">선택된 사용자선택</button>
+                      </div>
+                  </div>
+                  <div class="col-1">
+                    <div class="data-controls">
+                        <button type="button" class="btn-move-next">next</button>
+                        <button type="button" class="btn-move-prev">prev</button>
+                        <button type="button" class="btn-move-refresh">refresh</button>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="shadow-box" style="padding:0">
+                        <table class="scroll-table" id="extTable">
+                            <thead>
+                                <tr>
+                                    <th style="width: 50px;">
+                                        <div class="chk-wrap">
+                                            <input type="checkbox" name="data01" id="dataAll"/>
+                                            <label for="dataAll">선택</label>
+                                        </div>
+                                    </th>
+                                    <th style="width: 15%;">이름</th>
+                                    <th style="width: 15%;">회사</th>
+                                    <th style="width: 30%;">휴대폰</th>
+                                    <th style="width: 30%;">이메일</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="chk-wrap">
+                                            <input type="checkbox" name="data01" id="data01"/>
+                                            <label for="data01">선택</label>
+                                        </div>
+                                    </td>
+                                    <td class="wd15">아이유</td>
+                                    <td class="wd15">카카오</td>
+                                    <td class="wd30">010-1223-1232</td>
+                                    <td class="wd30">joo2332454@naver.com</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="chk-wrap">
+                                            <input type="checkbox" name="data01" id="data01"/>
+                                            <label for="data01">선택</label>
+                                        </div>
+                                    </td>
+                                    <td class="wd15">아이유</td>
+                                    <td class="wd15">카카오</td>
+                                    <td class="wd30">010-1223-1232</td>
+                                    <td class="wd30">joo2332454@naver.com</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="chk-wrap">
+                                            <input type="checkbox" name="data01" id="data01"/>
+                                            <label for="data01">선택</label>
+                                        </div>
+                                    </td>
+                                    <td class="wd15">아이유</td>
+                                    <td class="wd15">카카오</td>
+                                    <td class="wd30">010-1223-1232</td>
+                                    <td class="wd30">joo2332454@naver.com</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="chk-wrap">
+                                            <input type="checkbox" name="data01" id="data01"/>
+                                            <label for="data01">선택</label>
+                                        </div>
+                                    </td>
+                                    <td class="wd15">아이유</td>
+                                    <td class="wd15">카카오</td>
+                                    <td class="wd30">010-1223-1232</td>
+                                    <td class="wd30">joo2332454@naver.com</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="chk-wrap">
+                                            <input type="checkbox" name="data01" id="data01"/>
+                                            <label for="data01">선택</label>
+                                        </div>
+                                    </td>
+                                    <td class="wd15">아이유</td>
+                                    <td class="wd15">카카오</td>
+                                    <td class="wd30">010-1223-1232</td>
+                                    <td class="wd30">joo2332454@naver.com</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="chk-wrap">
+                                            <input type="checkbox" name="data01" id="data01"/>
+                                            <label for="data01">선택</label>
+                                        </div>
+                                    </td>
+                                    <td class="wd15">아이유</td>
+                                    <td class="wd15">카카오</td>
+                                    <td class="wd30">010-1223-1232</td>
+                                    <td class="wd30">joo2332454@naver.com</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="chk-wrap">
+                                            <input type="checkbox" name="data01" id="data01"/>
+                                            <label for="data01">선택</label>
+                                        </div>
+                                    </td>
+                                    <td class="wd15">아이유</td>
+                                    <td class="wd15">카카오</td>
+                                    <td class="wd30">010-1223-1232</td>
+                                    <td class="wd30">joo2332454@naver.com</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="chk-wrap">
+                                            <input type="checkbox" name="data01" id="data01"/>
+                                            <label for="data01">선택</label>
+                                        </div>
+                                    </td>
+                                    <td class="wd15">아이유</td>
+                                    <td class="wd15">카카오</td>
+                                    <td class="wd30">010-1223-1232</td>
+                                    <td class="wd30">joo2332454@naver.com</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="chk-wrap">
+                                            <input type="checkbox" name="data01" id="data01"/>
+                                            <label for="data01">선택</label>
+                                        </div>
+                                    </td>
+                                    <td class="wd15">아이유</td>
+                                    <td class="wd15">카카오</td>
+                                    <td class="wd30">010-1223-1232</td>
+                                    <td class="wd30">joo2332454@naver.com</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="chk-wrap">
+                                            <input type="checkbox" name="data01" id="data01"/>
+                                            <label for="data01">선택</label>
+                                        </div>
+                                    </td>
+                                    <td class="wd15">아이유</td>
+                                    <td class="wd15">카카오</td>
+                                    <td class="wd30">010-1223-1232</td>
+                                    <td class="wd30">joo2332454@naver.com</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="chk-wrap">
+                                            <input type="checkbox" name="data01" id="data01"/>
+                                            <label for="data01">선택</label>
+                                        </div>
+                                    </td>
+                                    <td class="wd15">아이유</td>
+                                    <td class="wd15">카카오</td>
+                                    <td class="wd30">010-1223-1232</td>
+                                    <td class="wd30">joo2332454@naver.com</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="chk-wrap">
+                                            <input type="checkbox" name="data01" id="data01"/>
+                                            <label for="data01">선택</label>
+                                        </div>
+                                    </td>
+                                    <td class="wd15">아이유</td>
+                                    <td class="wd15">카카오</td>
+                                    <td class="wd30">010-1223-1232</td>
+                                    <td class="wd30">joo2332454@naver.com</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="chk-wrap">
+                                            <input type="checkbox" name="data01" id="data01"/>
+                                            <label for="data01">선택</label>
+                                        </div>
+                                    </td>
+                                    <td class="wd15">아이유</td>
+                                    <td class="wd15">카카오</td>
+                                    <td class="wd30">010-1223-1232</td>
+                                    <td class="wd30">joo2332454@naver.com</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="chk-wrap">
+                                            <input type="checkbox" name="data01" id="data01"/>
+                                            <label for="data01">선택</label>
+                                        </div>
+                                    </td>
+                                    <td class="wd15">아이유</td>
+                                    <td class="wd15">카카오</td>
+                                    <td class="wd30">010-1223-1232</td>
+                                    <td class="wd30">joo2332454@naver.com</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="chk-wrap">
+                                            <input type="checkbox" name="data01" id="data01"/>
+                                            <label for="data01">선택</label>
+                                        </div>
+                                    </td>
+                                    <td class="wd15">아이유</td>
+                                    <td class="wd15">카카오</td>
+                                    <td class="wd30">010-1223-1232</td>
+                                    <td class="wd30">joo2332454@naver.com</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="chk-wrap">
+                                            <input type="checkbox" name="data01" id="data01"/>
+                                            <label for="data01">선택</label>
+                                        </div>
+                                    </td>
+                                    <td class="wd15">아이유</td>
+                                    <td class="wd15">카카오</td>
+                                    <td class="wd30">010-1223-1232</td>
+                                    <td class="wd30">joo2332454@naver.com</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="chk-wrap">
+                                            <input type="checkbox" name="data01" id="data01"/>
+                                            <label for="data01">선택</label>
+                                        </div>
+                                    </td>
+                                    <td class="wd15">아이유</td>
+                                    <td class="wd15">카카오</td>
+                                    <td class="wd30">010-1223-1232</td>
+                                    <td class="wd30">joo2332454@naver.com</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="chk-wrap">
+                                            <input type="checkbox" name="data01" id="data01"/>
+                                            <label for="data01">선택</label>
+                                        </div>
+                                    </td>
+                                    <td class="wd15">아이유</td>
+                                    <td class="wd15">카카오</td>
+                                    <td class="wd30">010-1223-1232</td>
+                                    <td class="wd30">joo2332454@naver.com</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="chk-wrap">
+                                            <input type="checkbox" name="data01" id="data01"/>
+                                            <label for="data01">선택</label>
+                                        </div>
+                                    </td>
+                                    <td class="wd15">아이유</td>
+                                    <td class="wd15">카카오</td>
+                                    <td class="wd30">010-1223-1232</td>
+                                    <td class="wd30">joo2332454@naver.com</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="chk-wrap">
+                                            <input type="checkbox" name="data01" id="data01"/>
+                                            <label for="data01">선택</label>
+                                        </div>
+                                    </td>
+                                    <td class="wd15">아이유</td>
+                                    <td class="wd15">카카오</td>
+                                    <td class="wd30">010-1223-1232</td>
+                                    <td class="wd30">joo2332454@naver.com</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                  </div>
+              </div>
+              <!--// contents-->
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+              <button type="button" class="btn btn-primary">확인</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- 참석자 검색 팝업 -->
+    <div div class="modal fade" id="attend" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">참석자검색</h5>
+            </div>
+            <div class="modal-body">
+              <!-- contents -->
+              <div class="row">
+                  <div class="col-3">
+                      <div class="treeview">
+                          <div class="head">조직도</div>
+                          <div id="treeview" class=""></div>
+                      </div>
+                  </div>
+                  <div class="col-4">2</div>
+                  <div class="col-1">
+                    <div class="data-controls">
+                        <button type="button" class="btn-move-next">next</button>
+                        <button type="button" class="btn-move-prev">prev</button>
+                        <button type="button" class="btn-move-refresh">refresh</button>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <table id="example" class="display" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>이름</th>
+                                <th>회사</th>
+                                <th>휴대폰</th>
+                                <th>이메일</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                  </div>
+              </div>
+              <!--// contents-->
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+              <button type="button" class="btn btn-primary">확인</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- // 참석자 검색 팝업-->
+      <script>
+        var json = '[' +
+          '{' +
+            '"text": "Parent 1",' +
+            '"nodes": [' +
+              '{' +
+                '"text": "Child 1",' +
+                '"nodes": [' +
+                  '{' +
+                    '"text": "Grandchild 1"' +
+                  '},' +
+                  '{' +
+                    '"text": "Grandchild 2"' +
+                  '}' +
+                ']' +
+              '},' +
+              '{' +
+                '"text": "Child 2"' +
+              '}' +
+            ']' +
+          '},' +
+          '{' +
+            '"text": "Parent 2"' +
+          '},' +
+          '{' +
+            '"text": "Parent 3"' +
+          '},' +
+          '{' +
+            '"text": "Parent 4"' +
+          '},' +
+          '{' +
+            '"text": "Parent 5"' +
+          '}' +
+        ']';
+        var $tree = $('#treeview').treeview({
+          data: json
+        });
+      </script>
+    <!-- 예약현황 -->
+    <div div class="modal fade" id="revstatus" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">예약현황</h5>
+            </div>
+            <div class="modal-body">
+              <!-- contents 20210309 -->
+              <div class="row">
+                 
+              </div>
+              <!--// contents-->
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">확인</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- // 예약현황 -->
+
+
+
+    <!-- 참석자 검색 팝업 -->
+    <div div class="modal fade" id="sampleLayout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">레이아웃 예시</h5>
+              <div class="ui-select2">
+                  <a href="#none" class="color11 round">레이아웃 | <span id="smpLayout">allEqual</span></a>
+                  <ul>
+                      <li><a href="#none" data-value="allequal">allequal</a></li>
+                      <li><a href="#none" data-value="speakeronly">speakeronly</a></li>
+                      <li><a href="#none" data-value="tolepresence">tolepresence</a></li>
+                      <li><a href="#none" data-value="stacked">stacked</a></li>
+                      <li><a href="#none" data-value="automatic">automatic</a></li>
+                      <li><a href="#none" data-value="oneplusn">oneplusn</a></li>
+                  </ul>
+              </div>
+            </div>
+            <div class="modal-body">
+              <!-- contents -->
+              <div class="row">
+                  <div class="align-center">Dual Screen</div>
+                  <ul class="screen">
+                      <li>#1</li>
+                      <li>#2</li>
+                  </ul>
+                  <ul class="flex scr-text">
+                      <li>Left screen layout</li>
+                      <li>Right screen layout</li>
+                  </ul>
+              </div>
+              <!--// contents-->
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">확인</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- // 참석자 검색 팝업-->
+
+    <!-- 레이아웃 순서 설정 팝업 -->
+    <div div class="modal fade" id="layoutOrder" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">레이아웃 순서 설정</h5>
+            </div>
+            <div class="modal-body">
+              <!-- contents -->
+              <div class="row">
+                    <div class="col-6">
+                        <div class="layer-sub-head">
+                            <strong>회의실 목록</strong>
+                            <div class="ui-select2">
+                                <a href="#none" class="color11 round">레이아웃 | <span id="smpLayout">allEqual</span></a>
+                                <ul>
+                                    <li><a href="#none" data-value="allequal">allequal</a></li>
+                                    <li><a href="#none" data-value="speakeronly">speakeronly</a></li>
+                                    <li><a href="#none" data-value="tolepresence">tolepresence</a></li>
+                                    <li><a href="#none" data-value="stacked">stacked</a></li>
+                                    <li><a href="#none" data-value="automatic">automatic</a></li>
+                                    <li><a href="#none" data-value="oneplusn">oneplusn</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="shadow-box" style="padding:0">
+                            <table class="scroll-table"  id="example2" style="width: 100%;">
+                                <thead>
+                                    <tr>
+                                        <th>회의실명</th>
+                                        <th>&nbsp;</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>연구소 영상회의실</td>
+                                        <td>
+                                            <select class="r-select color11">
+                                                <option>선택</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="layer-sub-head">
+                            <strong>참석자목록</strong>
+                        </div>
+                        <div class="shadow-box" style="padding:0">
+                            <table class="scroll-table"  id="example3" style="width: 100%;">
+                                <thead>
+                                    <tr>
+                                        <th>이름</th>
+                                        <th>부서</th>
+                                        <th>직위</th>
+                                        <th>&nbsp;</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>홍길동</td>
+                                        <td>경기도 IT기획부</td>
+                                        <td>디자인차장</td>
+                                        <td>
+                                            <select class="r-select">
+                                                <option>선택</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>홍길동</td>
+                                        <td>경기도 IT기획부</td>
+                                        <td>디자인차장</td>
+                                        <td>
+                                            <select class="r-select">
+                                                <option>선택</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>홍길동</td>
+                                        <td>경기도 IT기획부</td>
+                                        <td>디자인차장</td>
+                                        <td>
+                                            <select class="r-select">
+                                                <option>선택</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>홍길동</td>
+                                        <td>경기도 IT기획부</td>
+                                        <td>디자인차장</td>
+                                        <td>
+                                            <select class="r-select">
+                                                <option>선택</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>                
+                    </div>
+                    <div class="col-1">
+                        <div class="data-controls center">
+                            <button type="button" class="btn-move-next">next</button>
+                            <button type="button" class="btn-move-prev">prev</button>
+                            <button type="button" class="btn-move-refresh">refresh</button>
+                        </div>
+                    </div>
+                    <div class="col-5">
+                        <p><strong>레이아웃 순서목록</strong></p>
+                        <table class="scroll-table"  id="example1" style="width: 100%;">
+                            <thead>
+                                <tr>
+                                    <th>순서</th>
+                                    <th>호스트명</th>
+                                    <th>회의실명/사용자 이름</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td>회의실</td>
+                                    <td>본사 3층 영상회의실</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>회의실</td>
+                                    <td>본사 3층 영상회의실</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>회의실</td>
+                                    <td>본사 3층 영상회의실</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>회의실</td>
+                                    <td>본사 3층 영상회의실</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>회의실</td>
+                                    <td>본사 3층 영상회의실</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>회의실</td>
+                                    <td>본사 3층 영상회의실</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>회의실</td>
+                                    <td>본사 3층 영상회의실</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>회의실</td>
+                                    <td>본사 3층 영상회의실</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>회의실</td>
+                                    <td>본사 3층 영상회의실</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>회의실</td>
+                                    <td>본사 3층 영상회의실</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>회의실</td>
+                                    <td>본사 3층 영상회의실</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+              </div>
+              <!--// contents-->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                <button type="button" class="btn btn-primary">확인</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!-- // 레이아웃 순서 설정 팝업-->
+
+
+    <!-- 호스트 선택 팝업 -->
+    <div div class="modal fade" id="hostpop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title">호스트 선택</h5>
+            </div>
+            <div class="modal-body">
+            <!-- contents -->
+            <div class="row">
+                    <div class="col-6 valign">
+                        <div>
+                        <div class="layer-sub-head">
+                            <strong>회의실 목록</strong>
+                        </div>
+                        <div class="shadow-box " style="padding:0">
+                            <table class="scroll-table"  id="example4" style="width: 100%;">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>회의실명</th>
+                                        <th>회의실명칭</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td>연구소 영상회의실</td>
+                                        <td>기술연구소</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        </div>
+                        <div>
+                        <div class="layer-sub-head">
+                            <strong>참석자목록</strong>
+                        </div>
+                        <div class="shadow-box" style="padding:0">
+                            <table class="scroll-table"  id="example5" style="width: 100%;">
+                                <thead>
+                                    <tr>
+                                        <th>&nbsp;</th>
+                                        <th>이름</th>
+                                        <th>부서</th>
+                                        <th>직위</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>홍길동</td>
+                                        <td>경기도 IT기획부</td>
+                                        <td>디자인차장</td>
+                                        <td>
+                                            <select class="r-select">
+                                                <option>선택</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                        </div>               
+                    </div>
+                    <div class="col-1">
+                        <div class="data-controls center">
+                            <button type="button" class="btn-move-next">next</button>
+                            <button type="button" class="btn-move-prev">prev</button>
+                            <button type="button" class="btn-move-refresh">refresh</button>
+                        </div>
+                    </div>
+                    <div class="col-5">
+                        <div class="layer-sub-head">
+                            <strong>호스트 목록</strong>
+                        </div>
+                        <table class="scroll-table"  id="example6" style="width: 100%;">
+                            <thead>
+                                <tr>
+                                    <th>순서</th>
+                                    <th>호스트명</th>
+                                    <th>회의실명/사용자 이름</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td>회의실</td>
+                                    <td>본사 3층 영상회의실</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>회의실</td>
+                                    <td>본사 3층 영상회의실</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>회의실</td>
+                                    <td>본사 3층 영상회의실</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>회의실</td>
+                                    <td>본사 3층 영상회의실</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>회의실</td>
+                                    <td>본사 3층 영상회의실</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>회의실</td>
+                                    <td>본사 3층 영상회의실</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>회의실</td>
+                                    <td>본사 3층 영상회의실</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>회의실</td>
+                                    <td>본사 3층 영상회의실</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>회의실</td>
+                                    <td>본사 3층 영상회의실</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>회의실</td>
+                                    <td>본사 3층 영상회의실</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>회의실</td>
+                                    <td>본사 3층 영상회의실</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+            </div>
+            <!--// contents-->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                <button type="button" class="btn btn-primary">확인</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- // 레이아웃 순서 설정 팝업-->
+
+    
+    <script>
+    $( function() {        
+        $(".datepicker").datepicker();
+                
+        $("#invite").on("change", function(){
+            if($(this).prop("checked")){
+                $("#divInvite").show();
+            } else{
+                $("#divInvite").hide();
+            }
+        });
+
+        $("#setting").on("change", function(){
+            var ischk = $(this).prop("checked");
+            if(ischk){
+                $("[data-role='rpset']").css("display","flex")
+            } else{
+                $("[data-role='rpset']").css("display","none")
+            }
+        })
+        
+        $(".ui-select > a").on("click", function(){
+            var elem = $(this).siblings("ul");
+            elem.stop().slideToggle();
+        })
+
+
+        $(".ui-select > a + ul li a").on("click", function(){
+            var selectedVal = $(this).html();
+            var slectedData = $(this).data("mode");
+            $(this).parent().parent().siblings("a").data("mode", slectedData);
+            $(this).parent().parent().siblings("a").html(selectedVal);
+            
+            if(slectedData == "type01"){
+                $("#host").show();
+            } else if(slectedData == "type02"){
+                $("#host").hide();
+            } else if(slectedData == "monthly"){
+                $("#weekly").hide();
+                $("#monthly").show();
+            } else {
+                $("#monthly").hide();
+                $("#weekly").show();
+            }
+            $(this).parent().parent().slideUp();
+        })
+
+
+        $(".ui-select2 > a").on("click", function(){
+            var elem = $(this).siblings("ul");
+            elem.stop().slideToggle();
+        });
+
+        $(".ui-select2 > a + ul li a").on("click", function(e){
+            e.preventDefault();
+            var selectedVal = $(this).html();
+            $(this).parent().parent().siblings("a").find("span").html(selectedVal);
+            $(this).parent().parent().slideUp();
+        })
+
+
+  var citynames = new Bloodhound({
+  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  prefetch: {
+    url: 'room.json',
+    filter: function(list) {
+      return $.map(list, function(cityname) {
+        return { name: cityname }; });
+    }
+  }
+});
+citynames.initialize();
+
+$('#tagsinput').tagsinput({
+  typeaheadjs: {
+    name: 'room',
+    displayKey: 'name',
+    valueKey: 'name',
+    source: citynames.ttAdapter()
+  }
+});
+
+
+
+        $('.timepicker').timepicker({
+            timeFormat: 'p h:mm',
+            interval: 60,
+            minTime: '09',
+            maxTime: '11:00pm',
+            defaultTime: '14',
+            startTime: '00:00',
+            dynamic: false,
+            dropdown: true,
+            scrollbar: true
+        });
+
+ 
+
+        $('#example1').DataTable({
+            paging: false,
+            scrollY: 464,
+            searching: false,
+            scrollCollapse: true,
+            bInfo : false
+        });
+        $('#example2').DataTable({
+            paging: false,
+            scrollY: 183,
+            searching: false,
+            scrollCollapse: true,
+            bInfo : false
+        });
+        $('#example3').DataTable({
+            paging: false,
+            scrollY: 183,
+            searching: false,
+            scrollCollapse: true,
+            bInfo : false
+        });
+
+        $('#extTable').DataTable({
+            paging: false,
+            scrollY: 510,
+            searching: false,
+            scrollCollapse: true,
+            bInfo : false
+        });
+
+        $('#table02').DataTable({
+            paging: false,
+            scrollY: 245,
+            searching: false,
+            scrollCollapse: true,
+            bInfo : false
+        });
+
+        
+
+        var table = $('#example4').DataTable({
+            paging: false,
+            scrollY: 183,
+            searching: false,
+            scrollCollapse: true,
+            bInfo : false,
+            'columnDefs': [
+                {
+                    'targets': 0,
+                    'checkboxes': true
+                }
+            ],
+            'order': [[1, 'asc']]
+        });
+
+         
+        
+
+    });
+    </script>
+  </body>
+</html>
