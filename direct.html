@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>영상회의 예약시스템</title>
+    <!-- 공통 -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/datepicker.css">
+    <link rel="stylesheet" href="css/datatable.css">
+    <link rel="stylesheet" href="css/fullcalendar.css">
+    <link rel="stylesheet" href="css/jstree.css"><!-- 20210310 -->
+    <link rel="stylesheet" href="css/style.css" >
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/datepicker-ko.js"></script>
+    <!-- // 공통 -->
+
+    <!-- 현재페이지 -->
+    <script src="js/jquery.timepicker.js"></script>    
+    <script src="js/tagsinput.js"></script>
+    <script src="js/typeahead.js"></script>
+    <script src="js/treeview.js"></script>
+    <script src="js/datatables.js"></script>
+    <script src="js/fullcalendar.js"></script>
+    <script src="js/locales-all.js"></script>
+    <script src="js/jstree.js"></script>
+
+    <!-- // 현재페이지 -->
+  </head>
+  <body>
+    <div id="wrap"><!-- class="dark-theme" -->
+        <nav>
+            <h1 class="logo">
+                <a href="/">영상회의 예약시스템</a>
+            </h1>
+            <ul class="gnb">
+                <li><a href="#none">마이페이지</a></li>
+                <li>
+                    <a href="#none">예약현황</a>
+                    <ul>
+                        <li><a href="#none">일간현황</a></li>
+                        <li><a href="#none">주간현황</a></li>
+                        <li><a href="#none">월간현황</a></li>
+                    </ul>
+                </li>
+                <li class="on"><a href="#none">영상회의예약</a></li>
+                <li><a href="#none">즉시회의</a></li>
+                <li><a href="#none">녹화파일</a></li>
+            </ul>
+        </nav>
+        <div class="sub-menu">
+            <!-- 20210310 -->
+            <div class="favorite">
+                <h3>즐겨찾는 회의</h3>
+                <div id="data" class="demo"></div>
+            </div>
+            <script>
+                // inline data demo
+                $('#data').jstree({
+                    'core' : {
+                        'data' : [
+                            { "text" : "Root node", "children" : [
+                                    { "text" : "Child node 1" },
+                                    { "text" : "Child node 2" }
+                            ]},
+                            { "text" : "Root node", "children" : [
+                                    { "text" : "Child node 1" },
+                                    { "text" : "Child node 2" }
+                            ]}
+                        ]
+                    }
+                });
+            </script>
+            <!--// 20210310 -->
+            <div class="recent-conf">
+                <h3>최근회의</h3>
+                <ul>
+                    <li>
+                        <div class="chk-wrap">
+                            <input type="checkbox" id="ID20020001" name="recent">
+                            <label for="ID20020001">최근회의1</label>    
+                        </div>
+                    </li>
+                    <li>
+                        <div class="chk-wrap">
+                            <input type="checkbox" id="ID20020002" name="recent">
+                            <label for="ID20020002">최근회의2</label>    
+                        </div>
+                    </li>
+                    <li>
+                        <div class="chk-wrap">
+                            <input type="checkbox" id="ID20020003" name="recent">
+                            <label for="ID20020003">최근회의3</label>    
+                        </div>
+                    </li>
+                    <li>
+                        <div class="chk-wrap">
+                            <input type="checkbox" id="ID20020004" name="recent">
+                            <label for="ID20020004">최근회의4</label>    
+                        </div>
+                    </li>
+                    <li>
+                        <div class="chk-wrap">
+                            <input type="checkbox" id="ID20020005" name="recent">
+                            <label for="ID20020005">최근회의5</label>    
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+            <div class="users flex justify-content-end">
+                <span class=""><strong>홍길동님</strong>, 환영합니다.</span>
+                <ul class="flex">
+                    <li><a href="#none">사용자</a></li>
+                    <li><a href="#none">로그아웃</a></li>
+                </ul>
+
+            </div>
+            <h2>즉시회의</h2>
+            <div class="form">
+                <div class="section">
+                    <div class="form-item">
+                        <div class="tit">회의제목</div>
+                        <div class="form-cont color11 round wd-type01">
+                            <input type="text" placeholder="회의제목을 입력하십시오">
+                        </div>
+                        <div class="chk-wrap" style="margin-left: auto;">
+                            <input type="checkbox" id="chk001" />
+                            <label for="chk001">즐겨찾기 추가</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="form-item">
+                        <div class="tit">회의내용</div>
+                        <div class="form-cont">
+                            <textarea class="textarea wd-type01 color11" placeholder="회의내용을 입력하십시오" style="width:100%"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="flex form-item">
+                        <div class="tit">예약가능여부</div>
+                        <div class="form-cont">
+                            <p class="able">예약가능</p>
+                        </div>
+                        <button type="button" class="vbtn rstat" data-bs-toggle="modal" data-bs-target="#revstatus" ><i class="ico "></i>예약현황</button>
+                    </div>
+                    <div class="form-item">
+                        <div class="tit">회의보안</div>
+                        <div class="flex form-cont">
+                            <div class="chk-wrap mr60">
+                                <input type="radio" name="security" id="security01">
+                                <label for="security01">공개</label>
+                            </div>
+                            <div class="chk-wrap mr60">
+                                <input type="radio" name="security" id="security02">
+                                <label for="security02">비공개</label>
+                            </div>
+                            <div class="flex password">
+                                <span class="wd100">비밀번호</span>
+                                <div class="form-cont">
+                                    <input type="password" placeholder="비밀번호를 입력하십시오" class="color11">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-item">
+                        <div class="tit">회의모드</div>
+                        <div class="ui-select" id="cmode">
+                            <a href="#none" data-mode="type01">회의모드</a>
+                            <ul>
+                                <li><a href="#none" data-mode="type01">회의모드</a></li>
+                                <li><a href="#none" data-mode="type02">강의모드</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="form-item">
+                        <div class="tit">영상기기</div>
+                        <div class="flex form-cont">
+                            <input type="text" class="color11 round" id="tagsinput">
+                            <button type="button" class="vbtn"><i class="ico search"></i>검색</button>
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="tit">참석자</div>
+                        <div class="flex form-cont">
+                            <input type="text" data-role="tagsinput" class="color11 round" id="tagsinput2">
+                            <button type="button" class="vbtn" data-bs-toggle="modal" data-bs-target="#attend"><i class="ico search"></i>검색</button>
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="tit">회의실 참석자</div>
+                        <div class="flex form-cont">
+                            <input type="text" data-role="tagsinput" class="color11 round" id="tagsinput3">
+                            <button type="button" class="vbtn" data-bs-toggle="modal" data-bs-target="#srchRoom"><i class="ico search"></i>검색</button>
+                        </div>
+                    </div>
+                    <div class="form-item" style="display: none;"  id="host">
+                        <div class="tit">호스트</div>
+                        <div class="flex form-cont">
+                            <input type="text" data-role="tagsinput" class="color11 round" id="tagsinput4">
+                            <button type="button" class="vbtn" data-bs-toggle="modal" data-bs-target="#hostpop"><i class="ico select"></i>선택</button>
+                        </div>
+                    </div>
+
+                    <div class="form-item">
+                        <div class="tit">외부참석자</div>
+                        <div class="multi-form-cont">
+                            <div class="form-cont">
+                                <div class="chk-wrap">
+                                    <input type="checkbox" id="invite">
+                                    <label for="invite">초대</label>
+                                </div>
+                            </div>
+                            <div id="divInvite" style="display: none;">
+                                <div class="form-cont">
+                                    <div class="flex">
+                                        <div class="ext">
+                                            <label for="name">이름</label>
+                                            <input type="text" id="name" class="color11" autocomplete="off"/>
+                                            <label for="company">회사</label>
+                                            <input type="text" id="company" class="color11" autocomplete="off"/>
+                                        </div>
+                                        <button type="button" class="vbtn" data-bs-toggle="modal" data-bs-target="#externel"><i class="ico search"></i>검색</button>
+                                    </div>
+                                </div>
+                                <div class="form-cont">
+                                    <div class="flex">
+                                        <div class="ext">
+                                            <label for="uphone">휴대폰</label>
+                                            <input type="text" id="uphone" class="color11" autocomplete="off"/>
+                                            <label for="uemail">이메일</label>
+                                            <input type="text" id="uemail" class="color11" autocomplete="off"/>
+                                        </div>
+                                        <button type="button" class="vbtn"><i class="ico regist"></i>등록</button>
+                                    </div>
+                                </div>
+                                <div class="form-cont">
+                                    <table class="table01">
+                                        <colgroup>
+                                            <col style="width: 20%;">
+                                            <col style="width: 20%;">
+                                            <col style="width: 30%;">
+                                            <col style="width: 30%;">
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th>이름</th>
+                                                <th>회사</th>
+                                                <th>휴대폰</th>
+                                                <th>이메일</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>강민경</td>
+                                                <td>다비치</td>
+                                                <td>010-1223-1232</td>
+                                                <td>kmg@davichi.com</td>
+                                            </tr>
+                                            <tr>
+                                                <td>여진구</td>
+                                                <td>델루나</td>
+                                                <td>010-1223-1232</td>
+                                                <td>yjk@deluna.com</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 지정 화면 배치-->
+                <div class="section">
+                    <div class="form-item">
+                        <div class="tit">지정 화면배치</div>
+                        <div class="flex form-cont">
+                            <div class="chk-wrap">
+                                <input type="checkbox" id="set">
+                                <label for="set">설정</label>
+                            </div>
+                            <a href="#none" class="color11 layout ml20 mr20" data-bs-toggle="modal" data-bs-target="#layoutOrder"><span>레이아웃</span> <span>all Equal</span></a>
+                            <a href="#none" class="color11 samp" data-bs-toggle="modal" data-bs-target="#sampleLayout"><i class="ico"></i>예시</a>
+                            <button type="button" class="vbtn mlauto"><i class="ico setting"></i>설정</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- //지정 화면 배치-->
+
+                <!-- 회의알림-->
+                <div class="section">
+                    <div class="form-item">
+                        <div class="tit">회의알림</div>
+                        <div class="flex form-cont">
+                            <div class="chk-wrap mr60">
+                                <input type="checkbox" id="email">
+                                <label for="email">이메일</label>
+                            </div>
+                            <div class="chk-wrap mr60">
+                                <input type="checkbox" id="sms">
+                                <label for="sms">SMS</label>
+                            </div>
+                            <div class="chk-wrap">
+                                <input type="checkbox" id="messenger">
+                                <label for="messenger">메신저</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- //회의알림-->
+
+                 <!-- 참여자 엑셀 업로드-->
+                 <div class="section">
+                    <div class="form-item">
+                        <div class="tit" style="line-height: 1.3em;">참여자<br>엑셀업로드</div>
+                        <div class="flex form-cont">
+                            <div class="input-group color11">
+                                <span class="upload">
+                                    <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                                    <span><i class="ico search"></i>찾아보기</span>
+                                </span>
+                                <button class="vbtn color11" type="button" id="inputGroupFileAddon04"><i class="ico file"></i> 업로드</button>
+                            </div>
+                            <a href="#none" class="color11 vbtn download"><i class="ico"></i>샘플파일 다운로드</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- //회의알림-->
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button type="button" class="btn btn-secondary">취소</button>
+                    <button type="button" class="btn btn-primary">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--// wrap -->
+  
+  
+<!-- 회의실검색  20210310 -->
+<div div class="modal fade" id="srchRoom" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">회의실 검색</h5>
+        </div>
+        <div class="modal-body">
+          <!-- contents -->
+          <div class="row">
+            <div class="col-7">
+                <div class="srch2">
+                    <select>
+                        <option value="">회의실 위치</option>
+                    </select>
+                    <div class="round color11">
+                        <input type="text" placeholder="회의실 이름을 검색하세요.">
+                        <button type="button" class="btn-ico-search">검색</button>
+                    </div>
+                </div>
+                <div class="shadow-box" style="padding:0">
+                    <table id="datatable10" class="display" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" name="select_all" value="1" id="example-select-all"></th>
+                                <th>회의실 위치</th>
+                                <th>회의실명</th>
+                                <th>상태</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td>본사</td>
+                                <td>본사 1층 영상회의실</td>
+                                <td>진행중</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>본사</td>
+                                <td>본사 1층 영상회의실</td>
+                                <td>진행중</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>본사</td>
+                                <td>본사 1층 영상회의실</td>
+                                <td>진행중</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>본사</td>
+                                <td>본사 1층 영상회의실</td>
+                                <td>진행중</td>
+                            </tr>
+                        </tbody>
+                     </table>
+                </div>
+            </div>
+            <div class="col-1">
+                <div class="data-controls center">
+                    <button type="button" class="btn-move-next">next</button>
+                    <button type="button" class="btn-move-prev">prev</button>
+                    <button type="button" class="btn-move-refresh">refresh</button>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="shadow-box mt55" style="padding:0">
+                    <div class="title">추가 회의실 목록</div>
+                    <table id="datatable11" class="display" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" name="select_all2" value="1" id="example-select-all2"></th>
+                                <th>회의실 위치</th>
+                                <th>회의실 명</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td>본사</td>
+                                <td>본사 4층 영상회의실</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>본사</td>
+                                <td>본사 4층 영상회의실</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>본사</td>
+                                <td>본사 4층 영상회의실</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>본사</td>
+                                <td>본사 4층 영상회의실</td>
+                            </tr>
+                        </tbody>
+                     </table>
+                </div>
+            </div>
+          </div>
+          <!--// contents-->
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+            <button type="button" class="btn btn-primary">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+$(document).ready(function (){
+   
+
+   var table = $('#datatable10').DataTable( {
+        paging: false,
+        scrollY: 440,
+        searching: false,
+        scrollCollapse: true,
+        bInfo : false,
+        'columnDefs': [{
+         'targets': 0,
+         'searchable': false,
+         'orderable': false,
+         'className': 'dt-body-center',
+         'render': function (data, type, full, meta){
+             return '<input type="checkbox" name="id[]" value="' + $('<div/>').text(data).html() + '">';
+         }
+      }],
+        order: [[ 1, 'asc' ]]
+    });
+
+    // Handle click on "Select all" control
+   $('#example-select-all').on('click', function(){
+      // Get all rows with search applied
+      var rows = table.rows({ 'search': 'applied' }).nodes();
+      // Check/uncheck checkboxes for all rows in the table
+      $('input[type="checkbox"]', rows).prop('checked', this.checked);
+   });
+
+    $('#datatable10 tbody').on('change', 'input[type="checkbox"]', function(){
+      // If checkbox is not checked
+      if(!this.checked){
+         var el = $('#example-select-all').get(0);
+         // If "Select all" control is checked and has 'indeterminate' property
+         if(el && el.checked && ('indeterminate' in el)){
+            // Set visual state of "Select all" control
+            // as 'indeterminate'
+            el.indeterminate = true;
+         }
+      }
+   });
+
+
+   var table2 = $('#datatable11').DataTable( {
+        paging: false,
+        scrollY: 440,
+        searching: false,
+        scrollCollapse: true,
+        bInfo : false,
+        'columnDefs': [{
+         'targets': 0,
+         'searchable': false,
+         'orderable': false,
+         'className': 'dt-body-center',
+         'render': function (data, type, full, meta){
+             return '<input type="checkbox" name="id[]" value="' + $('<div/>').text(data).html() + '">';
+         }
+      }],
+        order: [[ 1, 'asc' ]]
+    });
+
+    // Handle click on "Select all" control
+   $('#example-select-all2').on('click', function(){
+      // Get all rows with search applied
+      var rows = table.rows({ 'search': 'applied' }).nodes();
+      // Check/uncheck checkboxes for all rows in the table
+      $('input[type="checkbox"]', rows).prop('checked', this.checked);
+   });
+
+    $('#datatable11 tbody').on('change', 'input[type="checkbox"]', function(){
+      // If checkbox is not checked
+      if(!this.checked){
+         var el = $('#example-select-all').get(0);
+         // If "Select all" control is checked and has 'indeterminate' property
+         if(el && el.checked && ('indeterminate' in el)){
+            // Set visual state of "Select all" control
+            // as 'indeterminate'
+            el.indeterminate = true;
+         }
+      }
+   });
+
+
+
+});
+
+
+  </script>
+<!-- // 회의실검색-->
+ 
+<script>
+    $( function() {        
+        $(".datepicker").datepicker();
+                
+        $("#invite").on("change", function(){
+            if($(this).prop("checked")){
+                $("#divInvite").show();
+            } else{
+                $("#divInvite").hide();
+            }
+        });
+
+        $("#setting").on("change", function(){
+            var ischk = $(this).prop("checked");
+            if(ischk){
+                $("[data-role='rpset']").css("display","flex")
+            } else{
+                $("[data-role='rpset']").css("display","none")
+            }
+        })
+        
+        $(".ui-select > a").on("click", function(){
+            var elem = $(this).siblings("ul");
+            elem.stop().slideToggle();
+        })
+
+
+        $(".ui-select > a + ul li a").on("click", function(){
+            var selectedVal = $(this).html();
+            var slectedData = $(this).data("mode");
+            $(this).parent().parent().siblings("a").data("mode", slectedData);
+            $(this).parent().parent().siblings("a").html(selectedVal);
+            
+            if(slectedData == "type01"){
+                $("#host").show();
+            } else if(slectedData == "type02"){
+                $("#host").hide();
+            } else if(slectedData == "monthly"){
+                $("#weekly").hide();
+                $("#monthly").show();
+            } else {
+                $("#monthly").hide();
+                $("#weekly").show();
+            }
+            $(this).parent().parent().slideUp();
+        })
+
+
+        $(".ui-select2 > a").on("click", function(){
+            var elem = $(this).siblings("ul");
+            elem.stop().slideToggle();
+        });
+
+        $(".ui-select2 > a + ul li a").on("click", function(e){
+            e.preventDefault();
+            var selectedVal = $(this).html();
+            $(this).parent().parent().siblings("a").find("span").html(selectedVal);
+            $(this).parent().parent().slideUp();
+        })
+
+
+  var citynames = new Bloodhound({
+  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  prefetch: {
+    url: 'room.json',
+    filter: function(list) {
+      return $.map(list, function(cityname) {
+        return { name: cityname }; });
+    }
+  }
+});
+citynames.initialize();
+
+$('#tagsinput').tagsinput({
+  typeaheadjs: {
+    name: 'room',
+    displayKey: 'name',
+    valueKey: 'name',
+    source: citynames.ttAdapter()
+  }
+});
+
+
+
+
+         
+        
+
+    });
+    </script>
+
+  </body>
+</html>

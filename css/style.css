@@ -84,6 +84,7 @@ h2:before{content: '';position: absolute;width: 7px;height: 24px;background: #72
 .ml20{margin-left: 20px;}
 .mr20{margin-right: 20px;}
 .mr10{margin-right: 10px;}
+.mt55{margin-top: 55px;}
 .mlauto{margin-left: auto !important;}
 /* chk-wrap */
 .chk-wrap{position: relative;}
@@ -91,7 +92,6 @@ h2:before{content: '';position: absolute;width: 7px;height: 24px;background: #72
 .chk-wrap label{position: relative;padding-left: 26px;height: 18px;font-size: 16px;line-height: 100%;color:#909090}
 .chk-wrap label:before{content:'';position: absolute;width:18px;height: 18px;border-radius: 50%;border:1px solid #bfbfbf;background-color: #eaeaea;left:0;top:50%;transform: translateY(-50%);}
 .chk-wrap input:checked + label:after{content:'';position:absolute;width:9px;height:9px;background:#72aaf5;border-radius: 50%;left:5px;top:50%;transform: translateY(-50%);}
-
 .chk-wrap input[type='checkbox'] + label::before{border-radius: 0}
 .chk-wrap input[type='checkbox']:checked + label::after{border-radius: 0}
 /* modal */
@@ -102,7 +102,8 @@ h2:before{content: '';position: absolute;width: 7px;height: 24px;background: #72
 /*table*/
 .table01{width: 100%;}
 .table01 thead{background: #f2f2f2;text-align: center;}
-.table01 thead th, .table01 tbody td{padding:8px 0}
+.table01 thead th{border-bottom:1px solid #909090}
+.table01 thead th, .table01 tbody td{padding:8px 0;color:#909090}
 .table01 tbody{background: #f2f2f2;text-align: center;}
 /*button*/
 .btn{border-radius: 9999px;min-width: 130px;}
@@ -125,6 +126,11 @@ h2:before{content: '';position: absolute;width: 7px;height: 24px;background: #72
 .ui-select > a{padding-right: 20px;background: url("../images/icon_select.png") no-repeat right center;}
 .ui-select > a + ul{display:none;position: absolute;z-index: 10;width: 100%;}
 .ui-select a{line-height: 38px;display: block;color:#6f6f6f;background-color: #fff;}
+.srch2{display: flex;margin-bottom: 20px;}
+.srch2 select{border:0;width: 120px;margin-right: 10px;color:#909090}
+.srch2 div{position:relative;width: 100%;}
+.srch2 div .btn-ico-search{position: absolute;right: 10px;top:50%;transform: translateY(-50%);}
+.srch2 div input{width: 460px;}
 /* page */
 .container{margin:0;padding:25px 60px}
 .container .users{margin-bottom: 65px;}
@@ -163,9 +169,9 @@ h5.modal-title::before{content: '';position: absolute;left:0;width:6px;height:22
 .layer-sub-head strong{color:#6f6f6f;font-size: 16px;}
 .valign{display: flex;flex-direction: column;}
 
-.r-select{border:0;width:80px;background-image:url("../images/icon_select.png") ;background-repeat: no-repeat;background-position: 100% center;text-align: center;padding-left:15px;border-radius: 9999px;}
-.r-select{-webkit-appearance: none;}
-.r-select::-ms-expand {display: none;}
+.r-select{border:0;width:80px;text-align: center;padding-left:15px;border-radius: 9999px;}
+select{-webkit-appearance: none;background-image:url("../images/icon_select.png") ;background-repeat: no-repeat;background-position: 100% center;}
+select::-ms-expand {display: none;}
 .btn-ico-search{margin-left: auto;background:url("../images/icon_search2.png") no-repeat 0 0;text-indent: -9999px;width: 29px;height: 29px;}
 .srch{align-items: center;padding-right:10px;position: relative;}
 .srch .btn-ico-search{position: absolute;right: 10px;top:50%;transform: translateY(-50%);}
@@ -359,4 +365,9 @@ table.dataTable.display tbody td{background-color: #fff !important;border-bottom
 .treeview .shadow-box{height: 503px;max-height: 503px;overflow-y: auto;}
 
 [data-select]{background: url(../images/icon_set01.png) no-repeat 0 0;text-indent: -9999px;width:18px;height: 18px;display: inline-block;}
-[data-select="selected"]{background: url(../images/icon_set01.png) no-repeat -23px 0;text-indent: -9999px;width:18px;height: 18px;display: inline-block;}
+[data-select].on{background: url(../images/icon_set01.png) no-repeat -23px 0;text-indent: -9999px;width:18px;height: 18px;display: inline-block;}
+
+.sub-menu ul li .jstree-icon{text-indent: 0;}
+.sub-menu ul li a.jstree-anchor{position: static;text-indent: 0;background:none;width: auto;display: inline-block;color:#909090;font-size: 16px;}
+.sub-menu .jstree-node,.sub-menu ul .jstree-children,.sub-menu  .jstree-container-ul{width:auto}
+.sub-menu .jstree-node{display: block;margin-bottom: 0;}

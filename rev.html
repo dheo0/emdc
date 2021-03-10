@@ -972,20 +972,14 @@
 
     
     <script>
+        /* 20210311 */
         $("[data-select]").each(function(){
             $(this).on("click", function(e){
-                
                 e.preventDefault();
-                var status = $(this).data('select');
-                if(status == "unselect"){
-                    $(this).data('select','selected');
-                } else {
-                    $(this).data('select','unselect');
-                }
+                $(this).toggleClass("on");
             })
-
         })
-
+        /* 20210311 */
         var table2 = $('#datatable2').DataTable( {
             paging: false,
             scrollY: 504,
