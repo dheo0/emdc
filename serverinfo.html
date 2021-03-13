@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>영상회의 예약시스템</title>
+    <!-- 공통 -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/datepicker.css">
+    <link rel="stylesheet" href="css/datatable.css">
+    <link rel="stylesheet" href="css/fullcalendar.css">
+    <link rel="stylesheet" href="css/jstree.css">
+    <link rel="stylesheet" href="css/style.css" >
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/datepicker-ko.js"></script>
+    <!-- // 공통 -->
+
+    <!-- 현재페이지 -->
+    <script src="js/jquery.timepicker.js"></script>    
+    <script src="js/tagsinput.js"></script>
+    <script src="js/typeahead.js"></script>
+    <script src="js/treeview.js"></script>
+    <script src="js/datatables.js"></script>
+    <script src="js/fullcalendar.js"></script>
+    <script src="js/locales-all.js"></script>
+    <script src="js/jstree.js"></script>
+
+    <!-- // 현재페이지 -->
+  </head>
+  <body>
+    <div id="wrap"><!-- class="dark-theme" -->
+        <nav>
+            <h1 class="logo">
+                <a href="/">영상회의 예약시스템</a>
+            </h1>
+            <ul class="gnb">
+                <li class=""><a href="#none"><i class="ico ico-mng01"></i>예약관리</a></li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng02"></i>회의실관리</a>
+                    <ul>
+                        <li>
+                            <a href="#none">회의실 관리</a>
+                            <a href="#none">회의실 위치 관리</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng03"></i>가상회의실 관리</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng04"></i>사용자 관리</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng05"></i>LDAP/AD연동</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng06"></i>LDAP/AD연동</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng07"></i>대시보드</a>
+                    <ul>
+                        <li><a href="#none">대시보드 1</a></li>
+                        <li><a href="#none">대시보드 2</a></li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng08"></i>통계</a>
+                    <ul>
+                        <li><a href="#none">회의별 통계</a></li>
+                        <li><a href="#none">회의실별 통계</a></li>
+                        <li><a href="#none">부서별 통계</a></li>
+                        <li><a href="#none">기간별 통계</a></li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng09"></i>녹화파일 관리</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng10"></i>관리자 역할 관리</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng11"></i>관리자 권한 관리</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng12"></i>시스템 로그</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng13"></i>시스템 설정</a>
+                    <ul>
+                        <li><a href="#none">CMS 서버정보관리</a></li>
+                        <li><a href="#none">전역 프로파일 설정</a></li>
+                        <li><a href="#none">회의모드 설정</a></li>
+                        <li><a href="#none">회의 설정</a></li>
+                        <li><a href="#none">매크로 콜 설정</a></li>
+                        <li><a href="#none">공지사항 관리</a></li>
+                        <li><a href="#none">사용자 녹화제어 설정</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div class="container">
+            <div class="users flex justify-content-end">
+                <span class=""><strong>홍길동님</strong>, 환영합니다.</span>
+                <ul class="flex">
+                    <li><a href="#none">사용자</a></li>
+                    <li><a href="#none">로그아웃</a></li>
+                </ul>
+
+            </div>
+            <h2>CMS 서버정보 관리</h2>
+            <div class="form">
+                <div class="section">
+                    <div class="form-item flex va-center">
+                        <div class="tit">CMS 이중화 여부</div>
+                        <div class="form-cont2">
+                            <div class="toggle-radio round color11">
+                                <div class="radio-text">
+                                    <input type="radio" name="rdo01" id="rdo01" checked="checked">
+                                    <label  for="rdo01">사용</label>
+                                </div>
+                                <div class="radio-text">
+                                    <input type="radio" name="rdo01" id="rdo02">
+                                    <label  for="rdo02">미사용</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="flex">
+                        
+                        <div class="col-6">
+                            <h3 class="tit">CMS #1</h3>
+                            <div class="form-item">
+                                <div class="tit">IP주소</div>
+                                <div class="form-cont">
+                                    <div class="round color11">
+                                        <input type="text" placeholder="서버 IP 주소를 입력해주십시오." class="wd100">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-item">
+                                <div class="tit">포트</div>
+                                <div class="form-cont">
+                                    <div class="round color11">
+                                        <input type="text" placeholder="서버 통신 포트를 입력하십시오." class="wd100">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-item">
+                                <div class="tit">아이디</div>
+                                <div class="form-cont">
+                                    <div class="round color11">
+                                        <input type="text" placeholder="서버 관리자 아이디를 ID를 입력하십시오." class="wd100">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-item">
+                                <div class="tit">비밀번호</div>
+                                <div class="form-cont">
+                                    <div class="round color11">
+                                        <input type="password" placeholder="서버 관리지 패스워드를 입력하십시오." class="wd100">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <h3 class="tit">CMS #2</h3>
+                            <div class="form-item">
+                                <div class="tit">IP주소</div>
+                                <div class="form-cont">
+                                    <div class="round color11">
+                                        <input type="text" placeholder="서버 IP 주소를 입력해주십시오." class="wd100">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-item">
+                                <div class="tit">포트</div>
+                                <div class="form-cont">
+                                    <div class="round color11">
+                                        <input type="text" placeholder="서버 통신 포트를 입력하십시오." class="wd100">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-item">
+                                <div class="tit">아이디</div>
+                                <div class="form-cont">
+                                    <div class="round color11">
+                                        <input type="text" placeholder="서버 관리자 아이디를 ID를 입력하십시오." class="wd100">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-item">
+                                <div class="tit">비밀번호</div>
+                                <div class="form-cont">
+                                    <div class="round color11">
+                                        <input type="password" placeholder="서버 관리지 패스워드를 입력하십시오." class="wd100">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="section">
+                    <div class="flex form-item">
+                        <div class="tit">CDR수신포트</div>
+                        <div class="form-cont2">
+                            <div class="round color11">
+                                <input type="text" placeholder="CDR 수신포트를 입력하십시오." class="wd100">
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="flex" style="margin-top:35px">
+                        <div class="col-6">
+                            <div class="flex va-center">
+                                <div class="tit">녹화기능 사용여부</div>
+                                <div class="form-cont2">
+                                    <div class="toggle-radio round color11">
+                                        <div class="radio-text">
+                                            <input type="radio" name="rdo02" id="rdo03">
+                                            <label  for="rdo03">사용</label>
+                                        </div>
+                                        <div class="radio-text">
+                                            <input type="radio" name="rdo02" id="rdo04">
+                                            <label  for="rdo04">미사용</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="flex va-center">
+                                <div class="tit">IP주소</div>
+                                <div class="form-cont">
+                                    <div class="round color11">
+                                        <input type="text" placeholder="서버 IP 주소를 입력해주십시오." class="wd100">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end mt40">
+                    <button type="button" class="btn btn-secondary">취소</button>
+                    <button type="button" class="btn btn-primary">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--// wrap -->
+
+
+  </body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>영상회의 예약시스템</title>
+    <!-- 공통 -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/datepicker.css">
+    <link rel="stylesheet" href="css/datatable.css">
+    <link rel="stylesheet" href="css/fullcalendar.css">
+    <link rel="stylesheet" href="css/jstree.css">
+    <link rel="stylesheet" href="css/style.css" >
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/datepicker-ko.js"></script>
+    <!-- // 공통 -->
+
+    <!-- 현재페이지 -->
+    <script src="js/jquery.timepicker.js"></script>    
+    <script src="js/datatables.js"></script>
+    <!-- // 현재페이지 -->
+  </head>
+  <body>
+    <div id="wrap"><!-- class="dark-theme" -->
+        <nav>
+            <h1 class="logo">
+                <a href="/">영상회의 예약시스템</a>
+            </h1>
+            <ul class="gnb">
+                <li class=""><a href="#none"><i class="ico ico-mng01"></i>예약관리</a></li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng02"></i>회의실관리</a>
+                    <ul>
+                        <li>
+                            <a href="#none">회의실 관리</a>
+                            <a href="#none">회의실 위치 관리</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng03"></i>가상회의실 관리</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng04"></i>사용자 관리</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng05"></i>LDAP/AD연동</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng06"></i>LDAP/AD연동</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng07"></i>대시보드</a>
+                    <ul>
+                        <li><a href="#none">대시보드 1</a></li>
+                        <li><a href="#none">대시보드 2</a></li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng08"></i>통계</a>
+                    <ul>
+                        <li><a href="#none">회의별 통계</a></li>
+                        <li><a href="#none">회의실별 통계</a></li>
+                        <li><a href="#none">부서별 통계</a></li>
+                        <li><a href="#none">기간별 통계</a></li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng09"></i>녹화파일 관리</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng10"></i>관리자 역할 관리</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng11"></i>관리자 권한 관리</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng12"></i>시스템 로그</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng13"></i>시스템 설정</a>
+                    <ul>
+                        <li><a href="#none">CMS 서버정보관리</a></li>
+                        <li><a href="#none">전역 프로파일 설정</a></li>
+                        <li><a href="#none">회의모드 설정</a></li>
+                        <li><a href="#none">회의 설정</a></li>
+                        <li><a href="#none">매크로 콜 설정</a></li>
+                        <li><a href="#none">공지사항 관리</a></li>
+                        <li><a href="#none">사용자 녹화제어 설정</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div class="container">
+            <div class="users flex justify-content-end">
+                <span class=""><strong>홍길동님</strong>, 환영합니다.</span>
+                <ul class="flex">
+                    <li><a href="#none">사용자</a></li>
+                    <li><a href="#none">로그아웃</a></li>
+                </ul>
+
+            </div>
+            <h2>가상회의실 관리</h2>
+            <div class="mode-wrap">
+                <div class="search-line">
+                    <button type="button" class="btn btn-basic"><i>X</i>선택삭제</button>
+                    <div class="flex round color11" style="margin:0 20px">
+                        <select class="r-select" style="width: 155px;">
+                            <option>가상회의실명</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                        <input type="text" placeholder="검색어를 입력하세요" style="width: 355px;">
+                        <button type="button" class="btn-ico-search">검색</button>
+                    </div>
+                    <div class="text-exp">
+                        <a href="#none" class="btn btn-basic upload"><i></i>엑셀업로드</a>
+                        <span>양식을 다운받아 작성하신 후, 업로드 해주십시오.<a href="#" class="btn btn-samp-download"><i></i>양식 다운로드</a></span>
+                    </div>
+                    <button type="button" class="btn btn-circle-regist mlauto">추가하기</button>
+                </div>
+                <div class="table-wrap">
+                    <table id="datatable" class="display" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" name="select_all" value="1" id="example-select-all"></th>
+                                <th>가상회의실 명</th>
+                                <th>URI</th>
+                                <th>레이아웃</th>
+                                <th>예약사용 여부</th>
+                            </tr>
+                        </thead>
+                        
+                    </table>
+                </div>
+                 <script>
+                    var data = [
+                        {
+                            "가상회의실 명" : "가상회의실#1",
+                            "참석타입 수"   : "6001",
+                            "참석타입#1"    : "allEqual",
+                            "참석타입#2"    : "사용",  
+                        },
+                       
+                    ]
+                    var table = $('#datatable').DataTable({
+                        data: data,
+                        columns: [
+                            { data: '' , width: "150px"},
+                            { data: '가상회의실 명', width: "auto" },
+                            { data: '참석타입 수' , width: "auto"},
+                            { data: '참석타입#1' , width: "150px"},
+                            { data: '참석타입#2' , width: "200px"},
+                        ],
+                        paging: true,
+                        searching: false,
+                        lengthChange: false,
+                        pageLength: 15, // 한 페이지여 보여줄 row 수
+                        bInfo : false,
+                        'columnDefs': [{
+                        'targets': 0,
+                        'searchable': false,
+                        'orderable': false,
+                        'className': 'dt-body-center',
+                        'render': function (data, type, full, meta){
+                            return '<input type="checkbox" name="id[]" value="' + $('<div/>').text(data).html() + '">';
+                            }
+                        }]
+                        
+                    });
+
+                    // Handle click on "Select all" control
+                        $('#example-select-all').on('click', function(){
+                            // Get all rows with search applied
+                            var rows = table.rows({ 'search': 'applied' }).nodes();
+                            // Check/uncheck checkboxes for all rows in the table
+                            $('input[type="checkbox"]', rows).prop('checked', this.checked);
+                        });
+
+                        $('#datatable tbody').on('change', 'input[type="checkbox"]', function(){
+                            // If checkbox is not checked
+                            if(!this.checked){
+                                var el = $('#example-select-all').get(0);
+                                // If "Select all" control is checked and has 'indeterminate' property
+                                if(el && el.checked && ('indeterminate' in el)){
+                                    // Set visual state of "Select all" control
+                                    // as 'indeterminate'
+                                    el.indeterminate = true;
+                                }
+                            }
+                        });
+                 </script>
+
+            </div>
+        </div>
+    </div>
+    <!--// wrap -->
+
+
+  </body>
+</html>
