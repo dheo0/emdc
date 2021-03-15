@@ -312,7 +312,7 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
     height: 100%;
   }
 .fc .fc-scroller-liquid-absolute {
-    position: absolute;
+    position: relative;
     top: 0;
     right: 0;
     left: 0;
@@ -424,7 +424,7 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
 
 }
 .fc .fc-view-harness-active > .fc-view {
-    position: absolute;
+    position: relative;
     top: 0;
     right: 0;
     bottom: 0;

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>영상회의 예약시스템</title>
+    <!-- 공통 -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/datepicker.css">
+    <link rel="stylesheet" href="css/datatable.css">
+    <link rel="stylesheet" href="css/fullcalendar.css">
+    <link rel="stylesheet" href="css/jstree.css">
+    <link rel="stylesheet" href="css/style.css" >
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/datepicker-ko.js"></script>
+    <!-- // 공통 -->
+
+    <!-- 현재페이지 -->
+    <script src="js/moment.min.js"></script>
+    <script src="js/fullcalendar.js"></script>
+    <script src="js/locales-all.js"></script>
+    <!-- // 현재페이지 -->
+  </head>
+  <body>
+    <div id="wrap"><!-- class="dark-theme" -->
+        <nav>
+            <h1 class="logo">
+                <a href="/">영상회의 예약시스템</a>
+            </h1>
+            <ul class="gnb">
+                <li class="on"><a href="#none">마이페이지</a></li>
+                <li>
+                    <a href="#none">예약현황</a>
+                    <ul>
+                        <li><a href="#none">일간현황</a></li>
+                        <li><a href="#none">주간현황</a></li>
+                        <li><a href="#none">월간현황</a></li>
+                    </ul>
+                </li>
+                <li><a href="#none">영상회의예약</a></li>
+                <li><a href="#none">즉시회의</a></li>
+                <li><a href="#none">녹화파일</a></li>
+            </ul>
+        </nav>
+        <div class="container">
+            <div class="users flex justify-content-end">
+                <span class=""><strong>홍길동님</strong>, 환영합니다.</span>
+                <ul class="flex">
+                    <li><a href="#none">사용자</a></li>
+                    <li><a href="#none">로그아웃</a></li>
+                </ul>
+
+            </div>
+            <h2>테이블</h2>
+            <table class="table table-fixed">
+                <thead>
+                  <tr>
+                    <th class="col-sm-3">
+                        <div class="chk-wrap">
+                            <input type="checkbox" id="ID10020001" name="fav">
+                            <label for="ID10020001">즐겨찾는 회의1</label>    
+                        </div>
+                    </th>
+                    <th class="col-sm-3">Last Name</th>
+                    <th class="col-sm-6">E-mail</th>
+                  </tr>
+                </thead>
+                <tbody style="height: 600px;"> <!-- 높이값 조절-->
+                  <tr>
+                    <td class="col-sm-3">
+                        <div class="chk-wrap">
+                            <input type="checkbox" id="ID10020011" name="fav">
+                            <label for="ID10020011">즐겨찾는 회의1</label>    
+                        </div>
+                    </td>
+                    <td class="col-sm-3">Doe</td>
+                    <td class="col-sm-6">johndoe@email.com</td>
+                  </tr>
+            
+                  <tr>
+                    <td class="col-sm-3">
+                        <div class="chk-wrap">
+                            <input type="checkbox" id="ID10020012" name="fav">
+                            <label for="ID10020012">즐겨찾는 회의1</label>    
+                        </div>
+                    </td>
+                    <td class="col-sm-3">Doe</td>
+                    <td class="col-sm-6">johndoe@email.com</td>
+                  </tr>
+                  <tr>
+                    <td class="col-sm-3">
+                        <div class="chk-wrap">
+                            <input type="checkbox" id="ID10020013" name="fav">
+                            <label for="ID10020013">즐겨찾는 회의1</label>    
+                        </div>
+                    </td>
+                    <td class="col-sm-3">Doe</td>
+                    <td class="col-sm-6">johndoe@email.com</td>
+                  </tr>
+                  <tr>
+                    <td class="col-sm-3">
+                        <div class="chk-wrap">
+                            <input type="checkbox" id="ID10020014" name="fav">
+                            <label for="ID10020014">즐겨찾는 회의1</label>    
+                        </div>
+                    </td>
+                    <td class="col-sm-3">Doe</td>
+                    <td class="col-sm-6">johndoe@email.com</td>
+                  </tr>
+                  <tr>
+                    <td class="col-sm-3">
+                        <div class="chk-wrap">
+                            <input type="checkbox" id="ID10020015" name="fav">
+                            <label for="ID10020015">즐겨찾는 회의1</label>    
+                        </div>
+                    </td>
+                    <td class="col-sm-3">Doe</td>
+                    <td class="col-sm-6">johndoe@email.com</td>
+                  </tr>
+                  <tr>
+                    <td class="col-sm-3">
+                        <div class="chk-wrap">
+                            <input type="checkbox" id="ID10020016" name="fav">
+                            <label for="ID10020016">즐겨찾는 회의1</label>    
+                        </div>
+                    </td>
+                    <td class="col-sm-3">Doe</td>
+                    <td class="col-sm-6">johndoe@email.com</td>
+                  </tr>
+                  <tr>
+                    <td class="col-sm-3">
+                        <div class="chk-wrap">
+                            <input type="checkbox" id="ID10020017" name="fav">
+                            <label for="ID10020017">즐겨찾는 회의1</label>    
+                        </div>
+                    </td>
+                    <td class="col-sm-3">Doe</td>
+                    <td class="col-sm-6">johndoe@email.com</td>
+                  </tr>
+                  <tr>
+                    <td class="col-sm-3">
+                        <div class="chk-wrap">
+                            <input type="checkbox" id="ID10020018" name="fav">
+                            <label for="ID10020018">즐겨찾는 회의1</label>    
+                        </div>
+                    </td>
+                    <td class="col-sm-3">Doe</td>
+                    <td class="col-sm-6">johndoe@email.com</td>
+                  </tr>
+                  <tr>
+                    <td class="col-sm-3">
+                        <div class="chk-wrap">
+                            <input type="checkbox" id="ID10020019" name="fav">
+                            <label for="ID10020019">즐겨찾는 회의1</label>    
+                        </div>
+                    </td>
+                    <td class="col-sm-3">Doe</td>
+                    <td class="col-sm-6">johndoe@email.com</td>
+                  </tr>
+                  <tr>
+                    <td class="col-sm-3">
+                        <div class="chk-wrap">
+                            <input type="checkbox" id="ID10020020" name="fav">
+                            <label for="ID10020020">즐겨찾는 회의1</label>    
+                        </div>
+                    </td>
+                    <td class="col-sm-3">Doe</td>
+                    <td class="col-sm-6">johndoe@email.com</td>
+                  </tr>
+                  <tr>
+                    <td class="col-sm-3">
+                        <div class="chk-wrap">
+                            <input type="checkbox" id="ID10020021" name="fav">
+                            <label for="ID10020021">즐겨찾는 회의1</label>    
+                        </div>
+                    </td>
+                    <td class="col-sm-3">Doe</td>
+                    <td class="col-sm-6">johndoe@email.com</td>
+                  </tr>
+                  <tr>
+                    <td class="col-sm-3">
+                        <div class="chk-wrap">
+                            <input type="checkbox" id="ID10020022" name="fav">
+                            <label for="ID10020022">즐겨찾는 회의1</label>    
+                        </div>
+                    </td>
+                    <td class="col-sm-3">Doe</td>
+                    <td class="col-sm-6">johndoe@email.com</td>
+                  </tr>
+                  <tr>
+                    <td class="col-sm-3">
+                        <div class="chk-wrap">
+                            <input type="checkbox" id="ID10020023" name="fav">
+                            <label for="ID10020023">즐겨찾는 회의1</label>    
+                        </div>
+                    </td>
+                    <td class="col-sm-3">Doe</td>
+                    <td class="col-sm-6">johndoe@email.com</td>
+                  </tr>
+                  <tr>
+                    <td class="col-sm-3"><div class="chk-wrap">
+                            <input type="checkbox" id="ID10020024" name="fav">
+                            <label for="ID10020024">즐겨찾는 회의1</label>    
+                        </div></td>
+                    <td class="col-sm-3">Doe</td>
+                    <td class="col-sm-6">johndoe@email.com</td>
+                  </tr>
+                  <tr>
+                    <td class="col-sm-3">
+                        <div class="chk-wrap">
+                            <input type="checkbox" id="ID10020025" name="fav">
+                            <label for="ID10020025">즐겨찾는 회의1</label>    
+                        </div>
+                    </td>
+                    <td class="col-sm-3">Doe</td>
+                    <td class="col-sm-6">johndoe@email.com</td>
+                  </tr>
+                  <tr>
+                    <td class="col-sm-3">
+                        <div class="chk-wrap">
+                            <input type="checkbox" id="ID10020026" name="fav">
+                            <label for="ID10020026">즐겨찾는 회의1</label>    
+                        </div>
+                    </td>
+                    <td class="col-sm-3">Doe</td>
+                    <td class="col-sm-6">johndoe@email.com</td>
+                  </tr>
+                  <tr>
+                    <td class="col-sm-3">
+                        <div class="chk-wrap">
+                            <input type="checkbox" id="ID10020027" name="fav">
+                            <label for="ID10020027">즐겨찾는 회의1</label>    
+                        </div>
+                    </td>
+                    <td class="col-sm-3">Doe</td>
+                    <td class="col-sm-6">johndoe@email.com</td>
+                  </tr>
+                  <tr>
+                    <td class="col-sm-3">
+                        <div class="chk-wrap">
+                            <input type="checkbox" id="ID10020028" name="fav">
+                            <label for="ID10020028">즐겨찾는 회의1</label>    
+                        </div>
+                    </td>
+                    <td class="col-sm-3">Doe</td>
+                    <td class="col-sm-6">johndoe@email.com</td>
+                  </tr>
+                  <tr>
+                    <td class="col-sm-3">
+                        <div class="chk-wrap">
+                            <input type="checkbox" id="ID10020029" name="fav">
+                            <label for="ID10020029">즐겨찾는 회의1</label>    
+                        </div>
+                    </td>
+                    <td class="col-sm-3">Doe</td>
+                    <td class="col-sm-6">johndoe@email.com</td>
+                  </tr>
+                  <tr>
+                    <td class="col-sm-3">
+                        <div class="chk-wrap">
+                            <input type="checkbox" id="ID10020030" name="fav">
+                            <label for="ID10020030">즐겨찾는 회의1</label>    
+                        </div>
+                    </td>
+                    <td class="col-sm-3">Doe</td>
+                    <td class="col-sm-6">johndoe@email.com</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+    <!--// wrap -->
+
+    
+  </body>
+</html>
