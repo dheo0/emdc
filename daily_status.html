@@ -366,16 +366,11 @@
             scrollTime: '00:00',
             eventColor: '#b7b7b7',
             headerToolbar: {
-              left: 'prev,title next today',
+              left: 'prev title next today',
+              right:''
             },
             initialView: 'resourceTimelineDay',
-            views: {
-              resourceTimelineThreeDays: {
-                type: 'resourceTimeline',
-                duration: { days: 3 },
-                buttonText: '3 days'
-              }
-            },
+            
             resourceAreaHeaderContent: '회의실명',
             resourceLabelDidMount: function(arg) {
               var resource = arg.resource;

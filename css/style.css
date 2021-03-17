@@ -534,3 +534,4 @@ span.small{display: inline-block;background-color: #97bff5;color:#ffffff;font-si
 .fc .fc-timeline-overlap-enabled .fc-timeline-lane-frame .fc-timeline-events{padding-bottom: 0;}
 .fc .fc-timeline-overlap-enabled .fc-timeline-lane-frame .fc-timeline-events{min-height: 37px;}
 .fc-datagrid-cell-main{font-size: 14px;}
+.search-line.va-center .chk-wrap{margin-left:30px}
