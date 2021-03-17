@@ -1,4 +1,3 @@
-
 /* classes attached to <body> */
 
 .fc-not-allowed,
@@ -128,7 +127,6 @@
 }
 /*
 Lots taken from Flatly (MIT): https://bootswatch.com/4/flatly/bootstrap.css
-
 These styles only apply when the standard-theme is activated.
 When it's NOT activated, the fc-button classes won't even be in the DOM.
 */
@@ -312,7 +310,7 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
     height: 100%;
   }
 .fc .fc-scroller-liquid-absolute {
-    position: relative;
+    position: absolute;
     top: 0;
     right: 0;
     left: 0;
@@ -424,7 +422,7 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
 
 }
 .fc .fc-view-harness-active > .fc-view {
-    position: relative;
+    position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
@@ -1753,4 +1751,3 @@ vertical slots in both the header AND the body
 .fc-direction-rtl .fc-datagrid-cell-resizer { left: -3px }
 .fc-direction-ltr .fc-datagrid-expander { margin-right: 3px }
 .fc-direction-rtl .fc-datagrid-expander { margin-left: 3px }
-

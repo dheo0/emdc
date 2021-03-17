@@ -61,11 +61,11 @@
                     <div class="toggle-radio round color11">
                         <div class="radio-text">
                             <input type="radio" name="typeSelect" id="rdo01" checked="checked">
-                            <label  for="rdo01">목록</label>
+                            <label  for="rdo01">회의실별</label>
                         </div>
                         <div class="radio-text">
                             <input type="radio" name="typeSelect" id="rdo02">
-                            <label  for="rdo02">캘린더형</label>
+                            <label  for="rdo02">가상회의별</label>
                         </div>
                     </div>
                 </div>
@@ -175,7 +175,7 @@
                     </div>
                 </div>
                 <div data-id="rdo02" class="mypage-type" style="display: none">
-                    <div id="calendar" class="mycalendar"></div>
+                    <div id="calendar2" class="mycalendar"></div>
                 </div>
             </div>
         </div>
@@ -347,58 +347,84 @@
         });
 
         $(".datepicker").datepicker();
+
+
     </script>
     <script>
 
-    document.addEventListener('DOMContentLoaded', function() {
-      var calendarEl = document.getElementById('calendar');
-  
-      var calendar = new FullCalendar.Calendar(calendarEl, {
-       
-        schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
-        displayEventTime: false,
-        height: 810,
-        locale: 'ko', 
-        initialDate: '2021-03-01',
-        headerToolbar: {
+        document.addEventListener('DOMContentLoaded', function() {
+          var calendarEl = document.getElementById('calendar2');
+      
+          var calendar = new FullCalendar.Calendar(calendarEl, {
+            schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
+            now: '2020-09-07',
+            locale: 'ko',
+            resourceAreaWidth:180,
+            height:747,
+            editable: true,
+            aspectRatio: 1.8,
+            scrollTime: '00:00',
+            eventColor: '#b7b7b7',
+            headerToolbar: {
               left: 'prev,title next today',
-        },
-        selectable: true,
-        titleFormat: { year: 'numeric', month: 'numeric', day: 'numeric' } ,
-        events: [
-            {
-                title: '11:00~11:30 임시회의',
-                start: '2021-03-01T11:00:00',
-                end: '2021-03-01T11:30:00',
-                color: '#f5c872',
-                rendering: 'background'
             },
-            {
-                title: '09:00~10:30 정기회의',
-                start: '2021-03-02T09:00:00',
-                end: '2021-03-02T09:30:00',
-                color: '#bfbfbf',
-                rendering: 'background'
-
+            initialView: 'resourceTimelineDay',
+            views: {
+              resourceTimelineThreeDays: {
+                type: 'resourceTimeline',
+                duration: { days: 3 },
+                buttonText: '3 days'
+              }
             },
-            {
-                title: '09:00~10:30 임원회의',
-                start: '2021-03-02T14:00:00',
-                end: '2021-03-02T16:30:00',
-                color: '#bfbfbf'
+            resourceAreaHeaderContent: '회의실명',
+            resourceLabelDidMount: function(arg) {
+              var resource = arg.resource;
+      
+              arg.el.addEventListener('click', function() {
+                if (confirm('Are you sure you want to delete ' + resource.title + '?')) {
+                  resource.remove();
+                }
+              });
             },
-            {
-                title: '09:00~10:30 임원회의',
-                start: '2021-03-03T14:00:00',
-                end: '2021-03-03T16:30:00',
-                color: '#72aaf5'
-            },
-        ]
-      });
-  
-      calendar.render();
-    });
-  
-  </script>
+            resources: [
+              { id: 'a', title: '본사1층 영상회의실' },
+              { id: 'b', title: '본사2층 영상회의실', eventColor: '#b7b7b7' },
+              { id: 'c', title: '본사2층 영상회의실', eventColor: '#b7b7b7' },
+              { id: 'd', title: '본사2층 영상회의실' },
+              { id: 'e', title: '본사2층 영상회의실' },
+              { id: 'f', title: '본사2층 영상회의실' },
+              { id: 'g', title: '본사2층 영상회의실' },
+              { id: 'h', title: '본사2층 영상회의실' },
+              { id: 'i', title: '본사2층 영상회의실' },
+              { id: 'j', title: '본사2층 영상회의실' },
+              { id: 'k', title: '본사2층 영상회의실' },
+              { id: 'l', title: '본사2층 영상회의실' },
+              { id: 'm', title: '본사2층 영상회의실' },
+              { id: 'n', title: '본사2층 영상회의실' },
+              { id: 'o', title: '본사2층 영상회의실' },
+              { id: 'p', title: '본사2층 영상회의실' },
+              { id: 'q', title: '본사2층 영상회의실' },
+              { id: 'r', title: '본사2층 영상회의실' },
+              { id: 's', title: '본사2층 영상회의실' },
+              { id: 't', title: '본사2층 영상회의실' },
+              { id: 't', title: '본사2층 영상회의실' },
+              { id: 'v', title: '본사2층 영상회의실' },
+              { id: 'w', title: '본사2층 영상회의실' },
+              { id: 'x', title: '본사2층 영상회의실' },
+              { id: 'y', title: '본사2층 영상회의실' }
+            ],
+            events: [
+              { id: '1', resourceId: 'b', start: '2020-09-07T10:30:00', end: '2020-09-07T13:00:00', title: '긴급 영상회의' },
+              { id: '2', resourceId: 'c', start: '2020-09-07T09:00:00', end: '2020-09-07T11:00:00', title: '긴급 영상회의' },
+              { id: '3', resourceId: 'e', start: '2020-09-07T09:00:00', end: '2020-09-07T13:00:00', title: '긴급 영상회의' },
+              { id: '4', resourceId: 'f', start: '2020-09-07T09:30:00', end: '2020-09-07T12:30:00', title: '긴급 영상회의' },
+              { id: '5', resourceId: 'g', start: '2020-09-07T09:30:00', end: '2020-09-07T11:30:00', title: '정기 영상회의' }
+            ]
+          });
+      
+          calendar.render();
+        });
+      
+      </script>
   </body>
 </html>

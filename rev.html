@@ -1087,21 +1087,99 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div id='calendar2' style="height: 600px;padding:0" class="shadow-box"></div>
             </div>
             <div class="col-4">
+                <!-- 20210317 -->
+
+                <div class="title">추가 회의실 목록</div>
+                <div class="flex color11 round srch" style="margin-bottom: 20px;">
+                    <input type="text" class="round color11 datepicker" style="width: 100px;"/>
+                    <select name="" id="" class="r-select color11">
+                        <option value="이름">이름</option>
+                    </select>
+                    <input type="text" placeholder="회의실 이름을 검색하세요."/>
+                    <button type="button" class="btn-ico-search">검색</button>
+                </div>
                 <div class="shadow-box" style="padding:0">
-                    <div class="title">추가 회의실 목록</div>
-                    <!-- 20210314 -->
-                    <table id="datatable" class="display" style="width:100%">
+                    <table class="table table-fixed">
                         <thead>
-                            <tr>
-                                <th><input type="checkbox" name="select_all" value="1" id="example-select-all"></th>
-                                <th>회의실 위치</th>
-                                <th>회의실 명</th>
-                            </tr>
+                          <tr>
+                            <th class="col-sm-2">
+                                <div class="chk-wrap">
+                                    <input type="checkbox" id="ID10020001" name="fav">
+                                    <label for="ID10020001">즐겨찾는 회의1</label>    
+                                </div>
+                            </th>
+                            <th class="col-sm-4">회의실 위치</th>
+                            <th class="col-sm-6">회의실 명</th>
+                          </tr>
                         </thead>
-                     </table>
-                     <!-- // 20210314 -->
+                        <tbody style="height: 256px;"> <!-- 높이값 조절-->
+                          <tr>
+                            <td class="col-sm-2">
+                                <div class="chk-wrap">
+                                    <input type="checkbox" id="ID11020011" name="fav">
+                                    <label for="ID10020011">즐겨찾는 회의1</label>    
+                                </div>
+                            </td>
+                            <td class="col-sm-4">Doe</td>
+                            <td class="col-sm-6">johndoe@email.com</td>
+                          </tr>
+                    
+                          <tr>
+                            <td class="col-sm-2">
+                                <div class="chk-wrap">
+                                    <input type="checkbox" id="ID11020012" name="fav">
+                                    <label for="ID10020012">즐겨찾는 회의1</label>    
+                                </div>
+                            </td>
+                            <td class="col-sm-4">Doe</td>
+                            <td class="col-sm-6">johndoe@email.com</td>
+                          </tr>
+                          <tr>
+                            <td class="col-sm-2">
+                                <div class="chk-wrap">
+                                    <input type="checkbox" id="ID11020013" name="fav">
+                                    <label for="ID10020013">즐겨찾는 회의1</label>    
+                                </div>
+                            </td>
+                            <td class="col-sm-4">Doe</td>
+                            <td class="col-sm-6">johndoe@email.com</td>
+                          </tr>
+                          <tr>
+                            <td class="col-sm-2">
+                                <div class="chk-wrap">
+                                    <input type="checkbox" id="ID11020013" name="fav">
+                                    <label for="ID10020013">즐겨찾는 회의1</label>    
+                                </div>
+                            </td>
+                            <td class="col-sm-4">Doe</td>
+                            <td class="col-sm-6">johndoe@email.com</td>
+                          </tr>
+                          <tr>
+                            <td class="col-sm-2">
+                                <div class="chk-wrap">
+                                    <input type="checkbox" id="ID11020013" name="fav">
+                                    <label for="ID10020013">즐겨찾는 회의1</label>    
+                                </div>
+                            </td>
+                            <td class="col-sm-4">Doe</td>
+                            <td class="col-sm-6">johndoe@email.com</td>
+                          </tr>
+                          <tr>
+                            <td class="col-sm-2">
+                                <div class="chk-wrap">
+                                    <input type="checkbox" id="ID11020013" name="fav">
+                                    <label for="ID10020013">즐겨찾는 회의1</label>    
+                                </div>
+                            </td>
+                            <td class="col-sm-4">Doe</td>
+                            <td class="col-sm-6">johndoe@email.com</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    
                      <button type="button" class="btn btn-delete">삭제</button>
                 </div>
+                <!-- //20210317 -->
             </div>
           </div>
           <!--// contents-->
