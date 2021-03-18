@@ -1073,7 +1073,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
       </script>
     <!-- // 예약현황 20210309-->
-<!-- 회의실검색 20210309-->
+<!-- 회의실검색 20210318-->
 <div div class="modal fade" id="srchRoom" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -1084,20 +1084,20 @@ document.addEventListener('DOMContentLoaded', function() {
           <!-- contents 20210309 -->
           <div class="row">
             <div class="col-8">
-                <div id='calendar2' style="height: 600px;padding:0" class="shadow-box"></div>
-            </div>
-            <div class="col-4">
-                <!-- 20210317 -->
-
-                <div class="title">추가 회의실 목록</div>
                 <div class="flex color11 round srch" style="margin-bottom: 20px;">
-                    <input type="text" class="round color11 datepicker" style="width: 100px;"/>
-                    <select name="" id="" class="r-select color11">
-                        <option value="이름">이름</option>
+                    <input type="text" class="round color11 datepicker">
+                    <select name="" id="" class="r-select color11" style="width: 130px;">
+                        <option value="1">회의실위치</option>
                     </select>
                     <input type="text" placeholder="회의실 이름을 검색하세요."/>
                     <button type="button" class="btn-ico-search">검색</button>
                 </div>
+                <div id='calendar2' style="min-height: 470px;padding:0" class="shadow-box"></div>
+            </div>
+            <div class="col-4">
+
+                <div class="title">추가 회의실 목록</div>
+                
                 <div class="shadow-box" style="padding:0">
                     <table class="table table-fixed">
                         <thead>
@@ -1112,7 +1112,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <th class="col-sm-6">회의실 명</th>
                           </tr>
                         </thead>
-                        <tbody style="height: 256px;"> <!-- 높이값 조절-->
+                        <tbody style="height: 380px;"> <!-- 높이값 조절-->
                           <tr>
                             <td class="col-sm-2">
                                 <div class="chk-wrap">
@@ -1179,7 +1179,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                      <button type="button" class="btn btn-delete">삭제</button>
                 </div>
-                <!-- //20210317 -->
+                <!-- //20210318 -->
             </div>
           </div>
           <!--// contents-->
@@ -1427,6 +1427,7 @@ calendar2.render();
       </div>
     <!-- // 레이아웃 예시 팝업-->
 
+    <!-- 20210318 -->
     <!-- 레이아웃 순서 설정 팝업 -->
     <div div class="modal fade" id="layoutOrder" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -1478,83 +1479,89 @@ calendar2.render();
                             </table>
                         </div>                
                     </div>
-                    <div class="col-1">
-                        <div class="data-controls center">
-                            <button type="button" class="btn-move-next">next</button>
-                            <button type="button" class="btn-move-prev">prev</button>
-                            <button type="button" class="btn-move-refresh">refresh</button>
-                        </div>
-                    </div>
-                    <div class="col-5">
-                        <!-- 20210314 -->
+                   
+                    <div class="col-6">
                         <div class="title">레이아웃 순서목록</div> 
-                        <div class="shadow-box" style="padding:0">
-                            <table class="scroll-table"  id="example1" style="width: 100%;">
+                        <div class="shadow-box" style="padding:0;min-height: 533px;">
+                            <table class="table table-fixed" >
                                 <thead>
                                     <tr>
-                                        <th>순서</th>
-                                        <th>호스트명</th>
-                                        <th>회의실명/사용자 이름</th>
+                                        <th class="col-sm-2">순서</th>
+                                        <th class="col-sm-4">호스트명</th>
+                                        <th class="col-sm-6">회의실명/사용자 이름</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody style="height:420px">
                                     <tr>
-                                        <td></td>
-                                        <td>회의실</td>
-                                        <td>본사 3층 영상회의실</td>
+                                        <td class="col-sm-2">1</td>
+                                        <td class="col-sm-4">회의실</td>
+                                        <td class="col-sm-6">본사 3층 영상회의실</td>
                                     </tr>
                                     <tr>
-                                        <td></td>
-                                        <td>회의실</td>
-                                        <td>본사 3층 영상회의실</td>
+                                        <td class="col-sm-2">2</td>
+                                        <td class="col-sm-4">회의실</td>
+                                        <td class="col-sm-6">본사 3층 영상회의실</td>
                                     </tr>
                                     <tr>
-                                        <td></td>
-                                        <td>회의실</td>
-                                        <td>본사 3층 영상회의실</td>
+                                        <td class="col-sm-2">3</td>
+                                        <td class="col-sm-4">회의실</td>
+                                        <td class="col-sm-6">본사 3층 영상회의실</td>
                                     </tr>
                                     <tr>
-                                        <td></td>
-                                        <td>회의실</td>
-                                        <td>본사 3층 영상회의실</td>
+                                        <td class="col-sm-2">4</td>
+                                        <td class="col-sm-4">회의실</td>
+                                        <td class="col-sm-6">본사 3층 영상회의실</td>
                                     </tr>
                                     <tr>
-                                        <td></td>
-                                        <td>회의실</td>
-                                        <td>본사 3층 영상회의실</td>
+                                        <td class="col-sm-2">4</td>
+                                        <td class="col-sm-4">회의실</td>
+                                        <td class="col-sm-6">본사 3층 영상회의실</td>
                                     </tr>
                                     <tr>
-                                        <td></td>
-                                        <td>회의실</td>
-                                        <td>본사 3층 영상회의실</td>
+                                        <td class="col-sm-2">4</td>
+                                        <td class="col-sm-4">회의실</td>
+                                        <td class="col-sm-6">본사 3층 영상회의실</td>
                                     </tr>
                                     <tr>
-                                        <td></td>
-                                        <td>회의실</td>
-                                        <td>본사 3층 영상회의실</td>
+                                        <td class="col-sm-2">4</td>
+                                        <td class="col-sm-4">회의실</td>
+                                        <td class="col-sm-6">본사 3층 영상회의실</td>
                                     </tr>
                                     <tr>
-                                        <td></td>
-                                        <td>회의실</td>
-                                        <td>본사 3층 영상회의실</td>
+                                        <td class="col-sm-2">4</td>
+                                        <td class="col-sm-4">회의실</td>
+                                        <td class="col-sm-6">본사 3층 영상회의실</td>
                                     </tr>
                                     <tr>
-                                        <td></td>
-                                        <td>회의실</td>
-                                        <td>본사 3층 영상회의실</td>
+                                        <td class="col-sm-2">4</td>
+                                        <td class="col-sm-4">회의실</td>
+                                        <td class="col-sm-6">본사 3층 영상회의실</td>
                                     </tr>
                                     <tr>
-                                        <td></td>
-                                        <td>회의실</td>
-                                        <td>본사 3층 영상회의실</td>
+                                        <td class="col-sm-2">4</td>
+                                        <td class="col-sm-4">회의실</td>
+                                        <td class="col-sm-6">본사 3층 영상회의실</td>
                                     </tr>
                                     <tr>
-                                        <td>2</td>
-                                        <td>회의실</td>
-                                        <td>본사 3층 영상회의실</td>
+                                        <td class="col-sm-2">4</td>
+                                        <td class="col-sm-4">회의실</td>
+                                        <td class="col-sm-6">본사 3층 영상회의실</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-sm-2">4</td>
+                                        <td class="col-sm-4">회의실</td>
+                                        <td class="col-sm-6">본사 3층 영상회의실</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-sm-2">4</td>
+                                        <td class="col-sm-4">회의실</td>
+                                        <td class="col-sm-6">본사 3층 영상회의실</td>
                                     </tr>
                                 </tbody>
                             </table>
+                            <div class="flex justify-content-end pr20">
+                                <button type="button" class="btn btn-light">순서초기화</button>
+                            </div>
                         </div>
                     </div>
               </div>
@@ -1564,9 +1571,11 @@ calendar2.render();
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
                 <button type="button" class="btn btn-primary">확인</button>
             </div>
+            
           </div>
         </div>
     </div>
+    <!-- //20210318 -->
     <!-- // 레이아웃 순서 설정 팝업-->
 
 
