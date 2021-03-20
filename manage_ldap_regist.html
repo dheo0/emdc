@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>영상회의 예약시스템</title>
+    <!-- 공통 -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/datepicker.css">
+    <link rel="stylesheet" href="css/datatable.css">
+    <link rel="stylesheet" href="css/fullcalendar.css">
+    <link rel="stylesheet" href="css/jstree.css">
+    <link rel="stylesheet" href="css/style.css" >
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/datepicker-ko.js"></script>
+    <!-- // 공통 -->
+
+    <!-- 현재페이지 -->
+    <script src="js/script.js"></script>
+    <!-- // 현재페이지 -->
+  </head>
+  <body>
+    <div id="wrap"><!-- class="dark-theme" -->
+        <nav>
+            <h1 class="logo">
+                <a href="/">영상회의 예약시스템</a>
+            </h1>
+            <ul class="gnb">
+                <li class=""><a href="#none"><i class="ico ico-mng01"></i>예약관리</a></li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng02"></i>회의실관리</a>
+                    <ul>
+                        <li>
+                            <a href="#none">회의실 관리</a>
+                            <a href="#none">회의실 위치 관리</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng03"></i>가상회의실 관리</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng04"></i>사용자 관리</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng05"></i>LDAP/AD연동</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng06"></i>LDAP/AD연동</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng07"></i>대시보드</a>
+                    <ul>
+                        <li><a href="#none">대시보드 1</a></li>
+                        <li><a href="#none">대시보드 2</a></li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng08"></i>통계</a>
+                    <ul>
+                        <li><a href="#none">회의별 통계</a></li>
+                        <li><a href="#none">회의실별 통계</a></li>
+                        <li><a href="#none">부서별 통계</a></li>
+                        <li><a href="#none">기간별 통계</a></li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng09"></i>녹화파일 관리</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng10"></i>관리자 역할 관리</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng11"></i>관리자 권한 관리</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng12"></i>시스템 로그</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng13"></i>시스템 설정</a>
+                    <ul>
+                        <li><a href="#none">CMS 서버정보관리</a></li>
+                        <li><a href="#none">전역 프로파일 설정</a></li>
+                        <li><a href="#none">회의모드 설정</a></li>
+                        <li><a href="#none">회의 설정</a></li>
+                        <li><a href="#none">매크로 콜 설정</a></li>
+                        <li><a href="#none">공지사항 관리</a></li>
+                        <li><a href="#none">사용자 녹화제어 설정</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div class="container">
+            <div class="users flex justify-content-end">
+                <span class=""><strong>홍길동님</strong>, 환영합니다.</span>
+                <ul class="flex">
+                    <li><a href="#none">사용자</a></li>
+                    <li><a href="#none">로그아웃</a></li>
+                </ul>
+
+            </div>
+            <h2>LDAP / AP 정보 추가</h2>
+            <div class="form">
+                <div class="section">
+                    <div class="form-item flex justify-content-start">
+                        <div class="tit">제목</div>
+                        <div class="form-cont" >
+                            <div  class="">
+                                <input type="text" class="round color11" placeholder="AD 정보 제목을 입력하십시오." style="width: 795px">
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="form-item">
+                        <div class="tit">설명</div>
+                        <div class="round color11">
+                            <input type="text" name="" id="" placeholder="AD 정보 설명을 입력하십시오" style="width: 795px">
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="tit">IP주소</div>
+                        <div class="round color11">
+                            <input type="text" placeholder="AD 서버의 IP주소를 입력하십시오" style="width: 795px">
+                        </div>
+                        <div class="tit">포트</div>
+                        <div class="round color11">
+                            <input type="text" placeholder="AD 서버통신 포트정보를 입력하십시오" style="width: 315px;">
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="tit">AD 서버 계정</div>
+                        <div class="round color11">
+                            <input type="text" placeholder="AD 서버에 접속할 계정정보를 입력하십시오" style="width: 795px">
+                        </div>
+                        <div class="tit">비밀번호</div>
+                        <div class="round color11">
+                            <input type="text" placeholder="접속할 계정의 비밀번호를 입력하십시오" style="width: 315px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="form-item">
+                        <div class="tit">BaseNode</div>
+                        <div class="round color11">
+                            <input type="text" name="" id="" placeholder="ex) cn=Users, dc=<companyname>, dc=com" style="width: 795px;">
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="tit">Filter</div>
+                        <div class="round color11">
+                            <input type="text" name="" id="" placeholder="ex) (objectClass=person)" style="width: 795px;">
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="tit">Display Name<br>Field</div>
+                        <div class="round color11">
+                            <input type="text" name="" id="" placeholder="ex) $cn$" style="width: 795px;">
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="tit">Username Field</div>
+                        <div class="round color11">
+                            <input type="text" name="" id="" placeholder="ex) $sAMAccountName$ space" style="width: 795px;">
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="section">
+                    <div class="form-item">
+                        <div class="tit">coSpace Name<br>Field</div>
+                        <div class="round color11">
+                            <input type="text" name="" id="" placeholder="ex) $aAMAccountName$ space" style="width: 795px;">
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="tit">coSpace Uri<br>Field</div>
+                        <div class="round color11">
+                            <input type="text" name="" id="" placeholder="ex) $telephoneNumer$" style="width: 795px;">
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="tit">User License</div>
+                        <div class="form-cont2">
+                            <div class="toggle-radio round color11">
+                                <div class="radio-text">
+                                    <input type="radio" name="rdo03" id="rdo31" checked="checked">
+                                    <label  for="rdo31">사용</label>
+                                </div>
+                                <div class="radio-text">
+                                    <input type="radio" name="rdo03" id="rdo32">
+                                    <label  for="rdo32">미사용</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-grid gap-3 d-md-flex justify-content-md-end mt40">
+                    <button type="button" class="btn btn-secondary">취소</button>
+                    <button type="button" class="btn btn-primary">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--// wrap -->
+
+
+  </body>
+</html>

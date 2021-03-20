@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>영상회의 예약시스템</title>
+    <!-- 공통 -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/datepicker.css">
+    <link rel="stylesheet" href="css/datatable.css">
+    <link rel="stylesheet" href="css/fullcalendar.css">
+    <link rel="stylesheet" href="css/jstree.css">
+    <link rel="stylesheet" href="css/style.css" >
+
+    <script src="js/jquery.js"></script>
+  </head>
+  <body class="win">
+    <div id="wrap"><!-- class="dark-theme" -->
+        <h1 class="winpop-title">회의실 위치 등록</h1>
+        <div class="pop-form">
+            <div  class="form-item">
+                <div class="tit">회의실 위치명</div>
+                <div class="form-cont">
+                    <div class="round color11">
+                        <input type="text" placeholder="회의실 위치 명을 입력하십시오." >
+                    </div>
+                </div>
+            </div>
+            <div  class="form-item">
+                <div class="tit">회의실 사용여부</div>
+                <div class="form-cont">
+                    <div class="form-cont2" style="width: 115px;">
+                        <div class="toggle-radio round color11">
+                            <div class="radio-text">
+                                <input type="radio" name="rdo03" id="rdo31" checked="checked">
+                                <label  for="rdo31">사용</label>
+                            </div>
+                            <div class="radio-text">
+                                <input type="radio" name="rdo03" id="rdo32">
+                                <label  for="rdo32">미사용</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tit">회의실 조회순서</div>
+                <div class="form-cont">
+                    <div class="form-cont2" style="width: 80px;">
+                        <div class="round color11">
+                            <input type="text" >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-content-end mt40 gap-2">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+            <button type="button" class="btn btn-primary">확인</button>
+        </div>
+    </div>
+  </body>
+</html>

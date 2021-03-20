@@ -342,6 +342,7 @@
             } else{
                 $('[data-id="rdo01"]').hide();
                 $('[data-id="rdo02"]').show();
+                calendar()
             }
 
         });
@@ -351,8 +352,8 @@
 
     </script>
     <script>
-
-        document.addEventListener('DOMContentLoaded', function() {
+        function calendar(){
+        
           var calendarEl = document.getElementById('calendar2');
       
           var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -360,6 +361,7 @@
             now: '2020-09-07',
             locale: 'ko',
             resourceAreaWidth:180,
+            timeFormat: 'h:mm',
             height:747,
             editable: true,
             aspectRatio: 1.8,
@@ -418,8 +420,8 @@
           });
       
           calendar.render();
-        });
-      
+        
+    }
       </script>
   </body>
 </html>
