@@ -20,9 +20,9 @@
     <!-- // 공통 -->
 
     <!-- 현재페이지 -->
-    <script src="js/fullcalendar.js"></script>
-    <script src="js/moment.min.js"></script>
-    <script src="js/locales-all.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/jstree.js"></script>
+
     <!-- // 현재페이지 -->
   </head>
   <body>
@@ -55,14 +55,50 @@
                 </ul>
 
             </div>
-            <h2>업무협의 <span>일반</span></h2>
+            <h2>업무협의 <span class="txt2">일반</span></h2>
             <div class="conf-summary">
-                <ul class="flex">
+                <ul class="flex justify-content-end">
                     <li><i class="ico01"></i>홍길동/IT기획부/차장</li>
                     <li><i class="ico02"></i>회의유형:즉시회의</li>
                     <li><i class="ico03"></i><strong>참여자(9)</strong>미참여자(1)</li>
                     <li><i class="ico04"></i>9999</li>
                 </ul>
+            </div>
+            <div class="flex" style="margin-top: 60px;">
+                <div class="flex round color11 va-center" style="width: 100%;">
+                    <div class="ui-select2" style="width: 120px;">
+                        <a href="#none" class="color11 round"><span>유지</span></a>
+                        <ul>
+                            <li><a href="#none" data-value="유지">유지</a></li>
+                            <li><a href="#none" data-value="유지">유지</a></li>
+                            <li><a href="#none" data-value="유지">유지</a></li>
+                        </ul>
+                    </div>
+                    <input type="text" style="width: 100%;">
+                    <button type="button" class="btn-send">전송</button>
+                </div>
+                <button type="button" class="btn btn-basic" style="margin-left:20px"><i class="mr5">X</i> 공지삭제</button>
+            </div>
+            <div class="flex justify-content-between va-center">
+                <div class="ui-select2" style="width: 230px;">
+                    <a href="#none" class="color11 round">레이아웃 | <span>allEqual</span></a>
+                    <ul>
+                        <li><a href="#none" data-value="allEqual">allEqual</a></li>
+                        <li><a href="#none" data-value="SIP">SIP</a></li>
+                        <li><a href="#none" data-value="speakeronly">speakeronly</a></li>
+                    </ul>
+                </div>
+                <div class="user-control-menu">
+                    <ul>
+                        <li><a href="#none"><i class="ico01"></i> WebRTC 관전</a></li>
+                        <li><a href="#none"><i class="ico02"></i> 녹화시작</a></li>
+                        <li><a href="#none"><i class="ico03"></i> 전체음소거</a></li>
+                        <li><a href="#none"><i class="ico04"></i> 미참여자 재연결</a></li>
+                        <li><a href="#none"><i class="ico05"></i> 추가초대</a></li>
+                    </ul>
+                    <button type="button" class="btn-sync">새로고침</button>
+                    <button type="button" class="btn btn-basic finish"><i class="mr5">X</i> 회의종료</button>
+                </div>
             </div>
             <div class="mode-wrap">
                 <div data-id="rdo01" class="mypage-type">
@@ -70,16 +106,16 @@
                     <div class="table-wrap2">
                         <table class="basic-table">
                             <colgroup>
-                                <col style="width:100px"/>
+                                <col style="width:150px"/>
                                 <col style="width:100px"/>
                                 <col style="width:auto"/>
                                 <col style="width:180px"/>
-                                <col style="width:100px"/>
-                                <col style="width:100px"/>
+                                <col style="width:60px"/>
+                                <col style="width:60px"/>
+                                <col style="width:60px"/>
+                                <col style="width:60px"/>
                                 <col style="width:180px"/>
-                                <col style="width:100px"/>
-                                <col style="width:100px"/>
-                                <col style="width:100px"/>
+                                <col style="width:150px"/>
                             </colgroup>
                             <thead>
                                 <tr>
@@ -101,35 +137,65 @@
                                     <td>예약</td>
                                     <td><span data-bs-toggle="modal" data-bs-target="#pop01">사장님실</span></td>
                                     <td><span class="st on">온라인</span></td>
+                                    <td><a href="#none" class="user-control mic"><i></i></a></td>
+                                    <td><a href="#none" class="user-control cam"><i></i></a></td>
+                                    <td><a href="#none" class="user-control con"><i></i></a></td>
+                                    <td><a href="#none" class="user-control dis"><i></i></a></td>
                                     <td>
-                                        <a href="#none" class="control-ico01">마이크</a>
+                                        <div class="ui-select2" style="width: 150px;">
+                                            <a href="#none" class="color11 round"><span>allEqual</span></a>
+                                            <ul>
+                                                <li><a href="#none" data-value="allEqual">allEqual</a></li>
+                                                <li><a href="#none" data-value="SIP">SIP</a></li>
+                                                <li><a href="#none" data-value="speakeronly">speakeronly</a></li>
+                                            </ul>
+                                        </div>
                                     </td>
-                                    <td><a href="#none" class="control-ico02">카메라</a></td>
-                                    <td><a href="#none" class="control-ico03">연결</a></td>
-                                    <td><a href="#none" class="control-ico04">끊기</a></td>
-                                    <td>
-                                        <select class="layout-select">
-                                            <option value="">all Equal</option>
-                                            <option value="">all Equal</option>
-                                            <option value="">all Equal</option>
-                                            <option value="">all Equal</option>
-                                        </select>
-                                    </td>
-                                    <td><a href="#none" class="control-ico05">끊기</a></td>
+                                    <td><a href="#none" class="user-control info"><i></a></td>
                                 </tr>
                                 <tr class="hidden-tr">
                                     <td colspan="10">
-                                        <ul class="flex">
-                                            <li>remoteParty : 1001@127.0.01</li>
-                                            <li>접속시간 : 1:38:52</li>
-                                            <li>접속타입 : incoming</li>
-                                            <li>장비타입 : sip</li>
-                                            <li>incoming media : OPUS. H.264. 256 x 144 59.8fps, 917 Kb/s, packetLoss 0.0%. jitter 0<br>incoming media : OPUS. H.264. 256 x 144 59.8fps, 917 Kb/s, packetLoss 0.0%. jitter 0</li>
-                                        </ul>
+                                        <div>
+                                            <ul class="flex justify-content-between">
+                                                <li>remoteParty : 1001@127.0.01</li>
+                                                <li>접속시간 : 1:38:52</li>
+                                                <li>접속타입 : incoming</li>
+                                                <li>장비타입 : sip</li>
+                                                <li>outgoing media : OPUS. H.264. 256 x 144 59.8fps, 917 Kb/s, packetLoss 0.0%. jitter 0<br>outgoing media : OPUS. H.264. 256 x 144 59.8fps, 917 Kb/s, packetLoss 0.0%. jitter 0</li>
+                                            </ul>
+                                        </div>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td>영상기기</td>
+                                    <td>예약</td>
+                                    <td><span data-bs-toggle="modal" data-bs-target="#pop01">사장님실</span></td>
+                                    <td><span class="st on">온라인</span></td>
+                                    <td><a href="#none" class="user-control mic on"><i></i></a></td>
+                                    <td><a href="#none" class="user-control cam on"><i></i></a></td>
+                                    <td><a href="#none" class="user-control con"><i></i></a></td>
+                                    <td><a href="#none" class="user-control dis"><i></i></a></td>
+                                    <td>
+                                        <div class="ui-select2" style="width: 150px;">
+                                            <a href="#none" class="color11 round"><span>allEqual</span></a>
+                                            <ul>
+                                                <li><a href="#none" data-value="allEqual">allEqual</a></li>
+                                                <li><a href="#none" data-value="SIP">SIP</a></li>
+                                                <li><a href="#none" data-value="speakeronly">speakeronly</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td><a href="#none" class="user-control info"><i></i></a></td>
+                                </tr>
+                                
                             </tbody>
                         </table>
+                        <script>
+                            $(".user-control.info").on("click", function(e){
+                                e.preventDefault();
+                                $(this).parent().parent().toggleClass("active");
+                            })
+                        </script>
                     </div>
                     <div aria-label="Page navigation">
                         <ul class="pagination justify-content-center">
@@ -150,11 +216,11 @@
         <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body no-head">
-                <div class="tab-menu">
+                <div class="tab-menu type2">
                     <ul class="flex">
-                        <li class="on"><a href="#tab01">회의실</a></li>
-                        <li><a href="#tab02">임직원</a></li>
-                        <li><a href="#tab01">외부참여자</a></li>
+                        <li class="on"><a href="#tab01" data-group="row">회의실</a></li>
+                        <li><a href="#tab02" data-group="row">임직원</a></li>
+                        <li><a href="#tab03" data-group="row">외부참여자</a></li>
                     </ul>
                 </div>
             <!-- contents -->
@@ -183,7 +249,7 @@
                             <th class="col-sm-3">상태</th>
                           </tr>
                         </thead>
-                        <tbody style="height: 450px;"> <!-- 높이값 조절-->
+                        <tbody style="height: 442px;"> <!-- 높이값 조절-->
                           <tr>
                             <td class="col-sm-2">
                                 <div class="chk-wrap">
@@ -214,8 +280,8 @@
                               <tr>
                                 <th class="col-sm-2">
                                     <div class="chk-wrap">
-                                        <input type="checkbox" id="all">
-                                        <label for="all">선택</label>    
+                                        <input type="checkbox" id="all101010">
+                                        <label for="all101010">선택</label>    
                                     </div>
                                 </th>
                                 <th class="col-sm-3">회의실 위치</th>
@@ -223,20 +289,314 @@
                                 <th class="col-sm-3">상태</th>
                               </tr>
                             </thead>
-                            <tbody style="height: 464px;"> <!-- 높이값 조절-->
+                            <tbody style="height: 456px;"> <!-- 높이값 조절-->
                               <tr>
                                 <td class="col-sm-2">
                                     <div class="chk-wrap">
-                                        <input type="checkbox" id="ID0001">
-                                        <label for="ID0001">선택</label>    
+                                        <input type="checkbox" id="ID1001">
+                                        <label for="ID1001">선택</label>    
                                     </div>
                                 </td>
                                 <td class="col-sm-3">본사</td>
                                 <td class="col-sm-4">본사 1층영상회의실</td>
                                 <td class="col-sm-3">진행중</td>
                               </tr>
+                              <tr>
+                                <td class="col-sm-2">
+                                    <div class="chk-wrap">
+                                        <input type="checkbox" id="ID1002">
+                                        <label for="ID1002">선택</label>    
+                                    </div>
+                                </td>
+                                <td class="col-sm-3">본사</td>
+                                <td class="col-sm-4">본사 1층영상회의실</td>
+                                <td class="col-sm-3">진행중</td>
+                              </tr>
+                              <tr>
+                                <td class="col-sm-2">
+                                    <div class="chk-wrap">
+                                        <input type="checkbox" id="ID1003">
+                                        <label for="ID1003">선택</label>    
+                                    </div>
+                                </td>
+                                <td class="col-sm-3">본사</td>
+                                <td class="col-sm-4">본사 1층영상회의실</td>
+                                <td class="col-sm-3">진행중</td>
+                              </tr>
+                             
                           </tbody>
                           </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="tab02" style="display: none;">
+                <div class="col-3">
+                    <div class="shadow-box" style="padding:0;min-height:540px;max-height:540px">
+                        <div class="treeview">
+                            <div class="head">조직도</div>
+                            <div id="data" class="demo"></div>
+                        
+                            <script>
+                                // inline data demo
+                                $('#data').jstree({
+                                    'core' : {
+                                        'data' : [
+                                            { "text" : "Root node", "children" : [
+                                                    { "text" : "Child node 1" },
+                                                    { "text" : "Child node 2" }
+                                            ]},
+                                            { "text" : "Root node", "children" : [
+                                                    { "text" : "Child node 1" },
+                                                    { "text" : "Child node 2" }
+                                            ]}
+                                        ]
+                                    }
+                                });
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                  <div class="shadow-box" style="padding:0;margin-bottom: 20px;">
+                      
+                      <ul class="tab-menu">
+                          <li class="on"><a href="#tab04" data-group="tab-content">조직 구성원 목록</a></li>
+                          <li><a href="#tab05" data-group="tab-content">즐겨찾기 사용자 목록</a></li>
+                      </ul>
+                      <div>
+                          <div class="srch color11 round">
+                              <select name="" id="" class="r-select color11">
+                                  <option value="이름">이름</option>
+                              </select>
+                              <input type="text" />
+                              <button type="button" class="btn-ico-search">검색</button>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="shadow-box" style="padding:0">
+                      <div id="tab04" class="tab-content">
+                        <table class="table table-fixed">
+                            <thead>
+                              <tr>
+                                <th class="col-sm-1">
+                                    <div class="chk-wrap">
+                                        <input type="checkbox" id="ID10020001">
+                                        <label for="ID10020001">전체선택</label>    
+                                    </div>
+                                </th>
+                                <th class="col-sm-1">
+                                    <a href="#none" data-select="unselect" id="allSelect">선택</a>
+                                </th>
+                                <th class="col-sm-2">이름</th>
+                                <th class="col-sm-4">부서</th>
+                                <th class="col-sm-4">직위</th>
+                              </tr>
+                            </thead>
+                            <tbody style="height: 347px;"> <!-- 높이값 조절-->
+                              <tr>
+                                  <td class="col-sm-1">
+                                    <div class="chk-wrap">
+                                        <input type="checkbox" id="ID10020011">
+                                        <label for="ID10020011">선택</label>    
+                                    </div>
+                                  </td>
+                                  <td class="col-sm-1">
+                                    <a href="#none" data-select="unselect" id="ab001">선택</a>
+                                  </td>
+                                  <td class="col-sm-2">홍길동</td>
+                                  <td class="col-sm-4">it기획부</td>
+                                  <td class="col-sm-4">차장</td>
+                              </tr>
+                            </tbody>
+                        </table>
+                      </div>
+                      <div id="tab05" class="tab-content" style="display: none;">
+                          <table class="table table-fixed">
+                            <thead>
+                              <tr>
+                                <th class="col-sm-2">
+                                    <div class="chk-wrap">
+                                        <input type="checkbox" id="ID10020001">
+                                        <label for="ID10020001">전체선택</label>    
+                                    </div>
+                                </th>
+                                <th class="col-sm-2">이름</th>
+                                <th class="col-sm-4">부서</th>
+                                <th class="col-sm-4">직위</th>
+                              </tr>
+                            </thead>
+                            <tbody style="height: 347px;"> <!-- 높이값 조절-->
+                              <tr>
+                                  <td class="col-sm-2">
+                                    <div class="chk-wrap">
+                                        <input type="checkbox" id="ID10020011">
+                                        <label for="ID10020011">선택</label>    
+                                    </div>
+                                  </td>
+                                  <td class="col-sm-2">홍길동</td>
+                                  <td class="col-sm-4">it기획부</td>
+                                  <td class="col-sm-4">차장</td>
+                              </tr>
+                            </tbody>
+                        </table>
+                      </div>
+                  </div>
+                  <!--// 202103014 -->
+                </div>
+                <div class="col-1">
+                  <div class="data-controls center">
+                      <button type="button" class="btn-move-next">next</button>
+                      <button type="button" class="btn-move-prev">prev</button>
+                      <button type="button" class="btn-move-refresh">refresh</button>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="title">추가 참석자 목록</div> <!-- 210314 -->
+                  <div class="shadow-box" style="padding:0">
+                    <table class="table table-fixed">
+                        <thead>
+                          <tr>
+                            <th class="col-sm-1">
+                                <div class="chk-wrap">
+                                    <input type="checkbox" id="ID10020112">
+                                    <label for="ID10020112">전체선택</label>    
+                                </div>
+                            </th>
+                            <th class="col-sm-3">이름</th>
+                            <th class="col-sm-4">부서</th>
+                            <th class="col-sm-4">직위</th>
+                          </tr>
+                        </thead>
+                        <tbody style="height: 456px;"> <!-- 높이값 조절-->
+                          <tr>
+                              <td class="col-sm-1">
+                                <div class="chk-wrap">
+                                    <input type="checkbox" id="ID10020111">
+                                    <label for="ID10020111">선택</label>    
+                                </div>
+                              </td>
+                              <td class="col-sm-3">홍길동</td>
+                              <td class="col-sm-4">it기획부</td>
+                              <td class="col-sm-4">차장</td>
+                          </tr>
+                        </tbody>
+                    </table>
+                  </div>
+              </div>
+            </div>
+            <script>
+                $("[data-select]").each(function(){
+                    $(this).on("click", function(e){
+                        e.preventDefault();
+                        $(this).toggleClass("on");
+                    })
+                })
+            </script>
+            <div class="row" id="tab03" style="display: none;">
+                <div class="col-6 valign">
+                    <div class="shadow-box">
+                      <div class="flex layer-form">
+                            <label for="inp001">이름</label>
+                            <input type="text" class="color11 round mr40">
+                            <label for="inp002">회사명</label>
+                            <input type="text" class="color11 round">
+                      </div>
+                      <div class="flex layer-form">
+                          <label for="inp003">휴대폰</label>
+                          <input type="text" class="color11 round mr40">
+                          <label for="inp004">이메일</label>
+                          <input type="text" class="color11 round">
+                      </div>
+                      <div class="flex justify-content-end">
+                          <button type="button" class="btn-light color11 round">즐겨찾기 추가 및 등록</button>
+                          <button type="button" class="btn-light color11 round">등록</button>
+                      </div>
+                    </div>
+                    <div class="shadow-box" style="margin-bottom: 20px;">
+                        <p><strong>즐겨찾기 외부참석자 목록</strong></p>
+                        <div class="flex color11 round srch">
+                            <select name="" id="" class="r-select color11">
+                                <option value="이름">이름</option>
+                            </select>
+                            <input type="text" />
+                            <button type="button" class="btn-ico-search">검색</button>
+                        </div>
+                    </div>
+                    <div class="shadow-box" style="padding:0">
+                      <table class="table table-fixed">
+                        <thead>
+                          <tr>
+                            <th class="col-sm-1">
+                                <div class="chk-wrap">
+                                    <input type="checkbox" id="ID20020001">
+                                    <label for="ID20020001">전체</label>    
+                                </div>
+                            </th>
+                            <th class="col-sm-2">이름</th>
+                            <th class="col-sm-2">회사</th>
+                            <th class="col-sm-3">휴대폰</th>
+                            <th class="col-sm-4">이메일</th>
+                          </tr>
+                        </thead>
+                        <tbody style="height: 190px;"> <!-- 높이값 조절-->
+                          <tr>
+                            <td class="col-sm-1">
+                                <div class="chk-wrap">
+                                    <input type="checkbox" id="ID20020011">
+                                    <label for="ID20020011">선택</label>    
+                                </div>
+                            </td>
+                            <td class="col-sm-2">1</td>
+                            <td class="col-sm-2">2</td>
+                            <td class="col-sm-3">3</td>
+                            <td class="col-sm-4">4</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="btn-group justify-content-end" style="position: relative;top:20px">
+                        <button type="button" class="btn-light color11 round">선택된 사용자선택</button>
+                    </div>
+                </div>
+                <div class="col-1">
+                  <div class="data-controls">
+                      <button type="button" class="btn-move-next">next</button>
+                      <button type="button" class="btn-move-prev">prev</button>
+                      <button type="button" class="btn-move-refresh">refresh</button>
+                  </div>
+                </div>
+                <div class="col-5">
+                    <div class="shadow-box" style="padding:0">
+                        <table class="table table-fixed">
+                            <thead>
+                            <tr>
+                                <th class="col-sm-1">
+                                    <div class="chk-wrap">
+                                        <input type="checkbox" id="ID30020001">
+                                        <label for="ID30020001">전체</label>    
+                                    </div>
+                                </th>
+                                <th class="col-sm-2">이름</th>
+                                <th class="col-sm-2">회사</th>
+                                <th class="col-sm-3">휴대폰</th>
+                                <th class="col-sm-4">이메일</th>
+                            </tr>
+                            </thead>
+                            <tbody style="height: 500px;"> <!-- 높이값 조절-->
+                            <tr>
+                                <td class="col-sm-1">
+                                    <div class="chk-wrap">
+                                        <input type="checkbox" id="ID30020011">
+                                        <label for="ID30020011">선택</label>    
+                                    </div>
+                                </td>
+                                <td class="col-sm-2">1</td>
+                                <td class="col-sm-2">2</td>
+                                <td class="col-sm-3">3</td>
+                                <td class="col-sm-4">4</td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -250,6 +610,19 @@
         </div>
     </div>
     <!-- // 정기화상회의 팝업-->
-   
+   <script>
+       $(".tab-menu li a").on("click", function(e){
+           e.preventDefault();
+           var group = $(this).data("group");
+           var target = $(this).attr("href");
+
+           $("."+ group).hide();
+           $(target).show();
+
+           $(this).parent().siblings().removeClass("on");
+           $(this).parent().addClass("on");
+
+       })
+   </script>
   </body>
 </html>

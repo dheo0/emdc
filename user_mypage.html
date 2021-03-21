@@ -61,11 +61,11 @@
                     <div class="toggle-radio round color11">
                         <div class="radio-text">
                             <input type="radio" name="typeSelect" id="rdo01" checked="checked">
-                            <label  for="rdo01">목록</label>
+                            <label  for="rdo01"><i></i></label>
                         </div>
                         <div class="radio-text">
                             <input type="radio" name="typeSelect" id="rdo02">
-                            <label  for="rdo02">캘린더형</label>
+                            <label  for="rdo02"><i></i></label>
                         </div>
                     </div>
                 </div>
@@ -81,8 +81,7 @@
                         </div>
                         <div class="flex round color11 ml20">
                             <select class="r-select type2">
-                                <option>제목</option>
-                                <option>작성자</option>
+                                <option>회의명</option>
                             </select>
                             <input type="text" placeholder="검색어를 입력하세요" style="width: 355px;">
                             <button type="button" class="btn-ico-search">검색</button>
@@ -97,7 +96,7 @@
                                 <label for="chk02">참여회의</label>
                             </div>
                         </div>
-                        <a href="#none" class="btn btn-basic upload"><i></i>엑셀업로드</a>
+                        <a href="#none" class="btn btn-basic"><i class="ico ico-down"></i>엑셀다운로드</a>
                     </div>
                     <div class="table-wrap2">
                         <table class="basic-table">
@@ -137,8 +136,8 @@
                                     <td class="status"><i class="st01"></i>진행중</td>
                                     <td>홍길동/IT 기획부/차장</td>
                                     <td>나의예약</td>
-                                    <td><a href="#none" class="join-btn">다운로드</a></td>
-                                    <td><a href="#none" class="control-btn">삭제</a></td>
+                                    <td><a href="#none" class="btn-join on">참여</a></td>
+                                    <td><a href="#none" class="control-btn2 on">제어</a></td>
                                 </tr>
                                 <tr>
                                     <td>즉시회의</td>
@@ -149,8 +148,8 @@
                                     <td class="status"><i class="st02"></i>진행대기</td>
                                     <td>홍길동/IT 기획부/차장</td>
                                     <td>나의예약</td>
-                                    <td><a href="#none" class="join-btn on">다운로드</a></td>
-                                    <td><a href="#none" class="control-btn on">삭제</a></td>
+                                    <td><a href="#none" class="btn-join on">참여</a></td>
+                                    <td><a href="#none" class="control-btn2">제어</a></td>
                                 </tr>
                                 <tr>
                                     <td>즉시회의</td>
@@ -161,8 +160,8 @@
                                     <td class="status"><i class="st03"></i>회의종료</td>
                                     <td>홍길동/IT 기획부/차장</td>
                                     <td>나의예약</td>
-                                    <td><a href="#none" class="join-btn on">다운로드</a></td>
-                                    <td><a href="#none" class="control-btn on">삭제</a></td>
+                                    <td><a href="#none" class="btn-join">참여</a></td>
+                                    <td><a href="#none" class="control-btn2">제어</a></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -178,6 +177,25 @@
                     </div>
                 </div>
                 <div data-id="rdo02" class="mypage-type" style="display: none">
+                    <div id="srch" class="search-line justify-content-end">
+                        <div class="flex justify-content-between">
+                            <div class="flex gap-3">
+                                <div class="chk-wrap">
+                                    <input type="checkbox" id="chk03">
+                                    <label for="chk03">나의예약</label>
+                                </div>
+                                <div class="chk-wrap">
+                                    <input type="checkbox" id="chk04">
+                                    <label for="chk04">참여회의</label>
+                                </div>
+                            </div>
+                            <div class="flag gap-2">
+                                <span class="flag1">진행대기</span>
+                                <span class="flag2">진행중</span>
+                                <span class="flag3">회의종료</span>
+                            </div>
+                        </div>
+                    </div>
                     <div id="calendar" class="mycalendar"></div>
                 </div>
             </div>
