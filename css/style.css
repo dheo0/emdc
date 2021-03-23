@@ -175,8 +175,8 @@ select::-ms-expand {display: none;}
 .btn-basic{color:#6f6f6f}
 .btn-basic{border-radius: 9999px;background-color: #f2f2f2;}
 .btn-circle-regist{width: 38px;height: 38px;background: url("../images/btn_regist.png") no-repeat 0 0 ;text-indent: -9999px;border-radius: 9999px;overflow: hidden;min-width: 0;flex: 0 0 38px;}
-
-
+.btn-init{display: inline-block;width: 21px;height: 21px;background: url("../images/icon_init.png")  no-repeat 0 0;text-indent: -9999px;}
+.btn-basic i.refresh{display: inline-block;width: 21px;height: 21px;background: url("../images/icon_init.png")  no-repeat 0 0;text-indent: -9999px;vertical-align: middle;}
 
 .form{margin-top: 40px;}
 .form-item{display:flex;position:relative;padding-right: 15px;margin-top:20px;align-items: center;}
