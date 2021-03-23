@@ -185,6 +185,7 @@ select::-ms-expand {display: none;}
 .pop-form .form-item .tit{padding-left: 0;}
 .section{margin-bottom: 15px;padding: 15px 0;box-shadow: 2.079px 9.781px 40px 0px rgba(0, 0, 0, 0.03);}
 .section .form-item:first-child{margin-top:0}
+.section .form-item.chktype{margin-top: 30px;}
 .section .form-cont p{margin-bottom: 0;line-height: 38px;}
 .section .form-cont p.able{color:#72aaf5}
 .section .form-cont .dash{min-width: 120px;text-align: center;line-height: 38px;}
