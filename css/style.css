@@ -112,6 +112,8 @@ h2:before{content: '';position: absolute;width: 7px;height: 24px;background: #72
 .rstat{min-width: 140px;}
 .round{border-radius: 9999px;}
 .flex{display: flex;}
+.flex.half .form-item{width: 50%}
+.flex.half .form-item:first-child{margin-top: 20px;}
 .flex.column{flex-direction: column;justify-content: center;}
 .textarea{padding:15px 13px;min-height: 120px;}
 .ui-select{position: relative;}
@@ -432,7 +434,16 @@ a.btn.upload i{display:inline-block;width:14px;height:16px;background:url("../im
 .settings ul li .chk-wrap.chk-right label::after{right:5px;left:auto}
 .section .col-6 h3{color:#6f6f6f;font-size: 20px;font-weight:500;position: relative;line-height: 100%;padding-left: 20px;margin-left:35px;margin-bottom: 30px;}
 .section .col-6 h3:before{content: '';position: absolute;width: 7px;height: 20px;background: #72aaf5;top:50%;left:0;transform: translateY(-50%);}
+
+.section h4.single:first-child{margin-top: 0;}
+.section h4.single{color:#6f6f6f;font-size: 20px;font-weight:500;position: relative;line-height: 100%;padding-left: 20px;margin-left:35px;margin-bottom: 30px;margin-top:35px}
+.section h4.single:before{content: '';position: absolute;width: 7px;height: 20px;background: #72aaf5;top:50%;left:0;transform: translateY(-50%);}
+.section .col-6 h4:first-child{margin-top: 0;}
+.section .col-6 h4{color:#6f6f6f;font-size: 20px;font-weight:500;position: relative;line-height: 100%;padding-left: 20px;margin-left:35px;margin-bottom: 30px;margin-top:35px}
+.section .col-6 h4:before{content: '';position: absolute;width: 7px;height: 20px;background: #72aaf5;top:50%;left:0;transform: translateY(-50%);}
 .section.ty2 .r-select{background-position-x: 85%;line-height: 38px;color:#909090}
+.section .form-item.chktype .chk-wrap{width: 50%;}
+.section .form-item.chktype .chk-wrap:first-child{padding-left: 35px;}
 ul.alrim{width:480px;justify-content: space-between;padding-left: 35px;}
 td .r-select{text-align: center;background-position:75% center}
 
@@ -623,3 +634,9 @@ input[name="typeSelect"]#rdo02:checked + label i{background-position: -37px -3px
 .tab-menu.type2 li a{display: block;border-bottom: 3px solid #f2f2f2;color: #6f6f6f;font-size: 20px;padding:7px 5px;line-height: 100%;font-weight: 500;}
 .tab-menu.type2 li.on a{color:#2071dc;border-bottom-color: #2071dc;}
 .treeview.wide{margin:50px 30px 0 0;min-width: 300px;}
+.daily-date{margin-bottom: 20px;}
+.daily-date input{width: 230px;text-align: center;font-size: 25px;color:#6f6f6f}
+.daily-date a{display: inline-block;width:38px;height: 38px;border-radius: 50%;text-indent: -9999px;}
+.daily-date a.cal-prev{background: #f2f2f2 url("../images/cal_prev.png") no-repeat center center;}
+.daily-date a.cal-next{background: #f2f2f2 url("../images/cal_next.png") no-repeat center center;margin-right: 20px;}
+.daily-date button{min-width: 70px;}

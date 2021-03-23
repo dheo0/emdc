@@ -70,7 +70,7 @@
                     </div>
                 </div>
                 <div data-id="rdo01" class="mypage-type">
-                    <div class="search-line va-center">
+                    <div class="search-line va-center justify-content-between"> <!--210323 : 수정 -->
                         <div class="date-wrap">
                             <input type="input" class="datepicker color11 round">
                             <span>~</span>
@@ -175,6 +175,14 @@
                     </div>
                 </div>
                 <div data-id="rdo02" class="mypage-type" style="display: none">
+                    <!-- 210323 : 추가-->
+                    <div class="daily-date flex va-center">
+                        <a href="#prev" class="cal-prev">이전</a>
+                        <input type="text" id="datepicker2">
+                        <a href="#next" class="cal-next">다음</a>
+                        <button type="button" class="btn btn-basic">오늘</button>
+                    </div>
+                    <!-- // 210323 : 추가-->
                     <div id="calendar2" class="mycalendar"></div>
                 </div>
             </div>
@@ -351,7 +359,23 @@
 
 
     </script>
-    <script>
+    <script> 
+
+        /* 210323 */
+        $("#datepicker2").datepicker({ dateFormat: 'yy.mm.dd D' }).datepicker("setDate", new Date());
+        $('.cal-next').on("click", function () {
+            var date = $('#datepicker2').datepicker('getDate');
+            date.setTime(date.getTime() + (1000*60*60*24))
+            $('#datepicker2').datepicker("setDate", date);
+        });
+
+        $('.cal-prev').on("click", function () {
+            var date = $('#datepicker2').datepicker('getDate');
+            date.setTime(date.getTime() - (1000*60*60*24))
+            $('#datepicker2').datepicker("setDate", date);
+        });
+
+        /* // 210323 */
         function calendar(){
         
           var calendarEl = document.getElementById('calendar2');
@@ -367,12 +391,8 @@
             aspectRatio: 1.8,
             scrollTime: '00:00',
             eventColor: '#b7b7b7',
-            headerToolbar: {
-              left: 'prev title next today',
-              right:''
-            },
             initialView: 'resourceTimelineDay',
-            
+            headerToolbar: false,  // 210323
             resourceAreaHeaderContent: '회의실명',
             resourceLabelDidMount: function(arg) {
               var resource = arg.resource;
