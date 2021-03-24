@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>영상회의 예약시스템</title>
+    <!-- 공통 -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/datepicker.css">
+    <link rel="stylesheet" href="css/datatable.css">
+    <link rel="stylesheet" href="css/fullcalendar.css">
+    <link rel="stylesheet" href="css/jstree.css">
+    <link rel="stylesheet" href="css/style.css" >
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/datepicker-ko.js"></script>
+    <!-- // 공통 -->
+
+    <!-- 현재페이지 -->
+    <script src="js/Chart.js"></script>
+
+    <!-- // 현재페이지 -->
+  </head>
+  <body>
+    <div id="wrap"><!-- class="dark-theme" -->
+        <nav>
+            <h1 class="logo">
+                <a href="/">영상회의 예약시스템</a>
+            </h1>
+            <ul class="gnb">
+                <li class=""><a href="#none"><i class="ico ico-mng01"></i>예약관리</a></li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng02"></i>회의실관리</a>
+                    <ul>
+                        <li>
+                            <a href="#none">회의실 관리</a>
+                            <a href="#none">회의실 위치 관리</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng03"></i>가상회의실 관리</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng04"></i>사용자 관리</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng05"></i>LDAP/AD연동</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng06"></i>LDAP/AD연동</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng07"></i>대시보드</a>
+                    <ul>
+                        <li><a href="#none">대시보드 1</a></li>
+                        <li><a href="#none">대시보드 2</a></li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng08"></i>통계</a>
+                    <ul>
+                        <li><a href="#none">회의별 통계</a></li>
+                        <li><a href="#none">회의실별 통계</a></li>
+                        <li><a href="#none">부서별 통계</a></li>
+                        <li><a href="#none">기간별 통계</a></li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng09"></i>녹화파일 관리</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng10"></i>관리자 역할 관리</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng11"></i>관리자 권한 관리</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng12"></i>시스템 로그</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng13"></i>시스템 설정</a>
+                    <ul>
+                        <li><a href="#none">CMS 서버정보관리</a></li>
+                        <li><a href="#none">전역 프로파일 설정</a></li>
+                        <li><a href="#none">회의모드 설정</a></li>
+                        <li><a href="#none">회의 설정</a></li>
+                        <li><a href="#none">매크로 콜 설정</a></li>
+                        <li><a href="#none">공지사항 관리</a></li>
+                        <li><a href="#none">사용자 녹화제어 설정</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div class="container">
+            <div class="users flex justify-content-end">
+                <span class=""><strong>홍길동님</strong>, 환영합니다.</span>
+                <ul class="flex">
+                    <li><a href="#none">사용자</a></li>
+                    <li><a href="#none">로그아웃</a></li>
+                </ul>
+
+            </div>
+            <h2>시간별 통계</h2>
+            <div class="search-line flex justify-content-between">
+                <div class="flex"> 
+                    <select class="r-select" style="width: 80px;" id="select01">
+                        <option value="daily">일별</option>
+                        <option value="monthly">월별</option>
+                    </select>
+                    <div class="date-wrap" style="margin:0 20px">
+                        <input type="input" class="datepicker color11 round">
+                        <span>~</span>
+                        <input type="input" class="datepicker color11 round">
+                    </div>
+                    <button type="button" class="btn-search">찾기</button>
+                </div>
+                <div>
+                    <div class="toggle" id="toggle01">
+                        <button type="button" class="btn btn-basic"><i class="ico ico-stat"></i>통계차트</button>
+                        <button type="button" class="btn btn-basic"><i class="ico ico-down"></i>엑셀다운로드</button>
+                    </div>
+                    <div class="toggle" id="toggle02" style="display: none;">
+                        <button type="button" class="btn btn-basic"><i class="ico ico-table"></i>통계테이블</button>
+                        <button type="button" class="btn btn-basic"><i class="ico ico-down"></i>PDF다운로드</button>
+                    </div>
+                </div>
+            </div>
+            <div class="table-wrap3 toggle-content" data-id="toggle01">
+                <table class="table02">
+                    <colgroup>
+                        <col style="width:150px">
+                    </colgroup>
+                    <thead>
+                        <tr class="first">
+                            <th>예약시간</th>
+                            <th colspan="4">합계</th>
+                            <th colspan="4">04월07일</th>
+                            <th colspan="4">04월08일</th>
+                            <th colspan="4">04월09일</th>
+                            <th colspan="4">04월10일</th>
+                            <th colspan="4">04월11일</th>
+                            <th colspan="4">04월12일</th>
+                            <th colspan="4">04월13일</th>
+                            <th colspan="4">04월14일</th>
+                            <th colspan="4">04월15일</th>
+                            <th colspan="4">04월16일</th>
+                            <th colspan="4">04월17일</th>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <th>예약</th>
+                            <th>TV</th>
+                            <th>PC</th>
+                            <th>TV/PC</th>
+                            <th>예약</th>
+                            <th>TV</th>
+                            <th>PC</th>
+                            <th>TV/PC</th>
+                            <th>예약</th>
+                            <th>TV</th>
+                            <th>PC</th>
+                            <th>TV/PC</th>
+                            <th>예약</th>
+                            <th>TV</th>
+                            <th>PC</th>
+                            <th>TV/PC</th>
+                            <th>예약</th>
+                            <th>TV</th>
+                            <th>PC</th>
+                            <th>TV/PC</th>
+                            <th>예약</th>
+                            <th>TV</th>
+                            <th>PC</th>
+                            <th>TV/PC</th>
+                            <th>예약</th>
+                            <th>TV</th>
+                            <th>PC</th>
+                            <th>TV/PC</th>
+                            <th>예약</th>
+                            <th>TV</th>
+                            <th>PC</th>
+                            <th>TV/PC</th>
+                            <th>예약</th>
+                            <th>TV</th>
+                            <th>PC</th>
+                            <th>TV/PC</th>
+                            <th>예약</th>
+                            <th>TV</th>
+                            <th>PC</th>
+                            <th>TV/PC</th>
+                            <th>예약</th>
+                            <th>TV</th>
+                            <th>PC</th>
+                            <th>TV/PC</th>
+                            <th>예약</th>
+                            <th>TV</th>
+                            <th>PC</th>
+                            <th>TV/PC</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                           <td>00:00</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                           <td>0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="chart toggle-content" data-id="toggle02" style="display: none;">
+                <canvas id="myChart" style="width: 100%;height:600px;"></canvas>
+                <script>
+                var ctx = document.getElementById("myChart").getContext("2d");
+
+
+                var background_1 = ctx.createLinearGradient(0, 0, 0, 600);
+                    background_1.addColorStop(0, '#ffdbff');
+                    background_1.addColorStop(1, '#dda7f3');
+                    
+                
+                var background_2 = ctx.createLinearGradient(0, 0, 0, 600);
+                    background_2.addColorStop(0, '#ffe4ff');
+                    background_2.addColorStop(1, '#97bff5');
+                    
+                
+                var background_3 = ctx.createLinearGradient(0, 0, 0, 600);
+                    background_3.addColorStop(0, '#bef4f3');
+                    background_3.addColorStop(1, '#80d3d3');
+                    
+
+                var data = {
+                    labels: ["2층 vmfhwprxm 2-L1", "2층 vmfhwprxm 2-L2", "2층 vmfhwprxm 2-L3","2층 vmfhwprxm 2-L4", "2층 vmfhwprxm 2-L5", "2층 vmfhwprxm 2-L6"],
+                    datasets: [
+                        {
+                            label: "예약횟수",
+                            backgroundColor: background_1,
+                            data: [3.8,2.5,1,1,1,1]
+                        },
+                        {
+                            label: "사용인원",
+                            backgroundColor: background_2,
+                            data: [2.7,4.0,1,1,1,1]
+                        },
+                        {
+                            label: "사용시간",
+                            backgroundColor: background_3,
+                            data: [4.1,2.0,2.5,1.5,1.5,0.5]
+                        }
+                    ]
+                };
+
+                var myBarChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: data,
+                    options: {
+                        barValueSpacing: 20,
+                        legend: false,
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    min: 0,
+                                    fontSize: 16,
+                                    fontColor: '#909090'
+                                }
+                            }],
+                            xAxes: [{
+                                ticks: {
+                                    fontSize: 16,
+                                    fontColor: '#909090'
+                                }
+                            }]
+
+                        }
+                    }
+                });
+                </script>
+            </div>
+            
+        </div>
+    </div>
+    <!--// wrap -->
+    <script>
+        $(".datepicker").datepicker();
+
+        $(".toggle#toggle01 button:first-child").click("click", function(){
+            $(".toggle-content").hide();
+            $("div[data-id='toggle02']").show();
+            $(".toggle").hide();
+            $("#toggle02").show();
+        })
+
+        $(".toggle#toggle02 button:first-child").click("click", function(){
+            $(".toggle-content").hide();
+            $("div[data-id='toggle01']").show();
+            $(".toggle").hide();
+            $("#toggle01").show();
+        })
+    </script>
+
+  </body>
+</html>
