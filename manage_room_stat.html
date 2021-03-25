@@ -106,7 +106,7 @@
                 </ul>
 
             </div>
-            <h2>시간별 통계</h2>
+            <h2>회의실별 통계</h2>
             <div class="search-line flex justify-content-between">
                 <div class="flex"> 
                     <select class="r-select" style="width: 80px;" id="select01">
@@ -118,7 +118,13 @@
                         <span>~</span>
                         <input type="input" class="datepicker color11 round">
                     </div>
-                    <button type="button" class="btn-search">찾기</button>
+                    <div class="round color11">
+                        <select class="r-select" style="width: 130px;">
+                            <option value="1">회의실위치</option>
+                        </select>
+                        <button type="button" class="btn-search">찾기</button>
+                    </div>
+                    
                 </div>
                 <div>
                     <div class="toggle" id="toggle01">
@@ -138,124 +144,118 @@
                     </colgroup>
                     <thead>
                         <tr class="first">
-                            <th>예약시간</th>
-                            <th colspan="4">합계</th>
-                            <th colspan="4">04월07일</th>
-                            <th colspan="4">04월08일</th>
-                            <th colspan="4">04월09일</th>
-                            <th colspan="4">04월10일</th>
-                            <th colspan="4">04월11일</th>
-                            <th colspan="4">04월12일</th>
-                            <th colspan="4">04월13일</th>
-                            <th colspan="4">04월14일</th>
-                            <th colspan="4">04월15일</th>
-                            <th colspan="4">04월16일</th>
-                            <th colspan="4">04월17일</th>
+                            <th>회의실명</th>
+                            <th colspan="2">합계</th>
+                            <th colspan="2">04월07일</th>
+                            <th colspan="2">04월08일</th>
+                            <th colspan="2">04월09일</th>
+                            <th colspan="2">04월10일</th>
+                            <th colspan="2">04월11일</th>
+                            <th colspan="2">04월12일</th>
+                            <th colspan="2">04월13일</th>
+                            <th colspan="2">04월14일</th>
+                            <th colspan="2">04월15일</th>
+                            <th colspan="2">04월16일</th>
+                            <th colspan="2">04월17일</th>
                         </tr>
                         <tr>
-                            <td>&nbsp;</td>
-                            <th>예약</th>
-                            <th>TV</th>
-                            <th>PC</th>
-                            <th>TV/PC</th>
-                            <th>예약</th>
-                            <th>TV</th>
-                            <th>PC</th>
-                            <th>TV/PC</th>
-                            <th>예약</th>
-                            <th>TV</th>
-                            <th>PC</th>
-                            <th>TV/PC</th>
-                            <th>예약</th>
-                            <th>TV</th>
-                            <th>PC</th>
-                            <th>TV/PC</th>
-                            <th>예약</th>
-                            <th>TV</th>
-                            <th>PC</th>
-                            <th>TV/PC</th>
-                            <th>예약</th>
-                            <th>TV</th>
-                            <th>PC</th>
-                            <th>TV/PC</th>
-                            <th>예약</th>
-                            <th>TV</th>
-                            <th>PC</th>
-                            <th>TV/PC</th>
-                            <th>예약</th>
-                            <th>TV</th>
-                            <th>PC</th>
-                            <th>TV/PC</th>
-                            <th>예약</th>
-                            <th>TV</th>
-                            <th>PC</th>
-                            <th>TV/PC</th>
-                            <th>예약</th>
-                            <th>TV</th>
-                            <th>PC</th>
-                            <th>TV/PC</th>
-                            <th>예약</th>
-                            <th>TV</th>
-                            <th>PC</th>
-                            <th>TV/PC</th>
-                            <th>예약</th>
-                            <th>TV</th>
-                            <th>PC</th>
-                            <th>TV/PC</th>
+                            <th>&nbsp;</th>
+                            <th colspan="2">예약시간</th>
+                            <th colspan="2">예약시간</th>
+                            <th colspan="2">예약시간</th>
+                            <th colspan="2">예약시간</th>
+                            <th colspan="2">예약시간</th>
+                            <th colspan="2">예약시간</th>
+                            <th colspan="2">예약시간</th>
+                            <th colspan="2">예약시간</th>
+                            <th colspan="2">예약시간</th>
+                            <th colspan="2">예약시간</th>
+                            <th colspan="2">예약시간</th>
+                            <th colspan="2">예약시간</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                           <td>00:00</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
-                           <td>0</td>
+                           <td>본사 2층 영상회의실</td>
+                           <td>4</td>
+                           <td>9:20</td>
+                           <td>4</td>
+                           <td>9:20</td>
+                           <td>4</td>
+                           <td>9:20</td>
+                           <td>4</td>
+                           <td>9:20</td>
+                           <td>4</td>
+                           <td>9:20</td>
+                           <td>4</td>
+                           <td>9:20</td>
+                           <td>4</td>
+                           <td>9:20</td>
+                           <td>4</td>
+                           <td>9:20</td>
+                           <td>4</td>
+                           <td>9:20</td>
+                           <td>4</td>
+                           <td>9:20</td>
+                           <td>4</td>
+                           <td>9:20</td>
+                           <td>4</td>
+                           <td>9:20</td>
                         </tr>
+                        <tr>
+                            <td>본사 2층 영상회의실</td>
+                            <td>4</td>
+                            <td>9:20</td>
+                            <td>4</td>
+                            <td>9:20</td>
+                            <td>4</td>
+                            <td>9:20</td>
+                            <td>4</td>
+                            <td>9:20</td>
+                            <td>4</td>
+                            <td>9:20</td>
+                            <td>4</td>
+                            <td>9:20</td>
+                            <td>4</td>
+                            <td>9:20</td>
+                            <td>4</td>
+                            <td>9:20</td>
+                            <td>4</td>
+                            <td>9:20</td>
+                            <td>4</td>
+                            <td>9:20</td>
+                            <td>4</td>
+                            <td>9:20</td>
+                            <td>4</td>
+                            <td>9:20</td>
+                         </tr>
+                         <tr>
+                            <td>본사 2층 영상회의실</td>
+                            <td>4</td>
+                            <td>9:20</td>
+                            <td>4</td>
+                            <td>9:20</td>
+                            <td>4</td>
+                            <td>9:20</td>
+                            <td>4</td>
+                            <td>9:20</td>
+                            <td>4</td>
+                            <td>9:20</td>
+                            <td>4</td>
+                            <td>9:20</td>
+                            <td>4</td>
+                            <td>9:20</td>
+                            <td>4</td>
+                            <td>9:20</td>
+                            <td>4</td>
+                            <td>9:20</td>
+                            <td>4</td>
+                            <td>9:20</td>
+                            <td>4</td>
+                            <td>9:20</td>
+                            <td>4</td>
+                            <td>9:20</td>
+                         </tr>
                     </tbody>
                 </table>
             </div>
