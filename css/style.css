@@ -274,6 +274,7 @@ table.scroll-table .chk-wrap label{text-indent: -9999px;}
 .layer-form{font-weight:500;font-size:14px;color:#909090;margin-bottom: 10px;}
 .layer-form input{height: 26px;line-height: 26px;}
 .layer-form label{width: 60px;line-height: 26px;}
+.layer-form .r-select{background-position-x: 90%;}
 .wd15{width:15%}
 .wd20{width:20%}
 .wd30{width:30%}
@@ -429,6 +430,7 @@ table.dataTable.no-footer{border-bottom: 0;width: 100% !important;}
 i.ico.ico-down{display:inline-block;width:17px;height:16px;background:url("../images/icon_download.png") no-repeat 0 0;color:#72aaf5;vertical-align: middle;margin-right: 10px;}
 .btn-basic.sync{color:#72aaf5}
 .btn-basic.sync i{display:inline-block;width:17px;height:17px;background:url("../images/icon_sync.png") no-repeat 0 0;color:#72aaf5;vertical-align: middle;margin-right: 10px;}
+.btn-basic i.manager{display: inline-block;width: 22px;height: 19px;background: url("../images/btn_add_user.png") no-repeat 0 0;vertical-align: top;}
 /* select */
 .layout-selector{border: 0;width: 315px;line-height: 38px;padding:0 15px;color:#909090;background-position-x: 93%;}
 .search-line{display: flex;margin:50px 0 20px;flex-wrap: wrap;}
@@ -464,7 +466,7 @@ td .r-select{text-align: center;background-position:75% center}
 
 .basic-table{table-layout: fixed;width: 100%;}
 .basic-table th{background-color: #2071dc;font-size: 16px;font-weight:500;color:#fff;text-align: center;padding:15px 0}
-.basic-table td{color:#aaaaaa;font-size: 16px;text-align: center;padding:20px 0;border-bottom: 1px solid #f2f2f2;}
+.basic-table td{color:#9d9d9d;font-size: 16px;text-align: center;padding:20px 0;border-bottom: 1px solid #f2f2f2;}
 .pagination{margin-top:50px;padding-bottom: 100px;}
 
 .date-wrap .datepicker{width: 155px;text-align: left;color:#909090;padding:0 20px !important;background: url("../images/icon_datepicker.png") no-repeat 85% center;border:0;line-height: 38px;}
@@ -686,3 +688,14 @@ input[name="typeSelect"]#rdo02:checked + label i{background-position: -37px -3px
 .summary ul li strong i.ico04{width:18px;height: 24px;background-image: url("../images/ico_stat04.png");}
 .summary ul li strong i.ico05{width:18px;height: 24px;background-image: url("../images/ico_stat05.png");}
 h5.modal-title span{font-size: 12px;color:#fff;background-color: #97bff5;padding:0 5px;margin-left:20px}
+
+.chk-all-wrap{display: flex;margin-left: 30px;max-width: 450px;flex-wrap: wrap;}
+.chk-all-wrap.ty{max-width: 500px;}
+.chk-all-wrap .chk-wrap{width: 150px;}
+.chk-all-wrap.ty .chk-wrap{width: 160px;}
+.btn-modify{background: url("../images/btn_edit.png") no-repeat center 0;text-indent: -9999px;display: block}
+.btn-td-delete{background: url("../images/img_delete.png") no-repeat center 0;text-indent: -9999px;display: block}
+
+table#addManager tbody tr td{min-height: 55px;vertical-align: middle;line-height: 38px;}
+table#addManager tbody tr td:last-child{padding:5px 0 0 0;}
+table#addManager button.on{background-color: #72aaf5;color:#fff}

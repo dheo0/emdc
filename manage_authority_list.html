@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>영상회의 예약시스템</title>
+    <!-- 공통 -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/datepicker.css">
+    <link rel="stylesheet" href="css/datatable.css">
+    <link rel="stylesheet" href="css/fullcalendar.css">
+    <link rel="stylesheet" href="css/jstree.css">
+    <link rel="stylesheet" href="css/style.css" >
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/datepicker-ko.js"></script>
+    <!-- // 공통 -->
+
+    <!-- 현재페이지 -->
+    <script src="js/jstree.js"></script>
+
+    <!-- // 현재페이지 -->
+  </head>
+  <body>
+    <div id="wrap"><!-- class="dark-theme" -->
+        <nav>
+            <h1 class="logo">
+                <a href="/">영상회의 예약시스템</a>
+            </h1>
+            <ul class="gnb">
+                <li class=""><a href="#none"><i class="ico ico-mng01"></i>예약관리</a></li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng02"></i>회의실관리</a>
+                    <ul>
+                        <li>
+                            <a href="#none">회의실 관리</a>
+                            <a href="#none">회의실 위치 관리</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng03"></i>가상회의실 관리</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng04"></i>사용자 관리</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng05"></i>LDAP/AD연동</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng06"></i>LDAP/AD연동</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng07"></i>대시보드</a>
+                    <ul>
+                        <li><a href="#none">대시보드 1</a></li>
+                        <li><a href="#none">대시보드 2</a></li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng08"></i>통계</a>
+                    <ul>
+                        <li><a href="#none">회의별 통계</a></li>
+                        <li><a href="#none">회의실별 통계</a></li>
+                        <li><a href="#none">부서별 통계</a></li>
+                        <li><a href="#none">기간별 통계</a></li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng09"></i>녹화파일 관리</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng10"></i>관리자 역할 관리</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng11"></i>관리자 권한 관리</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng12"></i>시스템 로그</a>
+                </li>
+                <li class="">
+                    <a href="#none"><i class="ico ico-mng13"></i>시스템 설정</a>
+                    <ul>
+                        <li><a href="#none">CMS 서버정보관리</a></li>
+                        <li><a href="#none">전역 프로파일 설정</a></li>
+                        <li><a href="#none">회의모드 설정</a></li>
+                        <li><a href="#none">회의 설정</a></li>
+                        <li><a href="#none">매크로 콜 설정</a></li>
+                        <li><a href="#none">공지사항 관리</a></li>
+                        <li><a href="#none">사용자 녹화제어 설정</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div class="container">
+            <div class="users flex justify-content-end">
+                <span class=""><strong>홍길동님</strong>, 환영합니다.</span>
+                <ul class="flex">
+                    <li><a href="#none">사용자</a></li>
+                    <li><a href="#none">로그아웃</a></li>
+                </ul>
+
+            </div>
+            <h2>관리자 권한 관리</h2> 
+            <div class="search-line">
+                <select class="r-select" style="width: 100px;">
+                    <option>역할</option>
+                </select>
+                <div class="flex round color11" style="margin:0 20px;">
+                    
+                    <select class="r-select" style="width: 100px;">
+                        <option value="1">이름</option>
+                    </select>
+                    <input type="text" placeholder="검색어를 입력하세요" style="width:300px"/>
+                    <button type="button" class="btn-ico-search">검색</button>
+                </div>                
+                <button type="button" class="btn btn-basic mlauto" data-bs-toggle="modal" data-bs-target="#pop01" ><i class="manager"></i>관리자 추가</button>
+            </div>
+            
+            <div class="table-wrap2">
+                <table class="basic-table">
+                    <colgroup>
+                        <col style="width:100px"/>
+                        <col style="width:auto"/>
+                        <col style="width:auto"/>
+                        <col style="width:auto"/>
+                        <col style="width:auto"/>
+                        <col style="width:140px"/>
+                        <col style="width:150px"/>
+                        <col style="width:80px"/>
+                        <col style="width:80px"/>
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>사번</th>
+                            <th>이름</th>
+                            <th>부서</th>
+                            <th>직위</th>
+                            <th>등록일</th>
+                            <th>종료일</th>
+                            <th>역할</th>
+                            <th>관리</th>
+                            <th>삭제</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>100001</td>
+                            <td>홍길동</td>
+                            <td>IT 기획부</td>
+                            <td>차장</td>
+                            <td>2020/06/03</td>
+                            <td><input type="text" class="datepicker" value="2021/03/27" style="width: 140px;"></td>
+                            <td>
+                                <select class="r-select" style="width: 140px;">
+                                    <option value="1">최고관리자</option>
+                                </select>
+                            </td>
+                            <td><a href="#none" class="btn-modify">수정</a></td>
+                            <td><a href="#none" class="btn-td-delete">삭제</a></td>
+                        </tr>
+                  
+                    </tbody>
+                </table>
+            </div>
+            <div aria-label="Page navigation">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">이전</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">다음</a></li>
+                </ul>
+            </div>
+           
+           
+        </div>
+    </div>
+    <!-- 관리자추가 -->
+    <div div class="modal fade" id="pop01" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="max-width:960px">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">관리자추가</h5>
+            </div>
+            <div class="modal-body">
+              <!-- contents -->
+              <div class="row">
+                  <div class="col-4 valign">
+                    <div class="shadow-box" style="padding:0">
+                        <div class="treeview">
+                            <div class="head">조직도</div>
+                            <div id="data" class="demo" style="min-height: 635px;max-height: 635px;"></div>
+                            <script>
+                                // inline data demo
+                                $('#data').jstree({
+                                    'core' : {
+                                        'data' : [
+                                            { "text" : "Root node", "children" : [
+                                                    { "text" : "Child node 1" },
+                                                    { "text" : "Child node 2" }
+                                            ]},
+                                            { "text" : "Root node", "children" : [
+                                                    { "text" : "Child node 1" },
+                                                    { "text" : "Child node 2" }
+                                            ]}
+                                        ]
+                                    }
+                                });
+                            </script>
+                        </div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-8">
+                    <div class="shadow-box" style="margin-bottom: 20px;">
+                        <p><strong>조직 구성원 목록</strong></p>
+                        <div class="flex color11 round srch">
+                            <select name="" id="" class="r-select color11">
+                                <option value="이름">이름</option>
+                            </select>
+                            <input type="text" />
+                            <button type="button" class="btn-ico-search">검색</button>
+                        </div>
+                    </div>
+                    <div class="shadow-box" style="padding:0">
+                        <table class="table table-fixed" id="addManager">
+                            <thead>
+                              <tr>
+                                <th class="col-sm-2">사번</th>
+                                <th class="col-sm-2">이름</th>
+                                <th class="col-sm-3">부서</th>
+                                <th class="col-sm-2">직위</th>
+                                <th class="col-sm-3">&nbsp;</th>
+                              </tr>
+                            </thead>
+                            <tbody style="height: 356px;"> <!-- 높이값 조절-->
+                              <tr>
+                                <td class="col-sm-2">100001</td>
+                                <td class="col-sm-2">아이유</td>
+                                <td class="col-sm-3">IT기획부</td>
+                                <td class="col-sm-2">차장</td>
+                                <td class="col-sm-3"><button type="button" class="btn btn-basic" style="min-width: 80px">선택</button></td>
+                              </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="shadow-box">
+                        <div class="flex layer-form">
+                              <label for="inp001">이름</label>
+                              <input type="text" class="color11 round mr40">
+                              <label for="inp002">회사명</label>
+                              <input type="text" class="color11 round">
+                        </div>
+                        <div class="flex layer-form">
+                            <label for="inp003">휴대폰</label>
+                            <input type="text" class="color11 round mr40">
+                            <label for="inp004">이메일</label>
+                            <input type="text" class="color11 round">
+                        </div>
+                        <div class="flex layer-form" style="margin-bottom: 0;">
+                            <label for="inp003">역할</label>
+                            
+                            <select class="r-select color11 mr40" style="min-width: 178px;">
+                                <option value="11">관리자 역할</option>
+                            </select>
+                            
+                            <label for="inp004">종료일</label>
+                            <input type="text" class="color11 round datepicker" >
+                        </div>
+                      </div>
+                  </div>
+              </div>
+              <!--// contents-->
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+              <button type="button" class="btn btn-primary">확인</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!--// wrap -->
+    <script>
+        // inline data demo
+        $('#data').jstree({
+            'core' : {
+                'data' : [
+                    { "text" : "Root node", "children" : [
+                            { "text" : "Child node 1" },
+                            { "text" : "Child node 2" }
+                    ]},
+                    { "text" : "Root node", "children" : [
+                            { "text" : "Child node 1" },
+                            { "text" : "Child node 2" }
+                    ]}
+                ]
+            }
+        });
+    </script>
+    <script>
+        $(".datepicker").datepicker();
+        $(document).on("click", "#addManager button", function(){
+            $(this).toggleClass("on");
+        });
+    </script>
+  </body>
+</html>
