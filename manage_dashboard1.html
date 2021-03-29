@@ -104,69 +104,274 @@
                 </ul>
 
             </div>
-            <h2>대시보드1</h2>
+            <h2>대시보드 1</h2>
             <h3 class="sub-title">진행중 회의리스트</h3>
+            <table class="table table-fixed type3">
+                <thead>
+                  <tr>
+                    <th class="col-sm-2">회의유형</th>
+                    <th class="col-sm-1">회의구분</th>
+                    <th class="col-sm-2">시작시간</th>
+                    <th class="col-sm-2">종료시간</th>
+                    <th class="col-sm-2">회의제목</th>
+                    <th class="col-sm-1">URI</th>
+                    <th class="col-sm-2">예약자정보</th>
+                  </tr>
+                </thead>
+                <tbody style="height: 250px;"> <!-- 높이값 조절-->
+                  <tr>
+                    <td class="col-sm-2">즉시회의</td>
+                    <td class="col-sm-1">일반</td>
+                    <td class="col-sm-2">2020/06/24</td>
+                    <td class="col-sm-2">2020/06/24</td>
+                    <td class="col-sm-2">즉시업무회의</td>
+                    <td class="col-sm-1">6001</td>
+                    <td class="col-sm-2">홍길동/IT기획부/사장</td>
+                  </tr>
+                </tbody>
+            </table>
+
+
             <h3 class="sub-title">인건비현황</h3>
-            <div class="flex">
+            <div class="flex gap2 justify-content-between">
                 <div class="col-4">
                     <div class="shadow-box pd0">
                         <div class="head-title">주간</div>
-                        <canvas id="myChart001" width="100%" height="256px"></canvas>
+                        <div class="graph">
+                            <div class="type1" style="width: 50%;"><span>회의건수:10건</span></div>
+                            <div class="type2" style="width: 30%"><span>전주 5건</span></div>
+                            <div class="type1" style="width: 100%"><span>참석인원:500명</span></div>
+                            <div class="type2" style="width: 40%"><span>전주 50명</span></div>
+                            <div class="type1" style="width: 80%"><span>절감금액:100만원</span></div>
+                            <div class="type2" style="width: 30%"><span>전주 20만원</span></div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-4">2</div>
-                <div class="col-4">3</div>
+                <div class="col-4">
+                    <div class="shadow-box pd0">
+                        <div class="head-title">월간</div>
+                        <div class="graph">
+                            <div class="type1"><span>회의건수:10건</span></div>
+                            <div class="type2"><span>전주 5건</span></div>
+                            <div class="type1"><span>참석인원:500명</span></div>
+                            <div class="type2"><span>전주 50명</span></div>
+                            <div class="type1"><span>절감금액:100만원</span></div>
+                            <div class="type2"><span>전주 20만원</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="shadow-box pd0">
+                        <div class="head-title">연간</div>
+                        <div class="graph">
+                            <div class="type1"><span>회의건수:10건</span></div>
+                            <div class="type2"><span>전주 5건</span></div>
+                            <div class="type1"><span>참석인원:500명</span></div>
+                            <div class="type2"><span>전주 50명</span></div>
+                            <div class="type1"><span>절감금액:100만원</span></div>
+                            <div class="type2"><span>전주 20만원</span></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <script>
-              var ctx = document.getElementById('myChart001');
-            var myChart = new Chart(ctx, {
-                type: 'horizontalBar',
-                data: {
-                    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                    datasets: [{
-                        label: '# of Votes',
-                        data: [12, 19, 3, 5, 2, 3],
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
-                        ],
-                        borderWidth: 0
-                    }]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    }
-                }
-            });
-            </script>
+            
             <div class="flex">
                 <div class="col-6">
                     <div class="shadow-box">
-                        <canvas id="myChart002" width="100%" height="305"></canvas>
+                        <canvas id="myChart002" width="100%" height="295"></canvas>
                     </div>
                 </div>
-                <div class="col-6"></div>
+                <div class="col-6">
+
+                </div>
             </div>
-            <script type="text/javascript">
-              
-              </script>
+            <script>
+                window.chartColors = {
+	red: 'rgb(255, 99, 132)',
+	orange: 'rgb(255, 159, 64)',
+	yellow: 'rgb(255, 205, 86)',
+	green: 'rgb(75, 192, 192)',
+	blue: 'rgb(54, 162, 235)',
+	purple: 'rgb(153, 102, 255)',
+	grey: 'rgb(201, 203, 207)'
+};
+
+(function(global) {
+	var MONTHS = [
+		'January',
+		'February',
+		'March',
+		'April',
+		'May',
+		'June',
+		'July',
+		'August',
+		'September',
+		'October',
+		'November',
+		'December'
+	];
+
+	var COLORS = [
+		'#4dc9f6',
+		'#f67019',
+		'#f53794',
+		'#537bc4',
+		'#acc236',
+		'#166a8f',
+		'#00a950',
+		'#58595b',
+		'#8549ba'
+	];
+
+	var Samples = global.Samples || (global.Samples = {});
+	var Color = global.Color;
+
+	Samples.utils = {
+		// Adapted from http://indiegamr.com/generate-repeatable-random-numbers-in-js/
+		srand: function(seed) {
+			this._seed = seed;
+		},
+
+		rand: function(min, max) {
+			var seed = this._seed;
+			min = min === undefined ? 0 : min;
+			max = max === undefined ? 1 : max;
+			this._seed = (seed * 9301 + 49297) % 233280;
+			return min + (this._seed / 233280) * (max - min);
+		},
+
+		numbers: function(config) {
+			var cfg = config || {};
+			var min = cfg.min || 0;
+			var max = cfg.max || 1;
+			var from = cfg.from || [];
+			var count = cfg.count || 8;
+			var decimals = cfg.decimals || 8;
+			var continuity = cfg.continuity || 1;
+			var dfactor = Math.pow(10, decimals) || 0;
+			var data = [];
+			var i, value;
+
+			for (i = 0; i < count; ++i) {
+				value = (from[i] || 0) + this.rand(min, max);
+				if (this.rand() <= continuity) {
+					data.push(Math.round(dfactor * value) / dfactor);
+				} else {
+					data.push(null);
+				}
+			}
+
+			return data;
+		},
+
+		labels: function(config) {
+			var cfg = config || {};
+			var min = cfg.min || 0;
+			var max = cfg.max || 100;
+			var count = cfg.count || 8;
+			var step = (max - min) / count;
+			var decimals = cfg.decimals || 8;
+			var dfactor = Math.pow(10, decimals) || 0;
+			var prefix = cfg.prefix || '';
+			var values = [];
+			var i;
+
+			for (i = min; i < max; i += step) {
+				values.push(prefix + Math.round(dfactor * i) / dfactor);
+			}
+
+			return values;
+		},
+
+		months: function(config) {
+			var cfg = config || {};
+			var count = cfg.count || 12;
+			var section = cfg.section;
+			var values = [];
+			var i, value;
+
+			for (i = 0; i < count; ++i) {
+				value = MONTHS[Math.ceil(i) % 12];
+				values.push(value.substring(0, section));
+			}
+
+			return values;
+		},
+
+		color: function(index) {
+			return COLORS[index % COLORS.length];
+		},
+
+		transparentize: function(color, opacity) {
+			var alpha = opacity === undefined ? 0.5 : 1 - opacity;
+			return Color(color).alpha(alpha).rgbString();
+		}
+	};
+
+	
+
+	Samples.utils.srand(Date.now());
+
+
+
+}(this));
+        
+        
+
+        var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+		var config = {
+			type: 'line',
+			data: {
+				labels: ['19', '20', '21', '22', '23', '24', '25'],
+				datasets: [ {
+					label: 'My Second dataset',
+					fill: true,
+					backgroundColor: background_1,
+					borderColor: window.chartColors.blue,
+					data: [3,4,5,10,5,3,7],
+				}]
+			},
+			options: {
+				tooltips: {
+					mode: 'index',
+					intersect: false,
+				},
+				hover: {
+					mode: 'nearest',
+					intersect: true
+				},
+				scales: {
+					xAxes: [{
+						display: true,
+						scaleLabel: {
+							display: true,
+							labelString: 'Month'
+						}
+					}],
+					yAxes: [{
+						display: true,
+						scaleLabel: {
+							display: true,
+							labelString: 'Value'
+						}
+					}]
+				}
+			}
+		};
+
+		
+
+	
+        var ctx = document.getElementById('myChart002').getContext('2d');
+			window.myLine = new Chart(ctx, config);
+        var background_1 = ctx.createLinearGradient(0, 0, 0, 600);
+            background_1.addColorStop(0, '#72aaf5');
+            background_1.addColorStop(1, '#ffffff');
+	
+
+		
+            </script>
         </div>
     </div>
     <!--// wrap -->
