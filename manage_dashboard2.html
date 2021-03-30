@@ -104,77 +104,48 @@
                 </ul>
 
             </div>
-            <h2>대시보드 1</h2>
-            <h3 class="sub-title">진행중 회의리스트</h3>
-            <table class="table table-fixed type3">
-                <thead>
-                  <tr>
-                    <th class="col-sm-2">회의유형</th>
-                    <th class="col-sm-1">회의구분</th>
-                    <th class="col-sm-2">시작시간</th>
-                    <th class="col-sm-2">종료시간</th>
-                    <th class="col-sm-2">회의제목</th>
-                    <th class="col-sm-1">URI</th>
-                    <th class="col-sm-2">예약자정보</th>
-                  </tr>
-                </thead>
-                <tbody style="height: 250px;"> <!-- 높이값 조절-->
-                  <tr>
-                    <td class="col-sm-2">즉시회의</td>
-                    <td class="col-sm-1">일반</td>
-                    <td class="col-sm-2">2020/06/24</td>
-                    <td class="col-sm-2">2020/06/24</td>
-                    <td class="col-sm-2">즉시업무회의</td>
-                    <td class="col-sm-1">6001</td>
-                    <td class="col-sm-2">홍길동/IT기획부/사장</td>
-                  </tr>
-                </tbody>
-            </table>
+            <h2>대시보드 2
+                <select class="r-select">
+                    <option value="11">서버1</option>
+                    <option value="11">서버2</option>
+                </select>
+            </h2>
 
-
-            <h3 class="sub-title">인건비현황</h3>
-            <div class="flex gap2 justify-content-between">
-                <div class="col-4">
-                    <div class="shadow-box pd0">
-                        <div class="head-title">주간</div>
-                        <div class="graph">
-                            <div class="type1" style="width: 50%;"><span>회의건수:10건</span></div>
-                            <div class="type2" style="width: 30%"><span>전주 5건</span></div>
-                            <div class="type1" style="width: 100%"><span>참석인원:500명</span></div>
-                            <div class="type2" style="width: 40%"><span>전주 50명</span></div>
-                            <div class="type1" style="width: 80%"><span>절감금액:100만원</span></div>
-                            <div class="type2" style="width: 30%"><span>전주 20만원</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="shadow-box pd0">
-                        <div class="head-title">월간</div>
-                        <div class="graph">
-                            <div class="type1" style="width: 50%;"><span>회의건수:10건</span></div>
-                            <div class="type2" style="width: 30%"><span>전주 5건</span></div>
-                            <div class="type1" style="width: 100%"><span>참석인원:500명</span></div>
-                            <div class="type2" style="width: 40%"><span>전주 50명</span></div>
-                            <div class="type1" style="width: 80%"><span>절감금액:100만원</span></div>
-                            <div class="type2" style="width: 30%"><span>전주 20만원</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="shadow-box pd0">
-                        <div class="head-title">연간</div>
-                        <div class="graph">
-                            <div class="type1" style="width: 50%;"><span>회의건수:10건</span></div>
-                            <div class="type2" style="width: 30%"><span>전주 5건</span></div>
-                            <div class="type1" style="width: 100%"><span>참석인원:500명</span></div>
-                            <div class="type2" style="width: 40%"><span>전주 50명</span></div>
-                            <div class="type1" style="width: 80%"><span>절감금액:100만원</span></div>
-                            <div class="type2" style="width: 30%"><span>전주 20만원</span></div>
-                        </div>
-                    </div>
-                </div>
+            <div class="summary-box">
+                <div class="summary-head">CMS #1 Server Info</div>
+                <ul>
+                    <li>
+                        <span><i class="uptime"></i>Uptime</span>
+                        <strong>365일 11시간 40분</strong>
+                    </li>
+                    <li>
+                        <span><i class="version"></i>Version</span>
+                        <strong>2.6.5</strong>
+                    </li>
+                    <li>
+                        <span><i class="call"></i>Call</span>
+                        <strong>5600 건</strong>
+                    </li>
+                    <li>
+                        <span><i class="activecall"></i>Active Call</span>
+                        <strong>8건</strong>
+                    </li>
+                    <li>
+                        <span><i class="cuser"></i>접속자수</span>
+                        <strong>800</strong>
+                    </li>
+                    <li>
+                        <span><i class="muser"></i>동시 최대접속자수</span>
+                        <strong>900</strong>
+                    </li>
+                    <li>
+                        <span><i class="vroom"></i>가상회의실수</span>
+                        <strong>2</strong>
+                    </li>
+                </ul>
             </div>
-            <h3 class="sub-title">실시간현황</h3>
+            
+            <h3 class="sub-title">실시간그래프</h3>
             <div class="flex">
                 <div class="col-6">
                     <div class="shadow-box">

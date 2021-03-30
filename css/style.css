@@ -28,6 +28,7 @@
 
 * {font-family: 'NotoSansKR-Regular',sans-serif;font-weight: 400;margin:0;}
 html,body,#wrap{min-height: 100%}
+#wrap{min-width: 1366px}
 #wrap.dark-theme{background-color: #181818;}
 #wrap{display: flex;min-width: 1330px !important;}
 nav{min-height: 100%;background-color: #f2f2f2;}
@@ -225,6 +226,7 @@ select::-ms-expand {display: none;}
 .section .multi-form-cont .form-cont .ext{margin-bottom:15px}
 .section .multi-form-cont .form-cont .ext + button{margin-left: auto;}
 .section .multi-form-cont .table01{max-width: 730px;}
+.section .form-cont .r-select{line-height: 38px;background-position-x: 96%;}
 .section.ty2 .tit{width: 195px;}
 
 .bootstrap-tagsinput {background-color: #f2f2f2;display: inline-block;color: #555;vertical-align: middle;border-radius: 9999px;width: 100%;line-height: 22px;cursor: text;margin-right: 20px;padding:0 10px;position: relative;}
@@ -724,3 +726,20 @@ table#addManager button.on{background-color: #72aaf5;color:#fff}
     background-image: -webkit-linear-gradient( 180deg, rgb(231,231,231) 0%, rgb(245,245,245) 100%);
     background-image: -ms-linear-gradient( 180deg, rgb(231,231,231) 0%, rgb(245,245,245) 100%);  
 }
+.summary-box{box-shadow: 0px 1px 42.14px 0.86px rgba(0, 0, 0, 0.03);margin-top: 50px;}
+.summary-head{background-color: #f2f2f2;color:#909090;font-size: 16px;padding:3px 20px}
+.summary-box ul{display: flex;justify-content: space-between;padding:10px 0}
+.summary-box ul li{padding:15px 0;width: 100%;border-left: 1px solid #f2f2f2;}
+.summary-box ul li:first-child{border-left:0}
+.summary-box ul li span{display: block;text-align: center;color:#9d9d9d;font-size: 14px;margin-bottom: 10px;}
+.summary-box ul li span i{display: inline-block;vertical-align: middle;margin-right: 10px;background-repeat: no-repeat;}
+.summary-box ul li span i.uptime{width:20px;height:20px;background:url("../images/icon_uptime.png")}
+.summary-box ul li span i.version{width:19px;height:19px;background:url("../images/icon_version.png")}
+.summary-box ul li span i.call{width:19px;height:20px;background:url("../images/icon_call.png")}
+.summary-box ul li span i.activecall{width:21px;height:23px;background:url("../images/icon_acall.png")}
+.summary-box ul li span i.cuser{width:19px;height:19px;background:url("../images/icon_dash_user.png")}
+.summary-box ul li span i.muser{width:24px;height:20px;background:url("../images/icon_muser.png")}
+.summary-box ul li span i.vroom{width:21px;height:18px;background:url("../images/icon_vroom.png")}
+.summary-box ul li strong{display: block;text-align: center;font-weight: 500;color:#909090}
+
+h2 .r-select{font-size: 16px;color:#909090}

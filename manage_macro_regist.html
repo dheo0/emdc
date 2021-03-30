@@ -22,6 +22,7 @@
     <!-- 현재페이지 -->
     <script src="js/tagsinput.js"></script>
     <script src="js/typeahead.js"></script>
+    <script src="js/jstree.js"></script>
     <script src="js/script.js"></script>
     <!-- // 현재페이지 -->
   </head>
@@ -126,7 +127,7 @@
                         <div class="tit">가상화의실 선택</div>
                         <div class="form-cont">
                             
-                            <select class="r-select round color11">
+                            <select class="r-select round color11" style="width: 100%;">
                                 <option value="">가상회의실</option>
                             </select>
                             
@@ -134,7 +135,7 @@
                         <div class="tit">가상화의실 URI</div>
                         <div class="form-cont">
                             
-                            <select class="r-select round color11">
+                            <select class="r-select round color11" style="width: 260px;">
                                 <option value="">6001</option>
                             </select>
                             
@@ -146,16 +147,16 @@
                 <div class="section">
                     <div class="form-item">
                         <div class="tit">참석자</div>
-                        <div class="flex form-cont">
+                        <div class="flex form-cont" style="max-width: 980px;">
                             <input type="text" class="color11 round" id="tagsinput">
-                            <button type="button" class="vbtn" data-bs-toggle="modal" data-bs-target="#srchRoom"><i class="ico search"></i>검색</button><!-- 20210309 --> 
+                            <button type="button" class="vbtn"><i class="ico search"></i>검색</button>
                         </div>
                     </div>
                     <div class="form-item">
                         <div class="tit">호스트</div>
-                        <div class="flex form-cont">
+                        <div class="flex form-cont" style="max-width: 980px;">
                             <input type="text" data-role="tagsinput" class="color11 round" id="tagsinput2">
-                            <button type="button" class="vbtn" data-bs-toggle="modal" data-bs-target="#attend"><i class="ico search"></i>검색</button>
+                            <button type="button" class="vbtn" data-bs-toggle="modal" data-bs-target="#pop01"><i class="ico select"></i>검색</button>
                         </div>
                     </div>
                 </div>
@@ -188,6 +189,299 @@
         </div>
     </div>
     <!--// wrap -->
+
+    <!-- 정기화상회의 팝업 -->
+    <div div class="modal fade" id="pop01" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body no-head">
+                <div class="tab-menu type2">
+                    <ul class="flex">
+                        <li class="on"><a href="#tab01" data-group="row">회의실</a></li>
+                        <li><a href="#tab02" data-group="row">임직원</a></li>
+                    </ul>
+                </div>
+            <!-- contents -->
+            <!-- 회의실 -->
+            <div class="row" id="tab01">
+                <div class="col-6">
+                    <div class="flex color11 round srch" style="margin-bottom: 20px;">
+                        <select name="" id="" class="r-select color11">
+                            <option value="이름">이름</option>
+                        </select>
+                        <input type="text" placeholder="회의실 이름을 검색하세요."/>
+                        <button type="button" class="btn-ico-search">검색</button>
+                    </div>
+                    <div class="shadow-box" style="padding:0">
+                        <table class="table table-fixed">
+                        <thead>
+                          <tr>
+                            <th class="col-sm-2">
+                                <div class="chk-wrap">
+                                    <input type="checkbox" id="all">
+                                    <label for="all">선택</label>    
+                                </div>
+                            </th>
+                            <th class="col-sm-3">회의실 위치</th>
+                            <th class="col-sm-4">회의실명</th>
+                            <th class="col-sm-3">상태</th>
+                          </tr>
+                        </thead>
+                        <tbody style="height: 442px;"> <!-- 높이값 조절-->
+                          <tr>
+                            <td class="col-sm-2">
+                                <div class="chk-wrap">
+                                    <input type="checkbox" id="ID0001">
+                                    <label for="ID0001">선택</label>    
+                                </div>
+                            </td>
+                            <td class="col-sm-3">본사</td>
+                            <td class="col-sm-4">본사 1층영상회의실</td>
+                            <td class="col-sm-3">진행중</td>
+                          </tr>
+                      </tbody>
+                      </table>
+                    </div>
+                </div>
+                <div class="col-1">
+                    <div class="data-controls center">
+                        <button type="button" class="btn-move-next">next</button>
+                        <button type="button" class="btn-move-prev">prev</button>
+                        <button type="button" class="btn-move-refresh">refresh</button>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <div class="title">추가 회의실 목록</div>
+                    <div class="shadow-box" style="padding:0">
+                        <table class="table table-fixed">
+                            <thead>
+                              <tr>
+                                <th class="col-sm-2">
+                                    <div class="chk-wrap">
+                                        <input type="checkbox" id="all101010">
+                                        <label for="all101010">선택</label>    
+                                    </div>
+                                </th>
+                                <th class="col-sm-3">회의실 위치</th>
+                                <th class="col-sm-4">회의실명</th>
+                                <th class="col-sm-3">상태</th>
+                              </tr>
+                            </thead>
+                            <tbody style="height: 456px;"> <!-- 높이값 조절-->
+                              <tr>
+                                <td class="col-sm-2">
+                                    <div class="chk-wrap">
+                                        <input type="checkbox" id="ID1001">
+                                        <label for="ID1001">선택</label>    
+                                    </div>
+                                </td>
+                                <td class="col-sm-3">본사</td>
+                                <td class="col-sm-4">본사 1층영상회의실</td>
+                                <td class="col-sm-3">진행중</td>
+                              </tr>
+                              <tr>
+                                <td class="col-sm-2">
+                                    <div class="chk-wrap">
+                                        <input type="checkbox" id="ID1002">
+                                        <label for="ID1002">선택</label>    
+                                    </div>
+                                </td>
+                                <td class="col-sm-3">본사</td>
+                                <td class="col-sm-4">본사 1층영상회의실</td>
+                                <td class="col-sm-3">진행중</td>
+                              </tr>
+                              <tr>
+                                <td class="col-sm-2">
+                                    <div class="chk-wrap">
+                                        <input type="checkbox" id="ID1003">
+                                        <label for="ID1003">선택</label>    
+                                    </div>
+                                </td>
+                                <td class="col-sm-3">본사</td>
+                                <td class="col-sm-4">본사 1층영상회의실</td>
+                                <td class="col-sm-3">진행중</td>
+                              </tr>
+                             
+                          </tbody>
+                          </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="tab02" style="display: none;">
+                <div class="col-3">
+                    <div class="shadow-box" style="padding:0;min-height:540px;max-height:540px">
+                        <div class="treeview">
+                            <div class="head">조직도</div>
+                            <div id="data" class="demo"></div>
+                        
+                            <script>
+                                // inline data demo
+                                $('#data').jstree({
+                                    'core' : {
+                                        'data' : [
+                                            { "text" : "Root node", "children" : [
+                                                    { "text" : "Child node 1" },
+                                                    { "text" : "Child node 2" }
+                                            ]},
+                                            { "text" : "Root node", "children" : [
+                                                    { "text" : "Child node 1" },
+                                                    { "text" : "Child node 2" }
+                                            ]}
+                                        ]
+                                    }
+                                });
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                  <div class="shadow-box" style="padding:0;margin-bottom: 20px;">
+                      
+                      <ul class="tab-menu">
+                          <li class="on"><a href="#tab04" data-group="tab-content">조직 구성원 목록</a></li>
+                          <li><a href="#tab05" data-group="tab-content">즐겨찾기 사용자 목록</a></li>
+                      </ul>
+                      <div>
+                          <div class="srch color11 round">
+                              <select name="" id="" class="r-select color11">
+                                  <option value="이름">이름</option>
+                              </select>
+                              <input type="text" />
+                              <button type="button" class="btn-ico-search">검색</button>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="shadow-box" style="padding:0">
+                      <div id="tab04" class="tab-content">
+                        <table class="table table-fixed">
+                            <thead>
+                              <tr>
+                                <th class="col-sm-1">
+                                    <div class="chk-wrap">
+                                        <input type="checkbox" id="ID10020001">
+                                        <label for="ID10020001">전체선택</label>    
+                                    </div>
+                                </th>
+                                <th class="col-sm-1">
+                                    <a href="#none" data-select="unselect" id="allSelect">선택</a>
+                                </th>
+                                <th class="col-sm-2">이름</th>
+                                <th class="col-sm-4">부서</th>
+                                <th class="col-sm-4">직위</th>
+                              </tr>
+                            </thead>
+                            <tbody style="height: 347px;"> <!-- 높이값 조절-->
+                              <tr>
+                                  <td class="col-sm-1">
+                                    <div class="chk-wrap">
+                                        <input type="checkbox" id="ID10020011">
+                                        <label for="ID10020011">선택</label>    
+                                    </div>
+                                  </td>
+                                  <td class="col-sm-1">
+                                    <a href="#none" data-select="unselect" id="ab001">선택</a>
+                                  </td>
+                                  <td class="col-sm-2">홍길동</td>
+                                  <td class="col-sm-4">it기획부</td>
+                                  <td class="col-sm-4">차장</td>
+                              </tr>
+                            </tbody>
+                        </table>
+                      </div>
+                      <div id="tab05" class="tab-content" style="display: none;">
+                          <table class="table table-fixed">
+                            <thead>
+                              <tr>
+                                <th class="col-sm-2">
+                                    <div class="chk-wrap">
+                                        <input type="checkbox" id="ID10020001">
+                                        <label for="ID10020001">전체선택</label>    
+                                    </div>
+                                </th>
+                                <th class="col-sm-2">이름</th>
+                                <th class="col-sm-4">부서</th>
+                                <th class="col-sm-4">직위</th>
+                              </tr>
+                            </thead>
+                            <tbody style="height: 347px;"> <!-- 높이값 조절-->
+                              <tr>
+                                  <td class="col-sm-2">
+                                    <div class="chk-wrap">
+                                        <input type="checkbox" id="ID10020011">
+                                        <label for="ID10020011">선택</label>    
+                                    </div>
+                                  </td>
+                                  <td class="col-sm-2">홍길동</td>
+                                  <td class="col-sm-4">it기획부</td>
+                                  <td class="col-sm-4">차장</td>
+                              </tr>
+                            </tbody>
+                        </table>
+                      </div>
+                  </div>
+                  <!--// 202103014 -->
+                </div>
+                <div class="col-1">
+                  <div class="data-controls center">
+                      <button type="button" class="btn-move-next">next</button>
+                      <button type="button" class="btn-move-prev">prev</button>
+                      <button type="button" class="btn-move-refresh">refresh</button>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="title">추가 참석자 목록</div> <!-- 210314 -->
+                  <div class="shadow-box" style="padding:0">
+                    <table class="table table-fixed">
+                        <thead>
+                          <tr>
+                            <th class="col-sm-1">
+                                <div class="chk-wrap">
+                                    <input type="checkbox" id="ID10020112">
+                                    <label for="ID10020112">전체선택</label>    
+                                </div>
+                            </th>
+                            <th class="col-sm-3">이름</th>
+                            <th class="col-sm-4">부서</th>
+                            <th class="col-sm-4">직위</th>
+                          </tr>
+                        </thead>
+                        <tbody style="height: 456px;"> <!-- 높이값 조절-->
+                          <tr>
+                              <td class="col-sm-1">
+                                <div class="chk-wrap">
+                                    <input type="checkbox" id="ID10020111">
+                                    <label for="ID10020111">선택</label>    
+                                </div>
+                              </td>
+                              <td class="col-sm-3">홍길동</td>
+                              <td class="col-sm-4">it기획부</td>
+                              <td class="col-sm-4">차장</td>
+                          </tr>
+                        </tbody>
+                    </table>
+                  </div>
+              </div>
+            </div>
+            <script>
+                $("[data-select]").each(function(){
+                    $(this).on("click", function(e){
+                        e.preventDefault();
+                        $(this).toggleClass("on");
+                    })
+                })
+            </script>
+            
+            <!--// contents-->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                <button type="button" class="btn btn-primary">확인</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- // 정기화상회의 팝업-->
+
     <script>
         var rooms = new Bloodhound({
         datumTokenizer: Bloodhound.tokenizers.obj.whitespace('text'),
@@ -212,6 +506,19 @@
         elt.tagsinput('add', { "value": 7 , "text": "Sydney"      , "continent": "Australia" });
         elt.tagsinput('add', { "value": 10, "text": "Beijing"     , "continent": "Asia"      });
         elt.tagsinput('add', { "value": 13, "text": "Cairo"       , "continent": "Africa"    });
+
+        $(".tab-menu li a").on("click", function(e){
+           e.preventDefault();
+           var group = $(this).data("group");
+           var target = $(this).attr("href");
+
+           $("."+ group).hide();
+           $(target).show();
+
+           $(this).parent().siblings().removeClass("on");
+           $(this).parent().addClass("on");
+
+       })
     </script>
 
   </body>
