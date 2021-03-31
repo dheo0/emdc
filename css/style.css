@@ -743,3 +743,6 @@ table#addManager button.on{background-color: #72aaf5;color:#fff}
 .summary-box ul li strong{display: block;text-align: center;font-weight: 500;color:#909090}
 
 h2 .r-select{font-size: 16px;color:#909090}
+.tab-style{display: flex;margin-top:20px}
+.tab-style li{width: 100%;text-align: center;color:#909090;border-bottom: 4px solid #f2f2f2;font-weight: 500;padding-bottom: 10px;}
+.tab-style li.on{border-bottom-color: #72aaf5;}
