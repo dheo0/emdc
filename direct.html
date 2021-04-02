@@ -331,7 +331,7 @@
                             <div class="input-group color11">
                                 <span class="upload">
                                     <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                                    <span><i class="ico search"></i>찾아보기</span>
+                                    <span><b id="filename"></b><i class="ico search"></i>찾아보기</span><!-- 20210401 추가-->
                                 </span>
                                 <button class="vbtn color11" type="button" id="inputGroupFileAddon04"><i class="ico file"></i> 업로드</button>
                             </div>
@@ -637,7 +637,13 @@ $('#tagsinput').tagsinput({
 });
 
 
-
+ /* 20210401 */ 
+ $("#inputGroupFile04").on("change", function(){
+            var filename = $("#inputGroupFile04").val();
+            var str = filename.substring(filename.lastIndexOf("\\")+1, filename.length);
+            $("#filename").text(str);
+        });
+        /* 20210401 */
 
          
         
