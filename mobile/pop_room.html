@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EMDC</title>
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="wrap" class="pop">
+      <header class="header">
+          <div class="navigation">
+              <a href="#none" class="prev"></a>
+              <h1>회의실 추가초대</h1>
+          </div>
+      </header>
+      <div class="container">
+          <div class="search">
+              <div class="radio-wrap">
+                  <input type="radio" name="rdo" id="rdo01">
+                  <label for="rdo01">위치</label>
+                  <input type="radio" name="rdo" id="rdo02">
+                  <label for="rdo02">본사</label>
+              </div>
+              <select>
+                  <option value="1">1</option>
+                  <option value="1">1</option>
+              </select>
+          </div>
+          <div class="content">
+              <div class="table-wrap">
+                  <table class="table01">
+                    <colgroup>
+                        <col style="width: 90px;">
+                        <col style="width: auto;">
+                    </colgroup>
+                      <thead>
+                      <tr>
+                          <th>
+                              <div class="chk-wrap">
+                                  <input type="checkbox" id="all">
+                                  <label for="all" class="indent"><i></i></label>
+                              </div>
+                          </th>
+                          <th>회의실</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="chk-wrap">
+                                    <input type="checkbox" id="ab01">
+                                    <label for="ab01" class="indent"><i></i></label>
+                                </div>
+                            </td>
+                            <td>연구소 2층 영상회의실</td>
+                        </tr>
+                    </tbody>
+                  </table>
+              </div>
+              <div class="table-wrap2">
+                  <table class="table02">
+                    <colgroup>
+                        <col style="width: 90px;">
+                        <col style="width: auto;">
+                        <col style="width: 120px;">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th>회의실</th>
+                            <th>상태</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>IT 센터2층 영상회의실</td>
+                            <td>예약가능</td>
+                        </tr>
+                    </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+    </div>
+    <script src="./js/jquery.js"></script>
+  </body>
+</html>
