@@ -40,8 +40,9 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 15px;
-	font-family: AppleGothic,'NotoSansKR-Regular',sans-serif;
+	font-family: 'NotoSansKR-Regular',sans-serif;
 	vertical-align: baseline;
+    letter-spacing: -1px;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -69,6 +70,16 @@ table {
 
 select, input {
     -webkit-appearance: none;
+    background: none;
+    border:0;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+input:focus,
+input:active,
+input:checked
+{
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    outline: none;
 }
 
 strong, b, th{
