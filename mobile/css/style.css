@@ -19,16 +19,17 @@ table .chk-wrap{display: flex;justify-content: center;}
 table .chk-wrap input + label i{margin-right: 0;}
 
 .navigation .prev{display:inline-block;width:11px;height:19px;background: url("../images/btn_prev.png") no-repeat center center;background-size: 11px auto}
-
-.list > ul .depth-menu{position: absolute;right: 20px;}
+.list > ul{width: 100%;}
+.list > ul .depth-menu{position: absolute;right: 20px;text-align: right;}
 .list > ul .depth-menu li{background: #F2F2F2;padding:0 10px}
 .list > ul .depth-menu li a{display: block;width: 65px;height: 47px;text-align: center;border-bottom: 1px solid #B7B7B7;}
 .list > ul .depth-menu li:last-child a{border-bottom: 0;}
 .list > ul > li p{padding:0 20px;}
 .list > ul > li p{margin-top: 20px;color:#9D9D9D;font-size: 15px;}
 .list > ul > li p.tit{margin-top: 10px;}
-.list > ul > li p strong{font-size: 22px;color:#6F6F6F}
+.list > ul > li p strong{font-size: 22px;color:#6F6F6F;margin-right: 10px;}
 .list > ul > li p span{display: inline-block;}
 .list > ul > li p span.flag{color:#fff;font-size: 10px;line-height: 100%;padding:5px;border-radius: 9999px;background-color: #72AAF5;}
 .list > ul > li p span.flag.st02{background-color:#F5C872}
 .list > ul > li .btn-group{margin-top: 20px;}
+.container .list .no-data{padding-top:130px;background: url("../images/bg_no_data.png") no-repeat top center;background-size: 153px auto;margin-top:20%;color:#909090;font-size: 15px;}

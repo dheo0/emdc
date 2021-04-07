@@ -44,10 +44,11 @@ input[type="time"]::-webkit-calendar-picker-indicator {background: none;}
 /* HEADER */
 .header{display: flex;flex-wrap:wrap;justify-content: center;align-items: center;border-bottom: 1px solid #F2F2F2;}
 .header .logo{width: 100%;height: 64px;align-items: center;}
-.header .logo a{display: block;height: 64px;}
+.header .logo a{display: block;height: 64px;background: url("../images/img_m_logo.png") no-repeat center center;text-indent: -9999px;background-size: 31px 26px;}
 .header .navigation{position: relative;;height: 64px;width: 100%;}
 .header .navigation .prev{position: absolute;width: 64px;height: 64px;z-index: 10;}
 .header h1{font-size: 18px;color:#707070;font-weight: 500;line-height: 64px;text-align: center;}
+.container{display:flex;height: calc(100% - 115px);width: 100%;flex-direction: column;}
 .bar-penel{display: flex;width: 100%;}
 .bar-penel ul{display: flex;width: 100%;}
 .bar-penel ul li{width: 100%;position:relative;}
@@ -74,21 +75,37 @@ input[type="time"]::-webkit-calendar-picker-indicator {background: none;}
 .btn-group{display: flex;width:100%}
 .btn-group button{display: block;width: 100%;height: 49px;text-align: center;width: 100%;font-size: 15px;}
 
-.btn-group.fixed{position: absolute;position: absolute;bottom: 0;left:0;}
+.btn-group.fixed{position: absolute;bottom: 0;left:0;}
 .pop .container{position:relative;height: calc(100% - 85px);}
 .pop .container .btn-group{height: 49px;}
 .pop .container .content{height: calc(100% - 165px);}
 
-.section{background-color: #F2F2F2;padding:10px 0 0}
+.section{background-color: #F2F2F2;padding:10px 0 0;width:100%}
 .section .article{margin-bottom: 10px;background-color: #fff;padding:10px 20px 15px}
 .section .article input[type="text"],
 .section .article input[type="time"]{height: 42px;padding:0 18px;}
 .section .article h3{margin-bottom: 10px;font-size: 14px;color:#909090;font-weight: 500;}
 
-.filter{display: flex;padding: 0 20px;justify-content: space-between;height: 68px;border-bottom: 1px solid #f2f2f2;align-items: center;color:#909090}
+.filter{display: flex;padding: 0 40px;justify-content: space-between;min-height: 68px;border-bottom: 1px solid #f2f2f2;align-items: center;color:#909090;width:100%;box-sizing: border-box;}
 
 .switch {position: relative;display: inline-block;width: 30px;height: 14px;margin-left: 5px;}
 .switch input {opacity: 0;width: 0;height: 0;}
 .slider {position: absolute;cursor: pointer;top: 0;left: 0;right: 0;bottom: 0;background-color: #f2f2f2;-webkit-transition: .4s;transition: .4s;border-radius: 9999px;-webkit-tap-highlight-color:rgba(0,0,0,0);}
 .slider:before {position: absolute;content: "";height: 14px;width: 14px;left: 0;bottom: 0;background-color:#72AAF5;-webkit-transition: .4s;transition: .4s;border-radius: 9999px;overflow: hidden;}
 input:checked + .slider:before {-webkit-transform: translateX(16px);-ms-transform: translateX(16px);transform: translateX(16px);-webkit-tap-highlight-color:transparent;}
+
+.container .list{display: flex;align-items: center;justify-content: center;width: 100%;}
+.list-cnt{font-size: 15px;color:#909090;text-align: center;padding:20px 0}
+.list-cnt strong{color:#72AAF5}
+.list > ul > li a{text-indent: -9999px;}
+.list > ul > li .btn-edit{background:url("../images/btn_edit.png") no-repeat center center;background-size: 16px 18px;}
+.list > ul > li .btn-delete{background:url("../images/btn_delete.png") no-repeat center center;background-size: 18px 17px;}
+.list > ul > li .depth-menu > a{display: inline-block;width: 4px;height: 14px;background: url("../images/btn_depth.png") no-repeat;background-size: 4px 14px;}
+.list > ul > li .depth-menu > a + ul{display: none;}
+.list > ul > li .depth-menu > a.active + ul{display: block;}
+
+.btn-primary{color:#fff}
+.btn-secondary{background:#fff;border:1px solid #2071DC;color:#2071DC}
+.btn-primary.join i{display: inline-block;width: 16px;height: 15px;background: url("../images/icon_join.png") no-repeat;background-size: 100% auto;margin-right:10px}
+.btn-secondary.control i{display: inline-block;width: 16px;height: 14px;background: url("../images/icon_control.png") no-repeat;background-size: 100% auto;margin-right:10px}
+.list ul li .btn-group button{display: flex;align-items: center;justify-content: center;}

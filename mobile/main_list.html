@@ -35,25 +35,25 @@
                   </label>
               </div>
               <div>
-                나의예약
+                참여회의
                 <label class="switch">
                     <input type="checkbox">
                     <span class="slider"></span>
                   </label>
             </div>
           </div>
-          <div class="list">
+          
               <div class="list-cnt">
-                  홍길동님 예약된 회의가<strong>3</strong> 건 있습니다.
+                  홍길동님 예약된 회의가 <strong>3</strong> 건 있습니다.
               </div>
               <div class="list">
                   <ul>
                     <li>
                         <div class="depth-menu">
-                            <a href="#none">삭제</a>
+                            <a href="#none"></a>
                             <ul>
-                                <li><a href="#none">수정</a></li>
-                                <li><a href="#none">삭제</a></li>
+                                <li><a href="#none" class="btn-edit">수정</a></li>
+                                <li><a href="#none" class="btn-delete">삭제</a></li>
                             </ul>
                         </div>
                         <p><span class="flag st01">진행중</span></p>
@@ -66,8 +66,24 @@
                         </div>
                     </li>
                     <li>
+                      <div class="depth-menu">
+                          <a href="#none"></a>
+                          <ul>
+                              <li><a href="#none">수정</a></li>
+                              <li><a href="#none">삭제</a></li>
+                          </ul>
+                      </div>
+                      <p><span class="flag st02">진행대기</span></p>
+                      <p class="tit"><strong>정기화상회의</strong> <span>예약회의</span></p>
+                      <p>예약자 : 홍길동/IT기획부/차장</p>
+                      <p>일시 : 2020 / 07 / 03  16:30 ~ 18:00</p>
+                      <div class="btn-group">
+                          <button type="btn" class="btn-primary join"><i></i>참여</button>
+                      </div>
+                  </li>
+                    <li>
                         <div class="depth-menu">
-                            <a href="#none">삭제</a>
+                            <a href="#none"></a>
                             <ul>
                                 <li><a href="#none">수정</a></li>
                                 <li><a href="#none">삭제</a></li>
@@ -84,9 +100,14 @@
                     </li>
                   </ul>
               </div>
-          </div>
       </div>
     </div>
     <script src="./js/jquery.js"></script>
+    <script>
+      $(".list > ul > li .depth-menu a").on("click", function(e){
+        e.preventDefault();
+        $(this).toggleClass("active")
+      })
+    </script>
   </body>
 </html>
