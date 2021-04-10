@@ -37,10 +37,13 @@ table .chk-wrap input + label i{margin-right: 0;}
 .section{background-color: #F2F2F2;padding:10px 0 50px;width:100%}
 .section .article{margin-bottom: 10px;background-color: #fff;padding:10px 20px 15px}
 .section .article input[type="text"],
-.section .article input[type="time"]{height: 42px;padding:0 18px;}
+.section .article input[type="time"],
+.section .article input[type="date"]{height: 42px;padding:0 18px;}
 .section .article h3{margin:20px 0 10px;font-size: 14px;color:#909090;font-weight: 500;}
 .section .article h3:first-child{margin-top: 0;}
 
 .filter{display: flex;padding: 0 40px;justify-content: space-between;min-height: 68px;border-bottom: 1px solid #f2f2f2;align-items: center;color:#909090;width:100%;box-sizing: border-box;}
 
 .alrim{display: flex;justify-content: space-between;}
+.times{margin-top: 20px;display: flex;justify-content: space-between;}
+.times > div{width: 48%;}
