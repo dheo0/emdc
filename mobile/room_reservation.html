@@ -41,9 +41,53 @@
             </article>
             <article class="article">
                 <h3>회의모드</h3>
-                <select>
-                    <option value="1">일반모드</option>
-                </select>
+                <div class="round bg1">
+                    <select id="mode">
+                        <option value="1">일반모드</option>
+                        <option value="2">강의모드</option>
+                    </select>
+                </div>
+            </article>
+            <article class="article">
+                <h3>회의실</h3>
+                <div class="search" style="margin:0">
+                    <input type="text">
+                    <button type="button" class="btn-search">찾기</button>
+                </div>
+                <h3>참석자</h3>
+                <div class="search" style="margin:0">
+                    <input type="text">
+                    <button type="button" class="btn-search">찾기</button>
+                </div>
+                <h3>회의실 참석자</h3>
+                <div class="search" style="margin:0">
+                    <input type="text">
+                    <button type="button" class="btn-search">찾기</button>
+                </div>
+                <div id="lecture" style="display: none;margin-top: 20px;">
+                    <h3>호스트</h3>
+                    <div class="search" style="margin:0;">
+                        <input type="text">
+                        <button type="button" class="btn-search">찾기</button>
+                    </div>
+                </div>
+            </article>
+            <article class="article">
+                <h3>회의알림</h3>
+                <div class="alrim">
+                    <div class="chk-wrap">
+                        <input type="checkbox" id="notify01">
+                        <label for="notify01"><i></i>이메일</label>
+                    </div>
+                    <div class="chk-wrap">
+                        <input type="checkbox" id="notify02">
+                        <label for="notify02"><i></i>SNS</label>
+                    </div>
+                    <div class="chk-wrap">
+                        <input type="checkbox" id="notify03">
+                        <label for="notify03"><i></i>메신저</label>
+                    </div>
+                </div>
             </article>
          </section>
         <div class="btn-group fixed">
@@ -52,5 +96,17 @@
       </div>
     </div>
     <script src="./js/jquery.js"></script>
+    <script>
+        var mode    = document.querySelector("#mode");
+        var lecture = document.querySelector("#lecture");
+        mode.addEventListener("change", function(e){
+            var modeType = mode.value;
+            if(modeType =="2"){
+                lecture.style.display = "block";
+            } else {
+                lecture.style.display = "none";
+            }
+        })
+    </script>
   </body>
 </html>
