@@ -35,7 +35,7 @@ table .chk-wrap input + label i{margin-right: 0;}
 .container .list .no-data{padding-top:130px;background: url("../images/bg_no_data.png") no-repeat top center;background-size: 153px auto;margin-top:20%;color:#909090;font-size: 15px;}
 
 .section{background-color: #F2F2F2;padding:10px 0 50px;width:100%}
-.section .article{margin-bottom: 10px;background-color: #fff;padding:10px 20px 15px}
+.section .article{margin-bottom: 10px;background-color: #fff;padding:15px 20px}
 .section .article input[type="text"],
 .section .article input[type="time"],
 .section .article input[type="date"]{height: 42px;padding:0 18px;}
@@ -47,3 +47,10 @@ table .chk-wrap input + label i{margin-right: 0;}
 .alrim{display: flex;justify-content: space-between;}
 .times{margin-top: 20px;display: flex;justify-content: space-between;}
 .times > div{width: 48%;}
+.pop .container .section{padding: 0;}
+.pop .container .section .article{margin-bottom: 0;}
+.icon-srch{display: inline-block;width:13px;height: 15px;background:url("../images/icon_search.png") no-repeat 0 center;background-size: auto 100%;margin-right: 10px;}
+.single-line{display: flex;align-items: center;justify-content: space-between;}
+.section .article .single-line h3:first-child{margin:0}
+.section .article .single-line > *{ width: 48%;}
+.section .article .single-line span{color:#72AAF5}
