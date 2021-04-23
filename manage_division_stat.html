@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>영상회의 예약시스템</title>
+  <!-- 공통 -->
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/datepicker.css">
+  <link rel="stylesheet" href="css/datatable.css">
+  <link rel="stylesheet" href="css/fullcalendar.css">
+  <link rel="stylesheet" href="css/jstree.css">
+  <link rel="stylesheet" href="css/style.css" >
+
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/datepicker-ko.js"></script>
+  <!-- // 공통 -->
+
+  <!-- 현재페이지 -->
+  <script src="js/script.js"></script>
+  <script src="js/jstree.js"></script>
+
+  <!-- // 현재페이지 -->
+</head>
+<body>
+<div id="wrap"><!-- class="dark-theme" -->
+  <nav>
+    <h1 class="logo">
+      <a href="/">영상회의 예약시스템</a>
+    </h1>
+    <ul class="gnb">
+      <li class=""><a href="#none"><i class="ico ico-mng01"></i>예약관리</a></li>
+      <li class="">
+        <a href="#none"><i class="ico ico-mng02"></i>회의실관리</a>
+        <ul>
+          <li>
+            <a href="#none">회의실 관리</a>
+            <a href="#none">회의실 위치 관리</a>
+          </li>
+        </ul>
+      </li>
+      <li class="">
+        <a href="#none"><i class="ico ico-mng03"></i>가상회의실 관리</a>
+      </li>
+      <li class="">
+        <a href="#none"><i class="ico ico-mng04"></i>사용자 관리</a>
+      </li>
+      <li class="">
+        <a href="#none"><i class="ico ico-mng05"></i>LDAP/AD연동</a>
+      </li>
+      <li class="">
+        <a href="#none"><i class="ico ico-mng06"></i>대시보드</a>
+        <ul>
+          <li><a href="#none">대시보드 1</a></li>
+          <li><a href="#none">대시보드 2</a></li>
+        </ul>
+      </li>
+      <li class="">
+        <a href="#none"><i class="ico ico-mng07"></i>통계</a>
+        <ul>
+          <li><a href="#none">회의별 통계</a></li>
+          <li><a href="#none">회의실별 통계</a></li>
+          <li><a href="#none">부서별 통계</a></li>
+          <li><a href="#none">기간별 통계</a></li>
+        </ul>
+      </li>
+      <li class="">
+        <a href="#none"><i class="ico ico-mng08"></i>녹화파일 관리</a>
+      </li>
+      <li class="">
+        <a href="#none"><i class="ico ico-mng09"></i>관리자 역할 관리</a>
+      </li>
+      <li class="">
+        <a href="#none"><i class="ico ico-mng10"></i>관리자 권한 관리</a>
+      </li>
+      <li class="">
+        <a href="#none"><i class="ico ico-mng11"></i>시스템 로그</a>
+      </li>
+      <li class="">
+        <a href="#none"><i class="ico ico-mng12"></i>시스템 설정</a>
+        <ul>
+          <li><a href="#none">CMS 서버정보관리</a></li>
+          <li><a href="#none">전역 프로파일 설정</a></li>
+          <li><a href="#none">회의모드 설정</a></li>
+          <li><a href="#none">회의 설정</a></li>
+          <li><a href="#none">매크로 콜 설정</a></li>
+          <li><a href="#none">공지사항 관리</a></li>
+          <li><a href="#none">사용자 녹화제어 설정</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <div class="container">
+    <div class="users flex justify-content-end">
+      <span class=""><strong>홍길동님</strong>, 환영합니다.</span>
+      <ul class="flex">
+        <li><a href="#none">사용자</a></li>
+        <li><a href="#none">로그아웃</a></li>
+      </ul>
+
+    </div>
+    <h2>부서별 통계</h2>
+    <div class="flex">
+    <div class="treeview wide">
+      <div class="head">조직도</div>
+      <div id="treeview" class="shadow-box treeview" style="min-height: 1030px;max-height: 1030px;">
+
+      </div>
+    </div>
+    <script>
+      // inline data demo
+      $('#treeview').jstree({
+        'core' : {
+          'data' : [
+            { "text" : "Root node", "children" : [
+                { "text" : "Child node 1" },
+                { "text" : "Child node 2" }
+              ]},
+            { "text" : "Root node", "children" : [
+                { "text" : "Child node 1" },
+                { "text" : "Child node 2" }
+              ]}
+          ]
+        }
+      });
+    </script>
+      <div>
+        <div class="search-line va-center  gap-3">
+        <select class="r-select" style="width: 120px;">
+          <option value="1">일별</option>
+        </select>
+        <div class="date-wrap">
+          <input type="input" class="datepicker color11 round">
+          <span>~</span>
+          <input type="input" class="datepicker color11 round">
+        </div>
+      </div>
+        <div class="mode-wrap">
+        <div data-id="rdo01" class="mypage-type">
+
+          <div class="table-wrap2">
+            <table class="basic-table">
+              <thead>
+              <tr>
+                <th>부서명</th>
+                <th>예약건수</th>
+                <th>예약시간</th>
+                <th>회의실</th>
+                <th>참석자</th>
+                <th>회의참석자</th>
+                <th>외부참석자</th>
+                <th>참석자합계</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>IT기획부</td>
+                <td>3</td>
+                <td>4:30</td>
+                <td>5</td>
+                <td>10</td>
+                <td>15</td>
+                <td>4</td>
+                <td>29</td>
+              </tr>
+              </tbody>
+            </table>
+
+          </div>
+          <div aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+              <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">이전</a></li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item active"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">다음</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--// wrap -->
+<script>
+  $( function() {
+    $(".datepicker").datepicker();
+  });
+</script>
+</body>
+</html>

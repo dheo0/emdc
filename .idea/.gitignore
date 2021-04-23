@@ -4,5 +4,6 @@
 # Datasource local storage ignored files
 /../../../../:\dev\emdc\.idea/dataSources/
 /dataSources.local.xml
+*.xml
 # Editor-based HTTP Client requests
 /httpRequests/
