@@ -102,7 +102,7 @@ h2:before{content: '';position: absolute;width: 7px;height: 24px;background: #72
 .gnb li.on .ico-mng09{width:33px;height:27px;background-position: -39px -750px;}
 .gnb li.on .ico-mng10{width:33px;height:29px;background-position: -39px -827px;}
 .gnb li.on .ico-mng11{width:33px;height:20px;background-position: -39px -906px;}
-.gnb li.on .ico-mng12{width:33px;height:29px;background-position: -39px -978px;}
+.gnb li.on .ico-mng12{width:33px;height:29px;background-position: -41px -978px;}
 
 .gnb li .ico-user01{background-position: 0px 0;width:33px;height: 28px}
 .gnb li .ico-user02{background-position: 0px -78px;width:33px;height: 30px}
@@ -115,6 +115,11 @@ h2:before{content: '';position: absolute;width: 7px;height: 24px;background: #72
 .gnb li.on .ico-user03{background-position: -39px -157px;width:33px;height: 18px}
 .gnb li.on .ico-user04{background-position: -39px -225px;width:33px;height: 28px}
 .gnb li.on .ico-user05{background-position: -39px -301px;width:33px;height: 29px}
+.gnb li.on ul{display: block}
+.gnb li.on ul li{margin-top:10px}
+.gnb li.on ul li a{font-size: 16px;position: relative;display: block;padding-left: 55px}
+.gnb li.on ul li.on a:before{content:'';position: absolute;left:13px;top:50%;width:6px;height: 6px;background: #909090;border-radius:50%;transform:translateY(-50%)}
+.gnb li.on ul li.on a{font-weight: 500;}
 
 /* chk-wrap */
 .chk-wrap{position: relative;}
@@ -199,11 +204,18 @@ h3.sub-title{color:#6f6f6f;font-size:20px;margin:40px 0 15px}
 h1.logo{background:#2071dc;margin: 0;}
 h1.logo a{display:block;padding:40px 73px 40px 150px;color:#fff;font-size: 20px;line-height: 1em;background: url("../images/img_logo.png") no-repeat 75px center;}
 nav{min-width: 315px;max-width: 315px;}
-nav .gnb{margin-top: 80px;padding-left: 75px;}
+nav .gnb{margin-top: 80px;padding-left: 65px;}
 nav .gnb > li{margin-bottom: 35px;}
 nav .gnb > li a{color:#909090;font-size: 20px;font-weight:500;}
 nav .gnb > li.on > a{color:#2071dc}
 nav .gnb > li > a + ul{position: relative;display: none;}
+.etc{padding:0 55px 0 65px}
+.etc > div {border-top:1px solid #d4d4d4}
+.etc > div:last-child{border-bottom:1px solid #d4d4d4}
+.etc > div.guide a{display: block;padding: 25px 15px;color:#97bff5}
+.etc > div.guide a i{display: inline-block;width:24px;height:22px;background: url("../images/icon_guide.png") no-repeat 0 0;vertical-align: middle;margin-right: 10px}
+.etc > div.timezone{padding:25px 15px;color:#909090;font-size: 16px}
+.etc > div.timezone select{width:100%;color:#909090;padding: 0;letter-spacing: -1px}
 .sub-menu{position:relative;min-width:320px;max-width:320px;overflow-y: auto;min-height: 100%;padding: 120px 25px 0 45px;border-right: 9px solid #f2f2f2;}
 .sub-menu h3{color:#6f6f6f;font-size: 16px;font-weight:500;margin:30px 0 20px;}
 .sub-menu ul{width: 235px;}
