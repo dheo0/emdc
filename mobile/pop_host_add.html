@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>EMDC</title>
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="wrap" class="pop">
+      <header class="header">
+          <div class="navigation">
+              <a href="#none" class="prev"></a>
+              <h1>호스트 선택</h1>
+          </div>
+      </header>
+      <div class="container">
+          <div class="content">
+              <h4>호스트</h4>
+              <div class="table-wrap">
+                  <table class="table01">
+                    <colgroup>
+                        <col style="width: 50px;">
+                        <col style="width: auto;">
+                        <col style="width: auto;">
+                        <col style="width: auto;">
+                    </colgroup>
+                      <thead>
+                      <tr>
+                          <th>
+                              <div class="chk-wrap">
+                                  <input type="checkbox" id="all">
+                                  <label for="all" class="indent"><i></i></label>
+                              </div>
+                          </th>
+                          <th>이름</th>
+                          <th>부서</th>
+                          <th>직위</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="chk-wrap">
+                                    <input type="checkbox" id="ab01">
+                                    <label for="ab01" class="indent"><i></i></label>
+                                </div>
+                            </td>
+                            <td>홍길동</td>
+                            <td>경기도 IT 기획부</td>
+                            <td>디자인차장</td>
+                        </tr>
+                    </tbody>
+                  </table>
+              </div>
+              <h4>회의실</h4>
+              <div class="table-wrap2">
+                <table class="table02">
+                    <colgroup>
+                        <col style="width: 80%;">
+                        <col style="width: 20%;">
+                    </colgroup>
+                  <thead>
+                      <tr>
+                          <th class="col-sm-12" colspan="2">회의실</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td>연구소 2층 영상회의실</td>
+                          <td>
+                              <div class="chk-wrap2">
+                                  <input type="checkbox" id="abab01">
+                                  <label for="abab01">선택</label>
+                              </div>
+                          </td>
+                      </tr>
+                  </tbody>
+                </table>
+            </div>
+            <h4>참석자</h4>
+              <div class="table-wrap2">
+                  <table class="table02 table-fixed">
+                    <thead>
+                        <tr>
+                            <th class="col-sm-3">이름</th>
+                            <th class="col-sm-4">부서</th>
+                            <th class="col-sm-3">직위</th>
+                            <th class="col-sm-2">&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody id="scrollBody">
+                        <tr>
+                           
+                            <td class="col-sm-3">홍길동</td>
+                            <td class="col-sm-4">경기도 IT 기획부</td>
+                            <td class="col-sm-3">디자인차장</td>
+                            <td class="col-sm-2">
+                                <div class="chk-wrap2">
+                                    <input type="checkbox" id="ab02">
+                                    <label for="ab02">선택</label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                           
+                            <td class="col-sm-3">홍길동</td>
+                            <td class="col-sm-4">경기도 IT 기획부</td>
+                            <td class="col-sm-3">디자인차장</td>
+                            <td class="col-sm-2">
+                                <div class="chk-wrap2">
+                                    <input type="checkbox" id="ab03" checked="checked">
+                                    <label for="ab03">선택</label>
+                                </div>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                  </table>
+              </div>
+          </div>
+          <div class="btn-group fixed">
+              <button class="btn bg1">선택삭제</button>
+              <button class="btn bg2">확인</button>
+          </div>
+      </div>
+    </div>
+    <script src="./js/jquery.js"></script>
+    <script>
+        var winH = window.innerHeight;
+        var elem = document.querySelector("#scrollBody");
+        var position = elem.getBoundingClientRect().top + 55;
+        var scrolledTopLength = window.pageYOffset;
+        $("#scrollBody").css("height", winH - position - scrolledTopLength + "px");
+        $(window).on("resize", function(){
+            var winH = window.innerHeight;
+            $("#scrollBody").css("height", winH - position - scrolledTopLength + "px");
+        })
+        
+    </script>
+  </body>
+</html>
